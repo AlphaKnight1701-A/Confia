@@ -30,9 +30,15 @@ export function createConfiaServer(options: { clock?: () => Date; publicOrigin?:
     if (req.method === "GET" && path === "/ready") { json(res, 200, { status: "ready", catalog: getCatalogSummary(), tools: MCP_TOOL_NAMES }); return; }
     if (path !== "/mcp") { json(res, 404, { error: "NOT_FOUND" }); return; }
     if (req.method === "OPTIONS") { res.writeHead(204, { "Access-Control-Allow-Methods": "POST, GET, DELETE, OPTIONS", "Access-Control-Allow-Headers": "Content-Type, MCP-Protocol-Version, MCP-Session-Id", "Access-Control-Expose-Headers": "MCP-Session-Id" }).end(); return; }
-    // Stateless JSON responses do not need a standalone SSE subscription.
-    if (req.method !== "POST") { res.setHeader("Allow", "POST, OPTIONS"); json(res, 405, { error: "METHOD_NOT_ALLOWED" }); return; }
-    if (!req.headers["content-type"]?.includes("application/json")) { json(res, 415, { error: "JSON_REQUIRED" }); return; }
+    // Streamable HTTP uses POST for JSON-RPC messages and may use GET/DELETE
+    // for the transport's streaming/session lifecycle. Let the SDK handle all
+    // three methods so ChatGPT's connection probe succeeds.
+    if (!["POST", "GET", "DELETE"].includes(req.method ?? "")) {
+      res.setHeader("Allow", "POST, GET, DELETE, OPTIONS");
+      json(res, 405, { error: "METHOD_NOT_ALLOWED" });
+      return;
+    }
+    if (req.method === "POST" && !req.headers["content-type"]?.includes("application/json")) { json(res, 415, { error: "JSON_REQUIRED" }); return; }
     const ip = req.socket.remoteAddress ?? "unknown";
     const time = Date.now();
     for (const [key, value] of counts) if (value.until <= time) counts.delete(key);
@@ -41,7 +47,7 @@ export function createConfiaServer(options: { clock?: () => Date; publicOrigin?:
     counts.set(ip, counter);
     let parsed: unknown;
     req.setTimeout(10000, () => req.destroy());
-    try { parsed = await body(req); }
+    try { parsed = req.method === "POST" ? await body(req) : undefined; }
     catch (error) { if (!res.destroyed) json(res, error instanceof Error && error.message === "BODY_TOO_LARGE" ? 413 : 400, { jsonrpc: "2.0", id: null, error: { code: -32700, message: "Invalid or oversized JSON request" } }); return; }
     const mcp = createMcpServer(options.clock);
     const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined, enableJsonResponse: true });

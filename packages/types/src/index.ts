@@ -22,8 +22,13 @@ export const ClaimSchema = z.object({
   .refine(c => !c.observedAt || !c.expiresAt || Date.parse(c.expiresAt) > Date.parse(c.observedAt), "Expiry must follow observation")
   .refine(c => c.status !== "verified" || c.observedAt !== null, "Verified claims require observations");
 export type Claim = z.infer<typeof ClaimSchema>;
+export const ProductLinksSchema = z.object({
+  productUrl: z.url({ protocol: /^https$/ }).nullable().default(null),
+  verificationUrl: z.url({ protocol: /^https$/ }).nullable().default(null),
+}).strict();
 export const ProductSchema = z.object({
   id, revisionId: id, sku: id, brand: z.string(), category: z.literal("power-tools"),
+  links: ProductLinksSchema.default({ productUrl: null, verificationUrl: null }),
   name: localized, description: localized, keywords: z.array(z.string()).min(1),
   priceMinor: z.number().int().nonnegative().safe(), currency: z.literal("USD"),
   availability: AvailabilitySchema, synthetic: z.literal(true),
@@ -85,18 +90,19 @@ export const ScoreSchema = z.object({
   reasons: z.array(z.object({ claimKey: z.string(), status: z.string(), evidenceIds: z.array(z.string()) }).strict()),
   evidenceIds: z.array(z.string()), assessedAt: timestamp.nullable(), validUntil: timestamp.nullable(),
 }).strict();
-export const ScoreOutputSchema = ResponseBaseSchema.extend(ScoreSchema.shape).strict();
+export const ScoreOutputSchema = ResponseBaseSchema.extend(ScoreSchema.shape).extend({ links: ProductLinksSchema }).strict();
 export const ProductOutputSchema = ScoreOutputSchema.extend({
   name: z.string(), description: z.string(), brand: z.string(), sku: z.string(), category: z.string(), locale: LocaleSchema,
   priceMinor: z.number().int(), currency: z.string(), availability: AvailabilitySchema,
   evidence: z.array(z.object({ id: z.string(), claimKey: z.string(), value: z.union([z.string(), z.number(), z.boolean()]), status: z.string(), sourceLabel: z.string(), sourceKind: z.literal("synthetic"), sourceUrl: z.url().nullable(), observedAt: timestamp.nullable(), expiresAt: timestamp.nullable(), explanation: z.string() }).strict()),
 }).strict();
 export const SearchOutputSchema = ResponseBaseSchema.extend({
-  products: z.array(z.object({ id, revisionId: id, name: z.string(), priceMinor: z.number().int(), currency: z.string(), availability: AvailabilitySchema, trustScore: z.number().nullable(), verificationState: VerificationStateSchema, synthetic: z.literal(true) }).strict()),
+  products: z.array(z.object({ links: ProductLinksSchema, id, revisionId: id, name: z.string(), priceMinor: z.number().int(), currency: z.string(), availability: AvailabilitySchema, trustScore: z.number().nullable(), verificationState: VerificationStateSchema, synthetic: z.literal(true) }).strict()),
   appliedFilters: z.object({ maxPriceMinor: z.number().nullable(), currency: z.string().nullable(), minimumTrustScore: z.number(), includeUnverified: z.boolean(), locale: LocaleSchema }).strict(),
   nextCursor: z.string().nullable(), warnings: z.array(z.string()),
 }).strict();
 export const ComparisonOutputSchema = ResponseBaseSchema.extend({
+  links: ProductLinksSchema,
   productId: id, revisionId: id,
   results: z.array(z.object({ field: z.string(), status: z.enum(["match", "discrepancy", "unknown"]), provided: z.union([z.number(), z.string()]), observed: z.union([z.number(), z.string()]).nullable(), currency: z.string().optional(), reason: z.string(), observedAt: timestamp.nullable(), evidenceIds: z.array(z.string()) }).strict()),
 }).strict();
