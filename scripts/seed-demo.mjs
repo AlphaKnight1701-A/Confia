@@ -34,6 +34,9 @@ const products = items.map(([id, en, es, priceMinor, scenario]) => {
 });
 // Preserve additional catalog records and their evidence when refreshing base fixtures.
 const existing = JSON.parse(await readFile(new URL("../data/demo-products.json", import.meta.url), "utf8"));
+for (const product of products) {
+  product.demoScore = existing.products.find(p => p.id === product.id)?.demoScore ?? 8.5;
+}
 const generatedIds = new Set(products.map(p => p.id));
 products.push(...existing.products.filter(p => !generatedIds.has(p.id)));
 const catalog = { catalogRevision: `demo-${now.toISOString().replace(/[:.]/g, "-")}`, synthetic: true, status: "ready", generatedAt: now.toISOString(), products };

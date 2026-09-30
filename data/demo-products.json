@@ -1,12 +1,12 @@
 {
-  "catalogRevision": "demo-2026-09-30T06-39-15-744Z-prices-v2-fictional-prices-v1-price-range-v2",
+  "catalogRevision": "demo-2026-09-30T06-39-15-744Z-prices-v2-fictional-prices-v1-price-range-v2-demo-scores-v1",
   "synthetic": true,
   "status": "ready",
   "generatedAt": "2026-09-30T06:39:15.744Z",
   "products": [
     {
       "id": "drill-001",
-      "revisionId": "drill-001-v1",
+      "revisionId": "drill-001-v1-demo-score-v1",
       "sku": "DRILL-001",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -158,11 +158,12 @@
             "es": "Observación sintética de demostración; no es una certificación independiente."
           }
         }
-      ]
+      ],
+      "demoScore": 9.2
     },
     {
       "id": "drill-002",
-      "revisionId": "drill-002-v1-price-update",
+      "revisionId": "drill-002-v1-price-update-demo-score-v1",
       "sku": "DRILL-002",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -314,11 +315,12 @@
             "es": "Observación sintética de demostración; no es una certificación independiente."
           }
         }
-      ]
+      ],
+      "demoScore": 8.6
     },
     {
       "id": "drill-003",
-      "revisionId": "drill-003-v1-price-update",
+      "revisionId": "drill-003-v1-price-update-demo-score-v1",
       "sku": "DRILL-003",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -470,11 +472,12 @@
             "es": "Observación sintética de demostración; no es una certificación independiente."
           }
         }
-      ]
+      ],
+      "demoScore": 9
     },
     {
       "id": "drill-004",
-      "revisionId": "drill-004-v1-price-update",
+      "revisionId": "drill-004-v1-price-update-demo-score-v1",
       "sku": "DRILL-004",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -626,11 +629,12 @@
             "es": "Observación sintética de demostración; no es una certificación independiente."
           }
         }
-      ]
+      ],
+      "demoScore": 8.4
     },
     {
       "id": "drill-005",
-      "revisionId": "drill-005-v1-price-update",
+      "revisionId": "drill-005-v1-price-update-demo-score-v1",
       "sku": "DRILL-005",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -782,11 +786,12 @@
             "es": "Este ejemplo sintético no incluye evidencia de respaldo."
           }
         }
-      ]
+      ],
+      "demoScore": 8.1
     },
     {
       "id": "saw-001",
-      "revisionId": "saw-001-v1-price-update",
+      "revisionId": "saw-001-v1-price-update-demo-score-v1",
       "sku": "SAW-001",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -935,11 +940,12 @@
             "es": "Este ejemplo sintético no incluye evidencia de respaldo."
           }
         }
-      ]
+      ],
+      "demoScore": 8.5
     },
     {
       "id": "drill-stale",
-      "revisionId": "drill-stale-v1-price-update",
+      "revisionId": "drill-stale-v1-price-update-demo-score-v1",
       "sku": "DRILL-STALE",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -1091,11 +1097,12 @@
             "es": "Observación sintética de demostración; no es una certificación independiente."
           }
         }
-      ]
+      ],
+      "demoScore": 7.2
     },
     {
       "id": "drill-unassessed",
-      "revisionId": "drill-unassessed-v1-price-update",
+      "revisionId": "drill-unassessed-v1-price-update-demo-score-v1",
       "sku": "DRILL-UNASSESSED",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -1247,11 +1254,12 @@
             "es": "Este ejemplo sintético no incluye evidencia de respaldo."
           }
         }
-      ]
+      ],
+      "demoScore": 7.8
     },
     {
       "id": "drill-conflict",
-      "revisionId": "drill-conflict-v1-price-update",
+      "revisionId": "drill-conflict-v1-price-update-demo-score-v1",
       "sku": "DRILL-CONFLICT",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -1403,11 +1411,12 @@
             "es": "Observación sintética de demostración; no es una certificación independiente."
           }
         }
-      ]
+      ],
+      "demoScore": 8
     },
     {
       "id": "sander-001",
-      "revisionId": "sander-001-v1-price-update",
+      "revisionId": "sander-001-v1-price-update-demo-score-v1",
       "sku": "SANDER-001",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -1556,11 +1565,12 @@
             "es": "Observación sintética de demostración; no es una certificación independiente."
           }
         }
-      ]
+      ],
+      "demoScore": 9.3
     },
     {
       "id": "dewalt-dcd771c2",
-      "revisionId": "dewalt-dcd771c2-v1-price-unavailable-fictional-price-v1-price-range-v2",
+      "revisionId": "dewalt-dcd771c2-v1-price-unavailable-fictional-price-v1-price-range-v2-demo-score-v1",
       "sku": "DCD771C2",
       "brand": "DEWALT",
       "category": "power-tools",
@@ -1721,11 +1731,12 @@
             "es": "La política de devoluciones depende del minorista y no se publicó en la página oficial del fabricante."
           }
         }
-      ]
+      ],
+      "demoScore": 8.9
     },
     {
       "id": "makita-xfd131",
-      "revisionId": "makita-xfd131-v1-price-unavailable-fictional-price-v1-price-range-v2",
+      "revisionId": "makita-xfd131-v1-price-unavailable-fictional-price-v1-price-range-v2-demo-score-v1",
       "sku": "XFD131",
       "brand": "Makita",
       "category": "power-tools",
@@ -1886,11 +1897,12 @@
             "es": "La política de devoluciones depende del minorista y no se publicó en la página oficial del fabricante."
           }
         }
-      ]
+      ],
+      "demoScore": 9.1
     },
     {
       "id": "milwaukee-2801-22ct",
-      "revisionId": "milwaukee-2801-22ct-v1-price-unavailable-fictional-price-v1-price-range-v2",
+      "revisionId": "milwaukee-2801-22ct-v1-price-unavailable-fictional-price-v1-price-range-v2-demo-score-v1",
       "sku": "2801-22CT",
       "brand": "Milwaukee Tool",
       "category": "power-tools",
@@ -2051,11 +2063,12 @@
             "es": "La política de devoluciones depende del minorista y no se publicó en la página oficial del fabricante."
           }
         }
-      ]
+      ],
+      "demoScore": 9.2
     },
     {
       "id": "milwaukee-2730-20",
-      "revisionId": "milwaukee-2730-20-v1-price-unavailable-fictional-price-v1-price-range-v2",
+      "revisionId": "milwaukee-2730-20-v1-price-unavailable-fictional-price-v1-price-range-v2-demo-score-v1",
       "sku": "2730-20",
       "brand": "Milwaukee Tool",
       "category": "power-tools",
@@ -2216,11 +2229,12 @@
             "es": "La política de devoluciones depende del minorista y no se publicó en la página oficial del fabricante."
           }
         }
-      ]
+      ],
+      "demoScore": 8.7
     },
     {
       "id": "dell-xps-13",
-      "revisionId": "dell-xps-13-v1-price-unavailable-fictional-price-v1-price-range-v2",
+      "revisionId": "dell-xps-13-v1-price-unavailable-fictional-price-v1-price-range-v2-demo-score-v1",
       "sku": "XPS-13",
       "brand": "Dell Technologies",
       "category": "computers",
@@ -2351,11 +2365,12 @@
             "es": "El sitio de Dell indica que el período de devolución de 30 días se calcula desde la fecha de factura y que aplican excepciones."
           }
         }
-      ]
+      ],
+      "demoScore": 9.4
     },
     {
       "id": "crowdstrike-falcon-prevent",
-      "revisionId": "crowdstrike-falcon-prevent-v1-price-unavailable-fictional-price-v1-price-range-v2",
+      "revisionId": "crowdstrike-falcon-prevent-v1-price-unavailable-fictional-price-v1-price-range-v2-demo-score-v1",
       "sku": "FALCON-PREVENT",
       "brand": "CrowdStrike",
       "category": "cybersecurity-service",
@@ -2486,11 +2501,12 @@
             "es": "La página revisada no publica una política de devolución o cancelación para este registro."
           }
         }
-      ]
+      ],
+      "demoScore": 9.1
     },
     {
       "id": "ebay-selling",
-      "revisionId": "ebay-selling-v1-price-unavailable-fictional-price-v1-price-range-v2",
+      "revisionId": "ebay-selling-v1-price-unavailable-fictional-price-v1-price-range-v2-demo-score-v1",
       "sku": "EBAY-SELLING",
       "brand": "eBay",
       "category": "marketplace-service",
@@ -2621,11 +2637,12 @@
             "es": "La ayuda para vendedores de eBay indica que los vendedores pueden elegir si aceptan devoluciones por cambio de opinión, pero generalmente deben aceptar devoluciones cuando el artículo llega dañado, no coincide con la descripción o es incorrecto."
           }
         }
-      ]
+      ],
+      "demoScore": 8.2
     },
     {
       "id": "ea-sports-fc-26",
-      "revisionId": "ea-sports-fc-26-v1-price-unavailable-fictional-price-v1-price-range-v2",
+      "revisionId": "ea-sports-fc-26-v1-price-unavailable-fictional-price-v1-price-range-v2-demo-score-v1",
       "sku": "EA-SPORTS-FC-26",
       "brand": "Electronic Arts",
       "category": "video-game",
@@ -2756,11 +2773,12 @@
             "es": "La página revisada no publica una política universal de devoluciones; reembolsos y devoluciones pueden depender de la tienda y la región."
           }
         }
-      ]
+      ],
+      "demoScore": 8.8
     },
     {
       "id": "thrivent-dedicated-planning-services",
-      "revisionId": "thrivent-dedicated-planning-services-v1-price-unavailable-fictional-price-v1-price-range-v2",
+      "revisionId": "thrivent-dedicated-planning-services-v1-price-unavailable-fictional-price-v1-price-range-v2-demo-score-v1",
       "sku": "THRIVENT-DPS",
       "brand": "Thrivent",
       "category": "financial-service",
@@ -2891,11 +2909,12 @@
             "es": "La página revisada no publica una política minorista de devoluciones porque se trata de un servicio de planificación financiera, no de un producto enviado."
           }
         }
-      ]
+      ],
+      "demoScore": 8.6
     },
     {
       "id": "ea-the-sims-4",
-      "revisionId": "ea-the-sims-4-v1-price-unavailable-fictional-price-v1-price-range-v2",
+      "revisionId": "ea-the-sims-4-v1-price-unavailable-fictional-price-v1-price-range-v2-demo-score-v1",
       "sku": "THE-SIMS-4",
       "brand": "Electronic Arts",
       "category": "video-game",
@@ -3041,11 +3060,12 @@
             "es": "La página revisada no publica una política universal de devoluciones; reembolsos y devoluciones pueden depender de la tienda y la región."
           }
         }
-      ]
+      ],
+      "demoScore": 9
     },
     {
       "id": "ea-madden-nfl-26",
-      "revisionId": "ea-madden-nfl-26-v1-price-unavailable-fictional-price-v1-price-range-v2",
+      "revisionId": "ea-madden-nfl-26-v1-price-unavailable-fictional-price-v1-price-range-v2-demo-score-v1",
       "sku": "MADDEN-NFL-26",
       "brand": "Electronic Arts",
       "category": "video-game",
@@ -3191,7 +3211,8 @@
             "es": "La página revisada no publica una política universal de devoluciones; reembolsos y devoluciones pueden depender de la tienda y la región."
           }
         }
-      ]
+      ],
+      "demoScore": 8.7
     }
   ]
 }

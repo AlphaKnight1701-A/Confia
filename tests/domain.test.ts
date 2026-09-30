@@ -2,21 +2,27 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import catalog from "../data/demo-products.json";
 import { getProduct, getTrustScore, searchProducts, verifyProductClaim } from "@confia/product-data";
+import { calculateTrustScore } from "@confia/trust-engine";
+import { evaluateClaim } from "@confia/verification";
 import { CatalogSchema } from "@confia/types";
+function evidenceScore(input: { productId: string }, at: Date) {
+  const product = CatalogSchema.parse(catalog).products.find(p => p.id === input.productId)!;
+  return calculateTrustScore(product, product.claims.map(c => evaluateClaim(c, at)), at);
+}
 const now = new Date(catalog.generatedAt);
 
 test("v1 scores reflect evidence and keep null distinct from zero", () => {
-  assert.equal(getTrustScore({ productId: "drill-001" }, now).trustScore, 10);
-  assert.equal(getTrustScore({ productId: "drill-conflict" }, now).trustScore, 9.5);
-  assert.equal(getTrustScore({ productId: "drill-conflict" }, now).verificationState, "conflicting");
-  assert.equal(getTrustScore({ productId: "drill-unassessed" }, now).trustScore, null);
-  assert.equal(getTrustScore({ productId: "drill-stale" }, now).trustScore, 0);
-  assert.equal(getTrustScore({ productId: "drill-stale" }, now).verificationState, "stale");
+  assert.equal(evidenceScore({ productId: "drill-001" }, now).trustScore, 10);
+  assert.equal(evidenceScore({ productId: "drill-conflict" }, now).trustScore, 9.5);
+  assert.equal(evidenceScore({ productId: "drill-conflict" }, now).verificationState, "conflicting");
+  assert.equal(evidenceScore({ productId: "drill-unassessed" }, now).trustScore, null);
+  assert.equal(evidenceScore({ productId: "drill-stale" }, now).trustScore, 0);
+  assert.equal(evidenceScore({ productId: "drill-stale" }, now).verificationState, "stale");
 });
 test("price and stock expire exactly at their evidence boundary", () => {
   const expiry = new Date(catalog.products[0].claims[0].expiresAt!);
-  assert.equal(getTrustScore({ productId: "drill-001" }, new Date(+expiry - 1)).trustScore, 10);
-  const result = getTrustScore({ productId: "drill-001" }, expiry);
+  assert.equal(evidenceScore({ productId: "drill-001" }, new Date(+expiry - 1)).trustScore, 10);
+  const result = evidenceScore({ productId: "drill-001" }, expiry);
   assert.equal(result.verificationState, "stale");
   assert.equal(result.components.price.points, 0);
   assert.equal(result.components.availability.points, 0);
@@ -74,7 +80,23 @@ test("fictional prices support budgets without becoming verified claims", () => 
 });
 
 test("additional categories load without borrowing the power-tool scoring policy", () => {
-  assert.equal(getProduct({ productId: "dell-xps-13" }, now).trustScore, null);
+  assert.equal(getProduct({ productId: "dell-xps-13" }, now).evidenceTrustScore, null);
   assert.equal(getProduct({ productId: "ea-sports-fc-26" }, now).priceMinor, 5999);
   assert.equal(verifyProductClaim({ productId: "crowdstrike-falcon-prevent", claims: { availability: "InStock" } }, now).results[0].status, "unknown");
+});
+
+test("every demo category is searchable and every product has a fictional score", () => {
+  const all = searchProducts({ query: "all products", limit: 50 }, now).products;
+  assert.equal(all.length, catalog.products.length);
+  for (const product of all) {
+    assert.equal(product.scoreBasis, "fictional-demo");
+    assert.ok(product.trustScore !== null && product.trustScore >= 0 && product.trustScore <= 10);
+    assert.equal(getTrustScore({ productId: product.id }, now).trustScore, product.trustScore);
+    assert.ok(searchProducts({ query: product.category, limit: 50 }, now).products.some(p => p.id === product.id));
+  }
+  for (const query of ["video games", "videos=games", "videogames", "video-game", "videojuegos"]) {
+    const games = searchProducts({ query, maxPriceMinor: 10000, currency: "USD", minimumTrustScore: 8 }, now).products;
+    assert.equal(games.length, 3, query);
+    assert.ok(games.every(p => p.category === "video-game"));
+  }
 });

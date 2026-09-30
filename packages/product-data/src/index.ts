@@ -15,7 +15,9 @@ function findProduct(id: string, revisionId?: string) {
 }
 function score(product: Product, now: Date) {
   if (product.assessedAt && Date.parse(product.assessedAt) > now.getTime()) throw new DomainError("INVALID_EVALUATION_TIME", "Assessment is later than the evaluation clock.");
-  return calculateTrustScore(product, product.claims.map(c => evaluateClaim(c, now)), now);
+  const evidence = calculateTrustScore(product, product.claims.map(c => evaluateClaim(c, now)), now);
+  if (product.demoScore === undefined) return { ...evidence, scoreBasis: "evidence" as const };
+  return { ...evidence, trustScore: product.demoScore, evidenceTrustScore: evidence.trustScore, scoreBasis: "fictional-demo" as const, methodologyVersion: "demo-v1" as const, assessmentId: `${product.id}-demo-score`, components: {} };
 }
 export function getCatalogSummary(): CatalogSummary { return { catalogRevision: catalog.catalogRevision, synthetic: true, productCount: catalog.products.length, status: "ready" }; }
 export function getTrustScore(input: ProductInput, now = new Date()) { const args = ProductInputSchema.parse(input); return { ...base(now), ...score(findProduct(args.productId, args.revisionId), now), links: findProduct(args.productId, args.revisionId).links }; }
@@ -40,19 +42,28 @@ export function searchProducts(input: SearchInput, now = new Date()) {
       offset = token.offset;
     } catch { throw new DomainError("CURSOR_EXPIRED", "Cursor is invalid, expired, or belongs to different filters. Restart the search."); }
   }
+  const categoryAliases: Record<string, string> = {
+    "power-tools": "tools drills saws sanders herramientas taladros sierras lijadoras",
+    "video-game": "video games videogames videos games gaming videojuegos juegos",
+    "computers": "computers computer laptops laptop notebooks portatiles computadoras",
+    "cybersecurity-service": "cybersecurity security software antivirus services ciberseguridad servicios",
+    "marketplace-service": "marketplace selling seller ecommerce services mercados ventas servicios",
+    "financial-service": "financial finance planning services finanzas planificacion servicios"
+  };
+  const browseAll = /^(all|all products|products|catalog|everything|todos|todos los productos|productos|catalogo)$/.test(normalize(args.query));
   const terms = normalize(args.query).split(/[^a-z0-9]+/).filter(Boolean);
   const ranked = catalog.products.map(product => {
-    const haystack = normalize([product.name.en, product.name.es, ...product.keywords].join(" "));
-    return { product, result: score(product, now), relevance: terms.filter(term => haystack.includes(term)).length };
+    const haystack = normalize([product.id, product.brand, product.category, categoryAliases[product.category] ?? "", product.name.en, product.name.es, ...product.keywords].join(" "));
+    return { product, result: score(product, now), relevance: browseAll ? 1 : terms.filter(term => haystack.includes(term)).length };
   }).filter(({ product, result, relevance }) => relevance > 0 && (!args.currency || args.currency === product.currency) && (args.maxPriceMinor === undefined || (product.priceMinor !== null && product.priceMinor <= args.maxPriceMinor)) && (result.trustScore === null ? args.includeUnverified && args.minimumTrustScore === 0 : result.trustScore >= args.minimumTrustScore))
     .sort((a, b) => b.relevance - a.relevance || a.product.id.localeCompare(b.product.id));
   const page = ranked.slice(offset, offset + args.limit);
   const expiry = Math.min(now.getTime() + 300000, ...ranked.filter(r => r.result.validUntil).map(r => Date.parse(r.result.validUntil!)));
   return { ...base(now),
-    products: page.map(({ product, result }) => ({ links: product.links, id: product.id, revisionId: product.revisionId, name: product.name[args.locale], priceMinor: product.priceMinor, currency: product.currency, availability: product.availability, trustScore: result.trustScore, verificationState: result.verificationState, synthetic: true as const })),
+    products: page.map(({ product, result }) => ({ category: product.category, scoreBasis: result.scoreBasis, links: product.links, id: product.id, revisionId: product.revisionId, name: product.name[args.locale], priceMinor: product.priceMinor, currency: product.currency, availability: product.availability, trustScore: result.trustScore, verificationState: result.verificationState, synthetic: true as const })),
     appliedFilters: { maxPriceMinor: args.maxPriceMinor ?? null, currency: args.currency ?? null, minimumTrustScore: args.minimumTrustScore, includeUnverified: args.includeUnverified, locale: args.locale },
     nextCursor: offset + args.limit < ranked.length ? encodeURIComponent(JSON.stringify({ revision: catalog.catalogRevision, filters: signature, offset: offset + args.limit, expires: expiry })) : null,
-    warnings: ["Synthetic demonstration catalog. Scores measure evidence about product information, not product quality. Prices are not real offers."],
+    warnings: ["Synthetic demonstration catalog. Scores labeled fictional-demo are made-up presentation values, not verification, quality, or certification. Evidence verification states remain separate. Prices are not real offers."],
   };
 }
 export function verifyProductClaim(input: ClaimsInput, now = new Date()) {

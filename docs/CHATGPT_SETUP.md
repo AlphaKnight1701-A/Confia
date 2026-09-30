@@ -66,3 +66,9 @@ A quick tunnel may receive a different URL after restart. For ongoing use, deplo
 Products accept an optional links object with productUrl and verificationUrl. Both default to null and, when populated, require absolute HTTPS URLs. All four tools return links. productUrl identifies a product page; verificationUrl identifies its evidence/assessment report. Null means unavailable, not a clickable placeholder. Synthetic evidence sourceUrl remains null. Adding a link does not change the Trust Score or constitute certification.
 
 Populate links only when the corresponding public pages exist. Demo reseeding replaces catalog fixtures, so persistent fixture changes belong in scripts/seed-demo.mjs too. The current tunnel exposes only MCP, not the local dashboard; localhost dashboard links cannot serve other users. Rebuild/restart after source changes and refresh tool discovery in ChatGPT.
+
+## Fictional demo scores and category search
+
+Every current product has a `demoScore` fixture on a 0–10 scale. Search, product details, and score tools expose it as `trustScore` with `scoreBasis: fictional-demo` and methodology `demo-v1`. These are made-up presentation values, not evidence-derived verification or real certification. The separate `evidenceTrustScore`, `verificationState`, and claim comparison results retain their evidence semantics. Fictional scores have no calculated component breakdown and do not expire with evidence. Reseeding preserves configured demo scores and additional category records.
+
+Search indexes category, ID, brand, bilingual names, keywords, and category aliases. Try `video games`, `videojuegos`, `laptops`, `financial services`, or `all products` (use limit 50 to retrieve this whole catalog). Budget and minimum-score filters still apply. Refresh the existing ChatGPT connection after deploying the changed tool metadata; the server URL stays the same.

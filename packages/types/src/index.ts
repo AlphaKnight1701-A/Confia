@@ -28,6 +28,7 @@ export const ProductLinksSchema = z.object({
   verificationUrl: z.url({ protocol: /^https$/ }).nullable().default(null),
 }).strict();
 export const ProductSchema = z.object({
+  demoScore: z.number().min(0).max(10).optional(),
   id, revisionId: id, sku: id, brand: z.string(), category: z.string().min(1),
   links: ProductLinksSchema.default({ productUrl: null, verificationUrl: null }),
   name: localized, description: localized, keywords: z.array(z.string()).min(1),
@@ -85,7 +86,9 @@ export const ErrorSchema = z.object({ error: z.object({ code: z.string(), messag
 export const ResponseBaseSchema = z.object({ catalogRevision: z.string(), evaluatedAt: timestamp, synthetic: z.literal(true) });
 const component = z.object({ points: z.number().min(0), maximum: z.number().positive(), eligible: z.number().int().nonnegative(), required: z.number().int().nonnegative() }).strict();
 export const ScoreSchema = z.object({
-  productId: id, revisionId: id, assessmentId: id.nullable(), methodologyVersion: z.literal("v1"),
+  productId: id, revisionId: id, assessmentId: id.nullable(), methodologyVersion: z.enum(["v1", "demo-v1"]),
+  scoreBasis: z.enum(["fictional-demo", "evidence"]).optional(),
+  evidenceTrustScore: z.number().min(0).max(10).nullable().optional(),
   trustScore: z.number().min(0).max(10).nullable(), verificationState: VerificationStateSchema,
   components: z.record(z.string(), component),
   reasons: z.array(z.object({ claimKey: z.string(), status: z.string(), evidenceIds: z.array(z.string()) }).strict()),
@@ -98,7 +101,7 @@ export const ProductOutputSchema = ScoreOutputSchema.extend({
   evidence: z.array(z.object({ id: z.string(), claimKey: z.string(), value: z.union([z.string(), z.number(), z.boolean()]).nullable(), status: z.string(), sourceLabel: z.string(), sourceKind: z.literal("synthetic"), sourceUrl: z.url().nullable(), observedAt: timestamp.nullable(), expiresAt: timestamp.nullable(), explanation: z.string() }).strict()),
 }).strict();
 export const SearchOutputSchema = ResponseBaseSchema.extend({
-  products: z.array(z.object({ links: ProductLinksSchema, id, revisionId: id, name: z.string(), priceMinor: z.number().int().nullable(), currency: z.string(), availability: AvailabilitySchema, trustScore: z.number().nullable(), verificationState: VerificationStateSchema, synthetic: z.literal(true) }).strict()),
+  products: z.array(z.object({ category: z.string(), scoreBasis: z.enum(["fictional-demo", "evidence"]), links: ProductLinksSchema, id, revisionId: id, name: z.string(), priceMinor: z.number().int().nullable(), currency: z.string(), availability: AvailabilitySchema, trustScore: z.number().nullable(), verificationState: VerificationStateSchema, synthetic: z.literal(true) }).strict()),
   appliedFilters: z.object({ maxPriceMinor: z.number().nullable(), currency: z.string().nullable(), minimumTrustScore: z.number(), includeUnverified: z.boolean(), locale: LocaleSchema }).strict(),
   nextCursor: z.string().nullable(), warnings: z.array(z.string()),
 }).strict();
