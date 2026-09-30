@@ -1,5 +1,5 @@
 {
-  "catalogRevision": "demo-2026-09-30T06-39-15-744Z-prices-v2",
+  "catalogRevision": "demo-2026-09-30T06-39-15-744Z-prices-v2-fictional-prices-v1",
   "synthetic": true,
   "status": "ready",
   "generatedAt": "2026-09-30T06:39:15.744Z",
@@ -1560,7 +1560,7 @@
     },
     {
       "id": "dewalt-dcd771c2",
-      "revisionId": "dewalt-dcd771c2-v1-price-unavailable",
+      "revisionId": "dewalt-dcd771c2-v1-price-unavailable-fictional-price-v1",
       "sku": "DCD771C2",
       "brand": "DEWALT",
       "category": "power-tools",
@@ -1569,8 +1569,8 @@
         "es": "Kit de taladro/atornillador compacto 20V MAX con 2 baterías"
       },
       "description": {
-        "en": "Reference record based on DEWALT's public product page. Official page facts are tracked as sourced evidence; price, availability, returns, and some unpublished specifications are not treated as verified offers.",
-        "es": "Registro de referencia basado en la página pública de DEWALT. Los datos publicados se rastrean como evidencia con fuente; precio, disponibilidad, devoluciones y algunas especificaciones no publicadas no se tratan como ofertas verificadas."
+        "en": "Reference record based on DEWALT's public product page. Official page facts are tracked as sourced evidence; price, availability, returns, and some unpublished specifications are not treated as verified offers. Made-up demo price: USD 129.99 per kit. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página pública de DEWALT. Los datos publicados se rastrean como evidencia con fuente; precio, disponibilidad, devoluciones y algunas especificaciones no publicadas no se tratan como ofertas verificadas. Precio ficticio de demostración: USD 129.99 por kit. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "drill",
@@ -1580,7 +1580,7 @@
         "taladro",
         "atornillador"
       ],
-      "priceMinor": null,
+      "priceMinor": 12999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -1589,16 +1589,16 @@
         {
           "key": "price",
           "group": "price",
-          "value": null,
+          "value": 12999,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
           "evidenceId": "dewalt-dcd771c2-price",
-          "sourceLabel": "DEWALT official product page, reviewed 2026-09-30",
-          "sourceUrl": "https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries",
+          "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
+          "sourceUrl": null,
           "reason": {
-            "en": "The official product page reviewed for this demo does not publish a direct sell price, so no price claim is verified.",
-            "es": "La página oficial revisada para esta demostración no publica un precio de venta directo, por lo que no se verifica ningún precio."
+            "en": "Made-up demo price: USD 129.99 per kit. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 129.99 por kit. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {
@@ -1725,7 +1725,7 @@
     },
     {
       "id": "makita-xfd131",
-      "revisionId": "makita-xfd131-v1-price-unavailable",
+      "revisionId": "makita-xfd131-v1-price-unavailable-fictional-price-v1",
       "sku": "XFD131",
       "brand": "Makita",
       "category": "power-tools",
@@ -1734,8 +1734,8 @@
         "es": "Kit de taladro/atornillador inalámbrico sin escobillas 18V LXT de 1/2 pulg."
       },
       "description": {
-        "en": "Reference record based on Makita's public product page. Official specifications are tracked with observation and expiry dates; retailer-only fields remain unverified.",
-        "es": "Registro de referencia basado en la página pública de Makita. Las especificaciones oficiales se rastrean con fechas de observación y vencimiento; los campos dependientes del minorista quedan sin verificar."
+        "en": "Reference record based on Makita's public product page. Official specifications are tracked with observation and expiry dates; retailer-only fields remain unverified. Made-up demo price: USD 179.99 per kit. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página pública de Makita. Las especificaciones oficiales se rastrean con fechas de observación y vencimiento; los campos dependientes del minorista quedan sin verificar. Precio ficticio de demostración: USD 179.99 por kit. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "drill",
@@ -1745,7 +1745,7 @@
         "taladro",
         "inalambrico"
       ],
-      "priceMinor": null,
+      "priceMinor": 17999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -1754,16 +1754,16 @@
         {
           "key": "price",
           "group": "price",
-          "value": null,
+          "value": 17999,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
           "evidenceId": "makita-xfd131-price",
-          "sourceLabel": "Makita official product page, reviewed 2026-09-30",
-          "sourceUrl": "https://www.makitatools.com/products/details/XFD131",
+          "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
+          "sourceUrl": null,
           "reason": {
-            "en": "The official page links to buying options but does not publish a direct sell price.",
-            "es": "La página oficial enlaza a opciones de compra, pero no publica un precio de venta directo."
+            "en": "Made-up demo price: USD 179.99 per kit. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 179.99 por kit. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {
@@ -1890,7 +1890,7 @@
     },
     {
       "id": "milwaukee-2801-22ct",
-      "revisionId": "milwaukee-2801-22ct-v1-price-unavailable",
+      "revisionId": "milwaukee-2801-22ct-v1-price-unavailable-fictional-price-v1",
       "sku": "2801-22CT",
       "brand": "Milwaukee Tool",
       "category": "power-tools",
@@ -1899,8 +1899,8 @@
         "es": "Kit de taladro/atornillador M18 compacto sin escobillas de 1/2 pulg."
       },
       "description": {
-        "en": "Reference record based on Milwaukee Tool's public product page, with official specifications tracked as dated evidence.",
-        "es": "Registro de referencia basado en la página pública de Milwaukee Tool, con especificaciones oficiales rastreadas como evidencia fechada."
+        "en": "Reference record based on Milwaukee Tool's public product page, with official specifications tracked as dated evidence. Made-up demo price: USD 199.99 per kit. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página pública de Milwaukee Tool, con especificaciones oficiales rastreadas como evidencia fechada. Precio ficticio de demostración: USD 199.99 por kit. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "drill",
@@ -1910,7 +1910,7 @@
         "taladro",
         "atornillador"
       ],
-      "priceMinor": null,
+      "priceMinor": 19999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -1919,16 +1919,16 @@
         {
           "key": "price",
           "group": "price",
-          "value": null,
+          "value": 19999,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
           "evidenceId": "milwaukee-2801-22ct-price",
-          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
-          "sourceUrl": "https://www.milwaukeetool.com/Products/2801-22CT",
+          "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
+          "sourceUrl": null,
           "reason": {
-            "en": "The official page provides where-to-buy links but does not publish a direct sell price.",
-            "es": "La página oficial proporciona enlaces de compra, pero no publica un precio de venta directo."
+            "en": "Made-up demo price: USD 199.99 per kit. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 199.99 por kit. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {
@@ -2055,7 +2055,7 @@
     },
     {
       "id": "milwaukee-2730-20",
-      "revisionId": "milwaukee-2730-20-v1-price-unavailable",
+      "revisionId": "milwaukee-2730-20-v1-price-unavailable-fictional-price-v1",
       "sku": "2730-20",
       "brand": "Milwaukee Tool",
       "category": "power-tools",
@@ -2064,8 +2064,8 @@
         "es": "Sierra circular M18 FUEL de 6-1/2 pulg., solo herramienta"
       },
       "description": {
-        "en": "Reference record based on Milwaukee Tool's public circular saw page, including tool-only battery status and official specifications.",
-        "es": "Registro de referencia basado en la página pública de sierra circular de Milwaukee Tool, incluyendo estado de batería de solo herramienta y especificaciones oficiales."
+        "en": "Reference record based on Milwaukee Tool's public circular saw page, including tool-only battery status and official specifications. Made-up demo price: USD 169.99 tool only. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página pública de sierra circular de Milwaukee Tool, incluyendo estado de batería de solo herramienta y especificaciones oficiales. Precio ficticio de demostración: USD 169.99 solo herramienta. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "saw",
@@ -2075,7 +2075,7 @@
         "sierra",
         "circular"
       ],
-      "priceMinor": null,
+      "priceMinor": 16999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2084,16 +2084,16 @@
         {
           "key": "price",
           "group": "price",
-          "value": null,
+          "value": 16999,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
           "evidenceId": "milwaukee-2730-20-price",
-          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
-          "sourceUrl": "https://www.milwaukeetool.com/Products/2730-20",
+          "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
+          "sourceUrl": null,
           "reason": {
-            "en": "The official page provides where-to-buy links but does not publish a direct sell price.",
-            "es": "La página oficial proporciona enlaces de compra, pero no publica un precio de venta directo."
+            "en": "Made-up demo price: USD 169.99 tool only. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 169.99 solo herramienta. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {
@@ -2220,7 +2220,7 @@
     },
     {
       "id": "dell-xps-13",
-      "revisionId": "dell-xps-13-v1-price-unavailable",
+      "revisionId": "dell-xps-13-v1-price-unavailable-fictional-price-v1",
       "sku": "XPS-13",
       "brand": "Dell Technologies",
       "category": "computers",
@@ -2229,8 +2229,8 @@
         "es": "Laptop Dell XPS 13"
       },
       "description": {
-        "en": "Reference record based on Dell's public XPS 13 page. Product positioning and support/return policy facts are tracked with source URLs; live configuration price and stock are not treated as verified because Dell pricing and availability can vary by configuration and region.",
-        "es": "Registro de referencia basado en la página pública de Dell para XPS 13. El posicionamiento del producto y datos de soporte/devolución se rastrean con URLs de fuente; el precio y disponibilidad en vivo no se tratan como verificados porque pueden variar por configuración y región."
+        "en": "Reference record based on Dell's public XPS 13 page. Product positioning and support/return policy facts are tracked with source URLs; live configuration price and stock are not treated as verified because Dell pricing and availability can vary by configuration and region. Made-up demo price: USD 1199.99 per demo laptop configuration. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página pública de Dell para XPS 13. El posicionamiento del producto y datos de soporte/devolución se rastrean con URLs de fuente; el precio y disponibilidad en vivo no se tratan como verificados porque pueden variar por configuración y región. Precio ficticio de demostración: USD 1199.99 por configuración de portátil de demostración. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "dell",
@@ -2240,7 +2240,7 @@
         "touchscreen",
         "portatil"
       ],
-      "priceMinor": null,
+      "priceMinor": 119999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2249,16 +2249,16 @@
         {
           "key": "price",
           "group": "price",
-          "value": null,
+          "value": 119999,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
           "evidenceId": "dell-xps-13-price",
-          "sourceLabel": "Dell official XPS 13 product page, reviewed 2026-09-30",
-          "sourceUrl": "https://www.dell.com/en-us/shop/dell-laptops/xps-13-laptop/spd/xps-13-9350-laptop",
+          "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
+          "sourceUrl": null,
           "reason": {
-            "en": "Dell product pricing can vary by configuration, promotion, and region; no stable single price is verified in this catalog record.",
-            "es": "El precio de Dell puede variar por configuración, promoción y región; este registro no verifica un precio único estable."
+            "en": "Made-up demo price: USD 1199.99 per demo laptop configuration. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 1199.99 por configuración de portátil de demostración. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {
@@ -2355,7 +2355,7 @@
     },
     {
       "id": "crowdstrike-falcon-prevent",
-      "revisionId": "crowdstrike-falcon-prevent-v1-price-unavailable",
+      "revisionId": "crowdstrike-falcon-prevent-v1-price-unavailable-fictional-price-v1",
       "sku": "FALCON-PREVENT",
       "brand": "CrowdStrike",
       "category": "cybersecurity-service",
@@ -2364,8 +2364,8 @@
         "es": "CrowdStrike Falcon Prevent"
       },
       "description": {
-        "en": "Reference record based on CrowdStrike's public Falcon Prevent page. The service is described as AI-powered next-generation antivirus for endpoint protection, with a free trial link and pricing handled through CrowdStrike's pricing/contact flows.",
-        "es": "Registro de referencia basado en la página pública de CrowdStrike Falcon Prevent. El servicio se describe como antivirus de nueva generación con IA para protección de endpoints, con enlace a prueba gratuita y precios gestionados mediante los flujos de precios/contacto de CrowdStrike."
+        "en": "Reference record based on CrowdStrike's public Falcon Prevent page. The service is described as AI-powered next-generation antivirus for endpoint protection, with a free trial link and pricing handled through CrowdStrike's pricing/contact flows. Made-up demo price: USD 59.99 per endpoint per year. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página pública de CrowdStrike Falcon Prevent. El servicio se describe como antivirus de nueva generación con IA para protección de endpoints, con enlace a prueba gratuita y precios gestionados mediante los flujos de precios/contacto de CrowdStrike. Precio ficticio de demostración: USD 59.99 por dispositivo al año. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "crowdstrike",
@@ -2375,7 +2375,7 @@
         "cybersecurity",
         "security"
       ],
-      "priceMinor": null,
+      "priceMinor": 5999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2384,16 +2384,16 @@
         {
           "key": "price",
           "group": "price",
-          "value": null,
+          "value": 5999,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
           "evidenceId": "crowdstrike-falcon-prevent-price",
-          "sourceLabel": "CrowdStrike official Falcon Prevent page, reviewed 2026-09-30",
-          "sourceUrl": "https://www.crowdstrike.com/en-us/products/falcon-prevent/",
+          "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
+          "sourceUrl": null,
           "reason": {
-            "en": "The page links to pricing and contact flows but does not publish a single catalog price for this record.",
-            "es": "La página enlaza a flujos de precios y contacto, pero no publica un precio único para este registro."
+            "en": "Made-up demo price: USD 59.99 per endpoint per year. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 59.99 por dispositivo al año. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {
@@ -2490,7 +2490,7 @@
     },
     {
       "id": "ebay-selling",
-      "revisionId": "ebay-selling-v1-price-unavailable",
+      "revisionId": "ebay-selling-v1-price-unavailable-fictional-price-v1",
       "sku": "EBAY-SELLING",
       "brand": "eBay",
       "category": "marketplace-service",
@@ -2499,8 +2499,8 @@
         "es": "Venta en eBay"
       },
       "description": {
-        "en": "Reference record based on eBay's selling help page. The page documents listing, payments, seller tools, stores, advertising, shipping, and returns workflows rather than a single fixed-price product.",
-        "es": "Registro de referencia basado en la página de ayuda de ventas de eBay. La página documenta flujos de publicación, pagos, herramientas para vendedores, tiendas, publicidad, envíos y devoluciones, no un producto de precio fijo."
+        "en": "Reference record based on eBay's selling help page. The page documents listing, payments, seller tools, stores, advertising, shipping, and returns workflows rather than a single fixed-price product. Made-up demo price: USD 24.99 per month for a fictional seller subscription; transaction fees excluded. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página de ayuda de ventas de eBay. La página documenta flujos de publicación, pagos, herramientas para vendedores, tiendas, publicidad, envíos y devoluciones, no un producto de precio fijo. Precio ficticio de demostración: USD 24.99 al mes por una suscripción ficticia de vendedor; no incluye comisiones por transacción. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "ebay",
@@ -2510,7 +2510,7 @@
         "store",
         "listings"
       ],
-      "priceMinor": null,
+      "priceMinor": 2499,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2519,16 +2519,16 @@
         {
           "key": "price",
           "group": "price",
-          "value": null,
+          "value": 2499,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
           "evidenceId": "ebay-selling-price",
-          "sourceLabel": "eBay selling help page, reviewed 2026-09-30",
-          "sourceUrl": "https://www.ebay.com/help/selling",
+          "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
+          "sourceUrl": null,
           "reason": {
-            "en": "The selling help page is a workflow guide and does not publish a single fixed price for selling on eBay.",
-            "es": "La página de ayuda de ventas es una guía de flujo de trabajo y no publica un precio fijo único para vender en eBay."
+            "en": "Made-up demo price: USD 24.99 per month for a fictional seller subscription; transaction fees excluded. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 24.99 al mes por una suscripción ficticia de vendedor; no incluye comisiones por transacción. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {
@@ -2625,7 +2625,7 @@
     },
     {
       "id": "ea-sports-fc-26",
-      "revisionId": "ea-sports-fc-26-v1-price-unavailable",
+      "revisionId": "ea-sports-fc-26-v1-price-unavailable-fictional-price-v1",
       "sku": "EA-SPORTS-FC-26",
       "brand": "Electronic Arts",
       "category": "video-game",
@@ -2634,8 +2634,8 @@
         "es": "EA SPORTS FC 26"
       },
       "description": {
-        "en": "Reference record based on EA's public EA SPORTS FC 26 page. The page describes game features, platforms, authenticity, and disclaimers; regional price and storefront availability are not verified in this record.",
-        "es": "Registro de referencia basado en la página pública de EA SPORTS FC 26. La página describe funciones del juego, plataformas, autenticidad y avisos; el precio regional y disponibilidad por tienda no se verifican en este registro."
+        "en": "Reference record based on EA's public EA SPORTS FC 26 page. The page describes game features, platforms, authenticity, and disclaimers; regional price and storefront availability are not verified in this record. Made-up demo price: USD 59.99 per demo standard edition. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página pública de EA SPORTS FC 26. La página describe funciones del juego, plataformas, autenticidad y avisos; el precio regional y disponibilidad por tienda no se verifican en este registro. Precio ficticio de demostración: USD 59.99 por edición estándar de demostración. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "ea",
@@ -2645,7 +2645,7 @@
         "soccer",
         "game"
       ],
-      "priceMinor": null,
+      "priceMinor": 5999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2654,16 +2654,16 @@
         {
           "key": "price",
           "group": "price",
-          "value": null,
+          "value": 5999,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
           "evidenceId": "ea-sports-fc-26-price",
-          "sourceLabel": "EA official EA SPORTS FC 26 page, reviewed 2026-09-30",
-          "sourceUrl": "https://www.ea.com/games/ea-sports-fc/fc-26",
+          "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
+          "sourceUrl": null,
           "reason": {
-            "en": "The public product page links to buying options but this record does not verify a single regional price.",
-            "es": "La página pública enlaza a opciones de compra, pero este registro no verifica un precio regional único."
+            "en": "Made-up demo price: USD 59.99 per demo standard edition. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 59.99 por edición estándar de demostración. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {
@@ -2760,7 +2760,7 @@
     },
     {
       "id": "thrivent-dedicated-planning-services",
-      "revisionId": "thrivent-dedicated-planning-services-v1-price-unavailable",
+      "revisionId": "thrivent-dedicated-planning-services-v1-price-unavailable-fictional-price-v1",
       "sku": "THRIVENT-DPS",
       "brand": "Thrivent",
       "category": "financial-service",
@@ -2769,8 +2769,8 @@
         "es": "Servicios de planificación dedicada de Thrivent"
       },
       "description": {
-        "en": "Reference record based on Thrivent's products and services page. The service is described as comprehensive advice for a fee with detailed recommendations; this record does not verify client-specific pricing or eligibility.",
-        "es": "Registro de referencia basado en la página de productos y servicios de Thrivent. El servicio se describe como asesoría integral por una tarifa con recomendaciones detalladas; este registro no verifica precios o elegibilidad específicos del cliente."
+        "en": "Reference record based on Thrivent's products and services page. The service is described as comprehensive advice for a fee with detailed recommendations; this record does not verify client-specific pricing or eligibility. Made-up demo price: USD 1500.00 per year for a fictional planning package. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página de productos y servicios de Thrivent. El servicio se describe como asesoría integral por una tarifa con recomendaciones detalladas; este registro no verifica precios o elegibilidad específicos del cliente. Precio ficticio de demostración: USD 1500.00 al año por un paquete ficticio de planificación. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "thrivent",
@@ -2780,7 +2780,7 @@
         "dedicated planning",
         "services"
       ],
-      "priceMinor": null,
+      "priceMinor": 150000,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2789,16 +2789,16 @@
         {
           "key": "price",
           "group": "price",
-          "value": null,
+          "value": 150000,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
           "evidenceId": "thrivent-dedicated-planning-services-price",
-          "sourceLabel": "Thrivent products and services page, reviewed 2026-09-30",
-          "sourceUrl": "https://www.thrivent.com/what-we-offer",
+          "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
+          "sourceUrl": null,
           "reason": {
-            "en": "Thrivent describes Dedicated Planning Services as advice for a fee, but the reviewed page does not publish a single fixed price.",
-            "es": "Thrivent describe Dedicated Planning Services como asesoría por una tarifa, pero la página revisada no publica un precio fijo único."
+            "en": "Made-up demo price: USD 1500.00 per year for a fictional planning package. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 1500.00 al año por un paquete ficticio de planificación. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {
@@ -2895,7 +2895,7 @@
     },
     {
       "id": "ea-the-sims-4",
-      "revisionId": "ea-the-sims-4-v1-price-unavailable",
+      "revisionId": "ea-the-sims-4-v1-price-unavailable-fictional-price-v1",
       "sku": "THE-SIMS-4",
       "brand": "Electronic Arts",
       "category": "video-game",
@@ -2904,8 +2904,8 @@
         "es": "The Sims 4"
       },
       "description": {
-        "en": "Reference record based on EA's public The Sims 4 page. The page describes a downloadable life-simulation game with Create-a-Sim, Build Mode, vibrant worlds, Gallery sharing, and platform availability; regional add-on pricing is not verified in this record.",
-        "es": "Registro de referencia basado en la página pública de EA para The Sims 4. La página describe un juego descargable de simulación de vida con Crear un Sim, modo Construir, mundos vibrantes, intercambio en la Galería y disponibilidad por plataforma; este registro no verifica precios regionales de contenido adicional."
+        "en": "Reference record based on EA's public The Sims 4 page. The page describes a downloadable life-simulation game with Create-a-Sim, Build Mode, vibrant worlds, Gallery sharing, and platform availability; regional add-on pricing is not verified in this record. Made-up demo price: USD 39.99 per fictional bundle with add-on content; not the base game. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página pública de EA para The Sims 4. La página describe un juego descargable de simulación de vida con Crear un Sim, modo Construir, mundos vibrantes, intercambio en la Galería y disponibilidad por plataforma; este registro no verifica precios regionales de contenido adicional. Precio ficticio de demostración: USD 39.99 por paquete ficticio con contenido adicional; no por el juego base. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "ea",
@@ -2915,7 +2915,7 @@
         "life simulation",
         "game"
       ],
-      "priceMinor": null,
+      "priceMinor": 3999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2924,16 +2924,16 @@
         {
           "key": "price",
           "group": "price",
-          "value": null,
+          "value": 3999,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
           "evidenceId": "ea-the-sims-4-price",
-          "sourceLabel": "EA official The Sims 4 page, reviewed 2026-09-30",
-          "sourceUrl": "https://www.ea.com/games/the-sims/the-sims-4",
+          "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
+          "sourceUrl": null,
           "reason": {
-            "en": "The page includes a download call to action, but this catalog record does not verify regional pack, kit, or storefront pricing.",
-            "es": "La página incluye una llamada para descargar, pero este registro no verifica precios regionales de packs, kits o tiendas."
+            "en": "Made-up demo price: USD 39.99 per fictional bundle with add-on content; not the base game. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 39.99 por paquete ficticio con contenido adicional; no por el juego base. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {
@@ -3045,7 +3045,7 @@
     },
     {
       "id": "ea-madden-nfl-26",
-      "revisionId": "ea-madden-nfl-26-v1-price-unavailable",
+      "revisionId": "ea-madden-nfl-26-v1-price-unavailable-fictional-price-v1",
       "sku": "MADDEN-NFL-26",
       "brand": "Electronic Arts",
       "category": "video-game",
@@ -3054,8 +3054,8 @@
         "es": "Madden NFL 26"
       },
       "description": {
-        "en": "Reference record based on EA's public Madden NFL 26 page. The page describes NFL gameplay, Ultimate Team, Franchise, Presentation, Superstar, and platform availability; regional price and storefront availability are not verified in this record.",
-        "es": "Registro de referencia basado en la página pública de EA para Madden NFL 26. La página describe jugabilidad NFL, Ultimate Team, Franquicia, Presentación, Superstar y disponibilidad por plataforma; el precio regional y disponibilidad por tienda no se verifican en este registro."
+        "en": "Reference record based on EA's public Madden NFL 26 page. The page describes NFL gameplay, Ultimate Team, Franchise, Presentation, Superstar, and platform availability; regional price and storefront availability are not verified in this record. Made-up demo price: USD 59.99 per demo standard edition. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página pública de EA para Madden NFL 26. La página describe jugabilidad NFL, Ultimate Team, Franquicia, Presentación, Superstar y disponibilidad por plataforma; el precio regional y disponibilidad por tienda no se verifican en este registro. Precio ficticio de demostración: USD 59.99 por edición estándar de demostración. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "ea",
@@ -3065,7 +3065,7 @@
         "football",
         "game"
       ],
-      "priceMinor": null,
+      "priceMinor": 5999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -3074,16 +3074,16 @@
         {
           "key": "price",
           "group": "price",
-          "value": null,
+          "value": 5999,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
           "evidenceId": "ea-madden-nfl-26-price",
-          "sourceLabel": "EA official Madden NFL 26 page, reviewed 2026-09-30",
-          "sourceUrl": "https://www.ea.com/games/madden-nfl/madden-nfl-26",
+          "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
+          "sourceUrl": null,
           "reason": {
-            "en": "The page includes buy calls to action and notes offers may vary or change, so this record does not verify a single regional price.",
-            "es": "La página incluye llamadas de compra e indica que las ofertas pueden variar o cambiar, por lo que este registro no verifica un precio regional único."
+            "en": "Made-up demo price: USD 59.99 per demo standard edition. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 59.99 por edición estándar de demostración. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {

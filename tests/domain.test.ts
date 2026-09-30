@@ -55,15 +55,18 @@ test("schemas reject invalid money, missing currency, deleted manifest claims an
   assert.equal(CatalogSchema.safeParse(altered).success, false);
 });
 
-test("unknown prices are not free and cannot match a budget", () => {
+test("fictional prices support budgets without becoming verified claims", () => {
   const product = getProduct({ productId: "dewalt-dcd771c2" }, now);
-  assert.equal(product.priceMinor, null);
-  assert.equal(product.evidence.find(e => e.claimKey === "price")?.value, null);
+  assert.equal(product.priceMinor, 12999);
+  assert.equal(product.evidence.find(e => e.claimKey === "price")?.value, 12999);
+  assert.equal(product.evidence.find(e => e.claimKey === "price")?.sourceUrl, null);
   assert.ok(searchProducts({ query: "dewalt" }, now).products.some(p => p.id === product.productId));
-  assert.ok(!searchProducts({ query: "dewalt", maxPriceMinor: 20000, currency: "USD" }, now).products.some(p => p.id === product.productId));
-  assert.equal(verifyProductClaim({ productId: product.productId, claims: { priceMinor: 0, currency: "USD" } }, now).results[0].status, "unknown");
+  assert.ok(searchProducts({ query: "dewalt", maxPriceMinor: 20000, currency: "USD" }, now).products.some(p => p.id === product.productId));
+  assert.equal(verifyProductClaim({ productId: product.productId, claims: { priceMinor: 12999, currency: "USD" } }, now).results[0].status, "unknown");
   const altered = structuredClone(catalog);
   const claim = altered.products.find(p => p.id === product.productId)!.claims.find(c => c.key === "price")!;
+  claim.value = null;
+  altered.products.find(p => p.id === product.productId)!.priceMinor = null;
   claim.status = "verified";
   claim.observedAt = catalog.generatedAt;
   claim.expiresAt = new Date(+now + 86400000).toISOString();
@@ -72,6 +75,6 @@ test("unknown prices are not free and cannot match a budget", () => {
 
 test("additional categories load without borrowing the power-tool scoring policy", () => {
   assert.equal(getProduct({ productId: "dell-xps-13" }, now).trustScore, null);
-  assert.equal(getProduct({ productId: "ea-sports-fc-26" }, now).priceMinor, null);
+  assert.equal(getProduct({ productId: "ea-sports-fc-26" }, now).priceMinor, 5999);
   assert.equal(verifyProductClaim({ productId: "crowdstrike-falcon-prevent", claims: { availability: "InStock" } }, now).results[0].status, "unknown");
 });
