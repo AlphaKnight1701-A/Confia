@@ -10,7 +10,7 @@ const localized = z.object({ en: z.string().min(1), es: z.string().min(1) }).str
 export const ClaimSchema = z.object({
   key: id,
   group: z.enum(["price", "availability", "specifications", "supportingEvidence"]),
-  value: z.union([z.string().max(500), z.number().finite(), z.boolean()]),
+  value: z.union([z.string().max(500), z.number().finite(), z.boolean()]).nullable(),
   status: z.enum(["verified", "conflicting", "missing", "unsupported"]),
   observedAt: timestamp.nullable(),
   expiresAt: timestamp.nullable(),
@@ -20,19 +20,20 @@ export const ClaimSchema = z.object({
   reason: localized,
 }).strict().refine(c => (c.observedAt === null) === (c.expiresAt === null), "Observation and expiry must both exist or both be null")
   .refine(c => !c.observedAt || !c.expiresAt || Date.parse(c.expiresAt) > Date.parse(c.observedAt), "Expiry must follow observation")
-  .refine(c => c.status !== "verified" || c.observedAt !== null, "Verified claims require observations");
+  .refine(c => c.status !== "verified" || c.observedAt !== null, "Verified claims require observations")
+  .refine(c => c.value !== null || (c.key === "price" && ["missing", "unsupported"].includes(c.status)), "Null is only valid for an unavailable price");
 export type Claim = z.infer<typeof ClaimSchema>;
 export const ProductLinksSchema = z.object({
   productUrl: z.url({ protocol: /^https$/ }).nullable().default(null),
   verificationUrl: z.url({ protocol: /^https$/ }).nullable().default(null),
 }).strict();
 export const ProductSchema = z.object({
-  id, revisionId: id, sku: id, brand: z.string(), category: z.literal("power-tools"),
+  id, revisionId: id, sku: id, brand: z.string(), category: z.string().min(1),
   links: ProductLinksSchema.default({ productUrl: null, verificationUrl: null }),
   name: localized, description: localized, keywords: z.array(z.string()).min(1),
-  priceMinor: z.number().int().nonnegative().safe(), currency: z.literal("USD"),
+  priceMinor: z.number().int().nonnegative().safe().nullable(), currency: z.literal("USD"),
   availability: AvailabilitySchema, synthetic: z.literal(true),
-  assessedAt: timestamp.nullable(), claims: z.array(ClaimSchema).length(9),
+  assessedAt: timestamp.nullable(), claims: z.array(ClaimSchema).min(1).max(50),
 }).strict();
 export type Product = z.infer<typeof ProductSchema>;
 export const REQUIRED_CLAIMS = {
@@ -49,9 +50,9 @@ export const CatalogSchema = z.object({
     if (ids.has(product.id)) ctx.addIssue({ code: "custom", message: "Duplicate product ID", path: ["products", index] });
     ids.add(product.id);
     const keys = product.claims.map(c => c.key);
-    if (new Set(keys).size !== 9 || Object.keys(REQUIRED_CLAIMS).some(key => !keys.includes(key))) ctx.addIssue({ code: "custom", message: "Required claim manifest does not match policy v1", path: ["products", index] });
+    if (new Set(keys).size !== keys.length || !keys.includes("price") || (product.category === "power-tools" && (keys.length !== 9 || Object.keys(REQUIRED_CLAIMS).some(key => !keys.includes(key))))) ctx.addIssue({ code: "custom", message: "Required claim manifest does not match policy v1", path: ["products", index] });
     for (const claim of product.claims) {
-      if (REQUIRED_CLAIMS[claim.key as keyof typeof REQUIRED_CLAIMS] !== claim.group) ctx.addIssue({ code: "custom", message: "Claim group does not match policy", path: ["products", index] });
+      if (product.category === "power-tools" && REQUIRED_CLAIMS[claim.key as keyof typeof REQUIRED_CLAIMS] !== claim.group) ctx.addIssue({ code: "custom", message: "Claim group does not match policy", path: ["products", index] });
       if (claim.key === "price" && claim.value !== product.priceMinor) ctx.addIssue({ code: "custom", message: "Price observation differs from catalog", path: ["products", index] });
       if (claim.key === "availability" && claim.value !== product.availability) ctx.addIssue({ code: "custom", message: "Availability differs from catalog", path: ["products", index] });
     }
@@ -93,11 +94,11 @@ export const ScoreSchema = z.object({
 export const ScoreOutputSchema = ResponseBaseSchema.extend(ScoreSchema.shape).extend({ links: ProductLinksSchema }).strict();
 export const ProductOutputSchema = ScoreOutputSchema.extend({
   name: z.string(), description: z.string(), brand: z.string(), sku: z.string(), category: z.string(), locale: LocaleSchema,
-  priceMinor: z.number().int(), currency: z.string(), availability: AvailabilitySchema,
-  evidence: z.array(z.object({ id: z.string(), claimKey: z.string(), value: z.union([z.string(), z.number(), z.boolean()]), status: z.string(), sourceLabel: z.string(), sourceKind: z.literal("synthetic"), sourceUrl: z.url().nullable(), observedAt: timestamp.nullable(), expiresAt: timestamp.nullable(), explanation: z.string() }).strict()),
+  priceMinor: z.number().int().nullable(), currency: z.string(), availability: AvailabilitySchema,
+  evidence: z.array(z.object({ id: z.string(), claimKey: z.string(), value: z.union([z.string(), z.number(), z.boolean()]).nullable(), status: z.string(), sourceLabel: z.string(), sourceKind: z.literal("synthetic"), sourceUrl: z.url().nullable(), observedAt: timestamp.nullable(), expiresAt: timestamp.nullable(), explanation: z.string() }).strict()),
 }).strict();
 export const SearchOutputSchema = ResponseBaseSchema.extend({
-  products: z.array(z.object({ links: ProductLinksSchema, id, revisionId: id, name: z.string(), priceMinor: z.number().int(), currency: z.string(), availability: AvailabilitySchema, trustScore: z.number().nullable(), verificationState: VerificationStateSchema, synthetic: z.literal(true) }).strict()),
+  products: z.array(z.object({ links: ProductLinksSchema, id, revisionId: id, name: z.string(), priceMinor: z.number().int().nullable(), currency: z.string(), availability: AvailabilitySchema, trustScore: z.number().nullable(), verificationState: VerificationStateSchema, synthetic: z.literal(true) }).strict()),
   appliedFilters: z.object({ maxPriceMinor: z.number().nullable(), currency: z.string().nullable(), minimumTrustScore: z.number(), includeUnverified: z.boolean(), locale: LocaleSchema }).strict(),
   nextCursor: z.string().nullable(), warnings: z.array(z.string()),
 }).strict();

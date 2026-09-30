@@ -33,7 +33,7 @@ test("English and Spanish share facts and enforce budget and score constraints",
   const en = searchProducts({ query: "drill", maxPriceMinor: 15000, currency: "USD", minimumTrustScore: 8 }, now);
   const es = searchProducts({ query: "taladro", locale: "es", maxPriceMinor: 15000, currency: "USD", minimumTrustScore: 8 }, now);
   assert.deepEqual(en.products.map(p => p.id), es.products.map(p => p.id));
-  assert.ok(en.products.every(p => p.priceMinor <= 15000 && p.trustScore !== null && p.trustScore >= 8));
+  assert.ok(en.products.every(p => p.priceMinor !== null && p.priceMinor <= 15000 && p.trustScore !== null && p.trustScore >= 8));
   const a = getProduct({ productId: "drill-001", locale: "en" }, now);
   const b = getProduct({ productId: "drill-001", locale: "es" }, now);
   assert.equal(a.priceMinor, b.priceMinor); assert.equal(a.trustScore, b.trustScore); assert.notEqual(a.name, b.name);
@@ -53,4 +53,25 @@ test("schemas reject invalid money, missing currency, deleted manifest claims an
   assert.throws(() => getProduct({ productId: "drill-001", revisionId: "not-this-revision" }, now));
   const altered = structuredClone(catalog); altered.products[0].claims.pop();
   assert.equal(CatalogSchema.safeParse(altered).success, false);
+});
+
+test("unknown prices are not free and cannot match a budget", () => {
+  const product = getProduct({ productId: "dewalt-dcd771c2" }, now);
+  assert.equal(product.priceMinor, null);
+  assert.equal(product.evidence.find(e => e.claimKey === "price")?.value, null);
+  assert.ok(searchProducts({ query: "dewalt" }, now).products.some(p => p.id === product.productId));
+  assert.ok(!searchProducts({ query: "dewalt", maxPriceMinor: 20000, currency: "USD" }, now).products.some(p => p.id === product.productId));
+  assert.equal(verifyProductClaim({ productId: product.productId, claims: { priceMinor: 0, currency: "USD" } }, now).results[0].status, "unknown");
+  const altered = structuredClone(catalog);
+  const claim = altered.products.find(p => p.id === product.productId)!.claims.find(c => c.key === "price")!;
+  claim.status = "verified";
+  claim.observedAt = catalog.generatedAt;
+  claim.expiresAt = new Date(+now + 86400000).toISOString();
+  assert.equal(CatalogSchema.safeParse(altered).success, false);
+});
+
+test("additional categories load without borrowing the power-tool scoring policy", () => {
+  assert.equal(getProduct({ productId: "dell-xps-13" }, now).trustScore, null);
+  assert.equal(getProduct({ productId: "ea-sports-fc-26" }, now).priceMinor, null);
+  assert.equal(verifyProductClaim({ productId: "crowdstrike-falcon-prevent", claims: { availability: "InStock" } }, now).results[0].status, "unknown");
 });

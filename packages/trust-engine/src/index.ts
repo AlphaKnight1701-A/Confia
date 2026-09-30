@@ -2,7 +2,7 @@ import type { EvaluatedClaim, Product, Score } from "@confia/types";
 export const TRUST_POLICY_V1 = Object.freeze({ version: "v1", weights: Object.freeze({ price: 20, availability: 20, specifications: 25, freshness: 20, supportingEvidence: 15 }) });
 export function calculateTrustScore(product: Product, claims: EvaluatedClaim[], now: Date): Score {
   const common = { productId: product.id, revisionId: product.revisionId, methodologyVersion: "v1" as const, assessedAt: product.assessedAt };
-  if (!product.assessedAt) return { ...common, assessmentId: null, trustScore: null, verificationState: "unverified", components: {}, reasons: [], evidenceIds: [], validUntil: null };
+  if (!product.assessedAt || product.category !== "power-tools") return { ...common, assessedAt: null, assessmentId: null, trustScore: null, verificationState: "unverified", components: {}, reasons: [], evidenceIds: [], validUntil: null };
   const components: Score["components"] = {};
   for (const group of ["price", "availability", "specifications", "supportingEvidence"] as const) {
     const required = claims.filter(c => c.claim.group === group);

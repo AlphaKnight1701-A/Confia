@@ -1,5 +1,5 @@
 {
-  "catalogRevision": "demo-2026-09-30T06-39-15-744Z",
+  "catalogRevision": "demo-2026-09-30T06-39-15-744Z-prices-v2",
   "synthetic": true,
   "status": "ready",
   "generatedAt": "2026-09-30T06:39:15.744Z",
@@ -162,7 +162,7 @@
     },
     {
       "id": "drill-002",
-      "revisionId": "drill-002-v1",
+      "revisionId": "drill-002-v1-price-update",
       "sku": "DRILL-002",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -182,7 +182,7 @@
         "inalambrico",
         "casa"
       ],
-      "priceMinor": 9999,
+      "priceMinor": 9499,
       "currency": "USD",
       "availability": "InStock",
       "synthetic": true,
@@ -191,7 +191,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 9999,
+          "value": 9499,
           "status": "verified",
           "observedAt": "2026-09-30T06:38:15.744Z",
           "expiresAt": "2026-10-01T06:38:15.744Z",
@@ -318,7 +318,7 @@
     },
     {
       "id": "drill-003",
-      "revisionId": "drill-003-v1",
+      "revisionId": "drill-003-v1-price-update",
       "sku": "DRILL-003",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -338,7 +338,7 @@
         "inalambrico",
         "casa"
       ],
-      "priceMinor": 17999,
+      "priceMinor": 18499,
       "currency": "USD",
       "availability": "InStock",
       "synthetic": true,
@@ -347,7 +347,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 17999,
+          "value": 18499,
           "status": "verified",
           "observedAt": "2026-09-30T06:38:15.744Z",
           "expiresAt": "2026-10-01T06:38:15.744Z",
@@ -474,7 +474,7 @@
     },
     {
       "id": "drill-004",
-      "revisionId": "drill-004-v1",
+      "revisionId": "drill-004-v1-price-update",
       "sku": "DRILL-004",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -494,7 +494,7 @@
         "inalambrico",
         "casa"
       ],
-      "priceMinor": 12999,
+      "priceMinor": 12499,
       "currency": "USD",
       "availability": "InStock",
       "synthetic": true,
@@ -503,7 +503,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 12999,
+          "value": 12499,
           "status": "verified",
           "observedAt": "2026-09-30T06:38:15.744Z",
           "expiresAt": "2026-10-01T06:38:15.744Z",
@@ -630,7 +630,7 @@
     },
     {
       "id": "drill-005",
-      "revisionId": "drill-005-v1",
+      "revisionId": "drill-005-v1-price-update",
       "sku": "DRILL-005",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -650,7 +650,7 @@
         "inalambrico",
         "casa"
       ],
-      "priceMinor": 7999,
+      "priceMinor": 7499,
       "currency": "USD",
       "availability": "InStock",
       "synthetic": true,
@@ -659,7 +659,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 7999,
+          "value": 7499,
           "status": "verified",
           "observedAt": "2026-09-30T06:38:15.744Z",
           "expiresAt": "2026-10-01T06:38:15.744Z",
@@ -786,7 +786,7 @@
     },
     {
       "id": "saw-001",
-      "revisionId": "saw-001-v1",
+      "revisionId": "saw-001-v1-price-update",
       "sku": "SAW-001",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -803,7 +803,7 @@
         "circular",
         "sierra"
       ],
-      "priceMinor": 13999,
+      "priceMinor": 14499,
       "currency": "USD",
       "availability": "InStock",
       "synthetic": true,
@@ -812,7 +812,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 13999,
+          "value": 14499,
           "status": "verified",
           "observedAt": "2026-09-30T06:38:15.744Z",
           "expiresAt": "2026-10-01T06:38:15.744Z",
@@ -939,7 +939,7 @@
     },
     {
       "id": "drill-stale",
-      "revisionId": "drill-stale-v1",
+      "revisionId": "drill-stale-v1-price-update",
       "sku": "DRILL-STALE",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -959,7 +959,7 @@
         "inalambrico",
         "casa"
       ],
-      "priceMinor": 11999,
+      "priceMinor": 11499,
       "currency": "USD",
       "availability": "InStock",
       "synthetic": true,
@@ -968,7 +968,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 11999,
+          "value": 11499,
           "status": "verified",
           "observedAt": "2026-08-21T06:39:15.744Z",
           "expiresAt": "2026-08-22T06:39:15.744Z",
@@ -1095,7 +1095,7 @@
     },
     {
       "id": "drill-unassessed",
-      "revisionId": "drill-unassessed-v1",
+      "revisionId": "drill-unassessed-v1-price-update",
       "sku": "DRILL-UNASSESSED",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -1115,7 +1115,7 @@
         "inalambrico",
         "casa"
       ],
-      "priceMinor": 5999,
+      "priceMinor": 6499,
       "currency": "USD",
       "availability": "InStock",
       "synthetic": true,
@@ -1124,7 +1124,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 5999,
+          "value": 6499,
           "status": "missing",
           "observedAt": null,
           "expiresAt": null,
@@ -1251,7 +1251,7 @@
     },
     {
       "id": "drill-conflict",
-      "revisionId": "drill-conflict-v1",
+      "revisionId": "drill-conflict-v1-price-update",
       "sku": "DRILL-CONFLICT",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -1271,7 +1271,7 @@
         "inalambrico",
         "casa"
       ],
-      "priceMinor": 15999,
+      "priceMinor": 16499,
       "currency": "USD",
       "availability": "InStock",
       "synthetic": true,
@@ -1280,7 +1280,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 15999,
+          "value": 16499,
           "status": "verified",
           "observedAt": "2026-09-30T06:38:15.744Z",
           "expiresAt": "2026-10-01T06:38:15.744Z",
@@ -1407,7 +1407,7 @@
     },
     {
       "id": "sander-001",
-      "revisionId": "sander-001-v1",
+      "revisionId": "sander-001-v1-price-update",
       "sku": "SANDER-001",
       "brand": "Demo Brand",
       "category": "power-tools",
@@ -1424,7 +1424,7 @@
         "orbital",
         "lijadora"
       ],
-      "priceMinor": 24999,
+      "priceMinor": 23999,
       "currency": "USD",
       "availability": "InStock",
       "synthetic": true,
@@ -1433,7 +1433,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 24999,
+          "value": 23999,
           "status": "verified",
           "observedAt": "2026-09-30T06:38:15.744Z",
           "expiresAt": "2026-10-01T06:38:15.744Z",
@@ -1560,7 +1560,7 @@
     },
     {
       "id": "dewalt-dcd771c2",
-      "revisionId": "dewalt-dcd771c2-v1",
+      "revisionId": "dewalt-dcd771c2-v1-price-unavailable",
       "sku": "DCD771C2",
       "brand": "DEWALT",
       "category": "power-tools",
@@ -1580,7 +1580,7 @@
         "taladro",
         "atornillador"
       ],
-      "priceMinor": 0,
+      "priceMinor": null,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -1589,7 +1589,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 0,
+          "value": null,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -1725,7 +1725,7 @@
     },
     {
       "id": "makita-xfd131",
-      "revisionId": "makita-xfd131-v1",
+      "revisionId": "makita-xfd131-v1-price-unavailable",
       "sku": "XFD131",
       "brand": "Makita",
       "category": "power-tools",
@@ -1745,7 +1745,7 @@
         "taladro",
         "inalambrico"
       ],
-      "priceMinor": 0,
+      "priceMinor": null,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -1754,7 +1754,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 0,
+          "value": null,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -1890,7 +1890,7 @@
     },
     {
       "id": "milwaukee-2801-22ct",
-      "revisionId": "milwaukee-2801-22ct-v1",
+      "revisionId": "milwaukee-2801-22ct-v1-price-unavailable",
       "sku": "2801-22CT",
       "brand": "Milwaukee Tool",
       "category": "power-tools",
@@ -1910,7 +1910,7 @@
         "taladro",
         "atornillador"
       ],
-      "priceMinor": 0,
+      "priceMinor": null,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -1919,7 +1919,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 0,
+          "value": null,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -2055,7 +2055,7 @@
     },
     {
       "id": "milwaukee-2730-20",
-      "revisionId": "milwaukee-2730-20-v1",
+      "revisionId": "milwaukee-2730-20-v1-price-unavailable",
       "sku": "2730-20",
       "brand": "Milwaukee Tool",
       "category": "power-tools",
@@ -2075,7 +2075,7 @@
         "sierra",
         "circular"
       ],
-      "priceMinor": 0,
+      "priceMinor": null,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2084,7 +2084,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 0,
+          "value": null,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -2220,7 +2220,7 @@
     },
     {
       "id": "dell-xps-13",
-      "revisionId": "dell-xps-13-v1",
+      "revisionId": "dell-xps-13-v1-price-unavailable",
       "sku": "XPS-13",
       "brand": "Dell Technologies",
       "category": "computers",
@@ -2240,7 +2240,7 @@
         "touchscreen",
         "portatil"
       ],
-      "priceMinor": 0,
+      "priceMinor": null,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2249,7 +2249,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 0,
+          "value": null,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -2355,7 +2355,7 @@
     },
     {
       "id": "crowdstrike-falcon-prevent",
-      "revisionId": "crowdstrike-falcon-prevent-v1",
+      "revisionId": "crowdstrike-falcon-prevent-v1-price-unavailable",
       "sku": "FALCON-PREVENT",
       "brand": "CrowdStrike",
       "category": "cybersecurity-service",
@@ -2375,7 +2375,7 @@
         "cybersecurity",
         "security"
       ],
-      "priceMinor": 0,
+      "priceMinor": null,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2384,7 +2384,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 0,
+          "value": null,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -2490,7 +2490,7 @@
     },
     {
       "id": "ebay-selling",
-      "revisionId": "ebay-selling-v1",
+      "revisionId": "ebay-selling-v1-price-unavailable",
       "sku": "EBAY-SELLING",
       "brand": "eBay",
       "category": "marketplace-service",
@@ -2510,7 +2510,7 @@
         "store",
         "listings"
       ],
-      "priceMinor": 0,
+      "priceMinor": null,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2519,7 +2519,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 0,
+          "value": null,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -2625,7 +2625,7 @@
     },
     {
       "id": "ea-sports-fc-26",
-      "revisionId": "ea-sports-fc-26-v1",
+      "revisionId": "ea-sports-fc-26-v1-price-unavailable",
       "sku": "EA-SPORTS-FC-26",
       "brand": "Electronic Arts",
       "category": "video-game",
@@ -2645,7 +2645,7 @@
         "soccer",
         "game"
       ],
-      "priceMinor": 0,
+      "priceMinor": null,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2654,7 +2654,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 0,
+          "value": null,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -2760,7 +2760,7 @@
     },
     {
       "id": "thrivent-dedicated-planning-services",
-      "revisionId": "thrivent-dedicated-planning-services-v1",
+      "revisionId": "thrivent-dedicated-planning-services-v1-price-unavailable",
       "sku": "THRIVENT-DPS",
       "brand": "Thrivent",
       "category": "financial-service",
@@ -2780,7 +2780,7 @@
         "dedicated planning",
         "services"
       ],
-      "priceMinor": 0,
+      "priceMinor": null,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2789,7 +2789,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 0,
+          "value": null,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -2895,7 +2895,7 @@
     },
     {
       "id": "ea-the-sims-4",
-      "revisionId": "ea-the-sims-4-v1",
+      "revisionId": "ea-the-sims-4-v1-price-unavailable",
       "sku": "THE-SIMS-4",
       "brand": "Electronic Arts",
       "category": "video-game",
@@ -2915,7 +2915,7 @@
         "life simulation",
         "game"
       ],
-      "priceMinor": 0,
+      "priceMinor": null,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2924,7 +2924,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 0,
+          "value": null,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -3045,7 +3045,7 @@
     },
     {
       "id": "ea-madden-nfl-26",
-      "revisionId": "ea-madden-nfl-26-v1",
+      "revisionId": "ea-madden-nfl-26-v1-price-unavailable",
       "sku": "MADDEN-NFL-26",
       "brand": "Electronic Arts",
       "category": "video-game",
@@ -3065,7 +3065,7 @@
         "football",
         "game"
       ],
-      "priceMinor": 0,
+      "priceMinor": null,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -3074,7 +3074,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 0,
+          "value": null,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,

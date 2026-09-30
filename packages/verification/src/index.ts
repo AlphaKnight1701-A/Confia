@@ -14,7 +14,7 @@ export function evaluateClaim(claim: Claim, now: Date): EvaluatedClaim {
 }
 export function compareClaim(product: Product, field: "priceMinor" | "availability", provided: number | string, currency: string | undefined, now: Date) {
   const claim = product.claims.find(c => c.key === (field === "priceMinor" ? "price" : field));
-  if (!claim) throw new Error("Required claim missing from validated catalog");
+  if (!claim) return { field, status: "unknown", provided, observed: null, reason: "missing", observedAt: null, evidenceIds: [] as string[] };
   const evaluated = evaluateClaim(claim, now);
   const reason = !product.assessedAt ? "unassessed" : currency && currency !== product.currency ? "currency_mismatch" : evaluated.reason;
   const known = product.assessedAt !== null && reason === "verified";

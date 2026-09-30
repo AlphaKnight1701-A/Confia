@@ -44,7 +44,7 @@ export function searchProducts(input: SearchInput, now = new Date()) {
   const ranked = catalog.products.map(product => {
     const haystack = normalize([product.name.en, product.name.es, ...product.keywords].join(" "));
     return { product, result: score(product, now), relevance: terms.filter(term => haystack.includes(term)).length };
-  }).filter(({ product, result, relevance }) => relevance > 0 && (!args.currency || args.currency === product.currency) && (args.maxPriceMinor === undefined || product.priceMinor <= args.maxPriceMinor) && (result.trustScore === null ? args.includeUnverified && args.minimumTrustScore === 0 : result.trustScore >= args.minimumTrustScore))
+  }).filter(({ product, result, relevance }) => relevance > 0 && (!args.currency || args.currency === product.currency) && (args.maxPriceMinor === undefined || (product.priceMinor !== null && product.priceMinor <= args.maxPriceMinor)) && (result.trustScore === null ? args.includeUnverified && args.minimumTrustScore === 0 : result.trustScore >= args.minimumTrustScore))
     .sort((a, b) => b.relevance - a.relevance || a.product.id.localeCompare(b.product.id));
   const page = ranked.slice(offset, offset + args.limit);
   const expiry = Math.min(now.getTime() + 300000, ...ranked.filter(r => r.result.validUntil).map(r => Date.parse(r.result.validUntil!)));
