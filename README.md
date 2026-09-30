@@ -50,7 +50,7 @@ Confĩa adds transparency to this process.
 The Confĩa ecosystem follows a simple flow:
 
 ```text
-                         CONFĨA
+                         CONFIA
                             │
              ┌──────────────┴──────────────┐
              │                             │
