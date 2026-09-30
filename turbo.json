@@ -1,0 +1,72 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "typecheck": {
+      "outputs": [],
+      "dependsOn": [
+        "^typecheck"
+      ]
+    },
+    "dev": {
+      "persistent": true,
+      "passThroughEnv": [
+        "PORT",
+        "CONFIA_*",
+        "NEXT_PUBLIC_*"
+      ],
+      "cache": false
+    },
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**",
+        "!.next/cache/**"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "env": [
+        "NEXT_PUBLIC_APP_URL",
+        "CONFIA_DEFAULT_LOCALE"
+      ]
+    },
+    "@confia/types#build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": []
+    },
+    "@confia/trust-engine#build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": []
+    },
+    "@confia/verification#build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": []
+    },
+    "@confia/product-data#build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": []
+    },
+    "@confia/ui#build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": []
+    }
+  },
+  "globalDependencies": [
+    "tsconfig.base.json",
+    "data/**"
+  ]
+}

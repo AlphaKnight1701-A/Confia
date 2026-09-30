@@ -1,0 +1,18 @@
+{
+  "name": "@confia/product-data",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@confia/types": "0.0.0",
+    "@confia/verification": "0.0.0",
+    "@confia/trust-engine": "0.0.0"
+  }
+}

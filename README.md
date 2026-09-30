@@ -2,298 +2,359 @@
 
 > **AI helps you find it. Confĩa helps you trust it.**
 
-Confĩa is a bilingual product-information verification platform conceived by the UCF team for the **2026 HSI Battle of the Brains**. It connects AI-assisted shopping with traceable product facts, deterministic Trust Scores™, and explanations available in English and Spanish.
+Confĩa is a bilingual product-information verification platform conceived by the UCF team for the **2026 HSI Battle of the Brains**.
 
-Rather than building another shopping chatbot, Confĩa is designed to work alongside existing conversational AI platforms. For the hackathon proof-of-concept, the primary customer entry point is ChatGPT through a Confĩa MCP integration.
+Confĩa works alongside AI-assisted shopping experiences by providing verified product information, deterministic Trust Scores™, and transparent explanations in English and Spanish.
 
-**Status: Hackathon architecture and implementation plan.** The repository currently contains documentation and environment templates; the MCP server and application code have not been implemented yet.
-
-The implementation goal is to demonstrate a complete flow from merchant product information, to Confĩa verification, to a Trust Score, and finally to an AI-assisted shopping experience inside ChatGPT.
+Rather than building another AI shopping assistant, Confĩa acts as an independent **trust layer** between businesses, conversational AI platforms, and shoppers.
 
 ---
 
-## Contents
+## Project Status
 
-- [product scope](#product-scope)
-- [what we are building](#what-we-are-building)
-- [architecture](#architecture)
-- [repository structure](#repository-structure)
-- [getting started](#getting-started)
-- [environment configuration](#environment-configuration)
-- [trust and verification](#trust-and-verification)
-- [mcp and chatgpt integration](#mcp-and-chatgpt-integration)
-- [merchant dashboard](#merchant-dashboard)
-- [english and spanish support](#english-and-spanish-support)
-- [hallucination and discrepancy detection](#hallucination-and-discrepancy-detection)
-- [testing](#testing)
-- [deployment](#deployment)
-- [demo walkthrough](#demo-walkthrough)
-- [roadmap](#roadmap)
-- [business and governance](#business-and-governance)
-- [team](#team)
+**Hackathon Proof-of-Concept — monorepo scaffold in place.** Both app shells and shared package boundaries are implemented. The demo catalog, verification/scoring algorithms, MCP tools, ChatGPT connection, completed business views, and synthetic analytics remain implementation milestones. See [the delivery plan](docs/IMPLEMENTATION.md).
+
+This repository is organized to deliver two sides of the Confĩa platform:
+
+1. **AI Shopping Integration**
+   An MCP-powered service that allows compatible conversational AI platforms such as ChatGPT to access Confĩa product verification data.
+
+2. **Business Platform**
+   A website where companies can learn about Confĩa and view product verification results, Trust Scores, discrepancies, and demonstration analytics.
+
+Both applications depend on the same product-data, verification, and Trust Score packages. Today the catalog is empty and the engines contain only policy metadata/vocabulary; there are no fabricated scores or analytics.
 
 ---
 
-# Product Scope
+# The Problem
 
-AI shopping recommendations can contain incomplete specifications, stale prices, outdated availability, and inconsistent product information.
+As shopping moves toward conversational AI, companies face a new challenge:
 
-Confĩa gives merchants a way to submit product facts and supporting evidence for assessment. Confĩa evaluates those individual product claims, calculates a Trust Score™, and exposes the resulting verification information to compatible AI assistants.
+> **How can businesses remain accurately represented while customers know whether the product information AI gives them can actually be trusted?**
 
-The main customer experience does not require the shopper to use another standalone shopping application.
+AI-assisted product information may contain:
 
-Instead, our intended experience is:
+- Outdated prices
+- Incorrect availability
+- Missing specifications
+- Stale product information
+- Conflicting product claims
+- Inconsistent information between languages
 
-```text
-SHOPPER
-   │
-   ▼
-CHATGPT
-   │
-   ▼
-CONFĨA MCP APP
-   │
-   ▼
-CONFĨA VERIFICATION
-   │
-   ▼
-TRUST SCORE + EVIDENCE
-   │
-   ▼
-CHATGPT
-   │
-   ▼
-SHOPPER
-```
-
-A Trust Score measures confidence in **product information**, not product quality, safety, or personal suitability.
-
-For example:
-
-```text
-Trust Score: 9.1 / 10
-```
-
-does NOT mean:
-
-```text
-"This drill is a 9.1/10 drill."
-```
-
-It means:
-
-```text
-"Confĩa has strong evidence supporting the
-information describing this product."
-```
-
-Unknown information remains unknown.
-
-Differences between information should be identified as potential discrepancies rather than automatically classified as AI hallucinations.
+Confĩa adds transparency to this process.
 
 ---
 
-# What We Are Building
+# The Solution
 
-The hackathon proof-of-concept contains six major pieces:
-
-```text
-1. PRODUCT CATALOG
-        ↓
-2. VERIFICATION ENGINE
-        ↓
-3. TRUST SCORE™ ENGINE
-        ↓
-4. CONFĨA BACKEND
-        ↓
-5. MCP SERVER
-        ↓
-6. CHATGPT EXPERIENCE
-```
-
-A lightweight merchant dashboard demonstrates the business-facing side of the platform.
-
-The prototype intentionally uses approximately 8-12 clearly identified demo products rather than attempting to build production-scale retailer infrastructure.
-
----
-
-# Architecture
-
-The primary architecture is:
+The Confĩa ecosystem follows a simple flow:
 
 ```text
-                         CUSTOMER
+                         CONFĨA
                             │
-                            │
-                            ▼
-                     ┌─────────────┐
-                     │   CHATGPT   │
-                     └──────┬──────┘
-                            │
-                            │ MCP
-                            ▼
-                  ┌───────────────────┐
-                  │   CONFĨA SERVER   │
-                  │                   │
-                  │ search_products   │
-                  │ get_product       │
-                  │ get_trust_score   │
-                  │ verify_product_claim│
-                  └─────────┬─────────┘
-                            │
-                            ▼
-              ┌──────────────────────────┐
-              │      DOMAIN SERVICES     │
-              │                          │
-              │ Product Search           │
-              │ Verification Engine      │
-              │ Trust Score Engine       │
-              │ Discrepancy Detection    │
-              └────────────┬─────────────┘
-                           │
+             ┌──────────────┴──────────────┐
+             │                             │
+             ▼                             ▼
+       BUSINESS PLATFORM             AI SHOPPING LAYER
+             │                             │
+       Landing Page                   MCP Server
+       Dashboard                          │
+       Analytics                          ▼
+       Products                        ChatGPT
+       Verification                       │
+             │                             ▼
+             │                          Shopper
+             │
+             └─────────────┐
                            ▼
-                    PRODUCT DATA
+                    SHARED SERVICES
                            │
-              ┌────────────┴───────────┐
-              ▼                        ▼
-        demo-products.json       PostgreSQL
-                                (future)
+              ┌────────────┼─────────────┐
+              ▼            ▼             ▼
+           Product      Trust Score   Verification
+            Data          Engine         Engine
 ```
 
-The merchant experience connects to the same backend:
+The company provides product information.
 
-```text
-MERCHANT DASHBOARD
-        │
-        ▼
-CONFĨA BACKEND
-        │
-        ▼
-VERIFICATION ENGINE
-        │
-        ▼
-TRUST SCORE
-        │
-        ▼
-PRODUCT RECORD
-        │
-        ▼
-MCP
-        │
-        ▼
-CHATGPT
-```
+Confĩa verifies available evidence and calculates a Trust Score.
+
+The verified information can then be accessed by compatible AI shopping experiences.
 
 ---
 
-# Technology Stack
+# Core Philosophy
 
-| Layer | Technology | Responsibility |
-| --- | --- | --- |
-| Runtime | Node.js / TypeScript | One backend process |
-| Primary interface | ChatGPT developer mode | Shopper conversation and bilingual explanations |
-| Transport | TypeScript MCP SDK, Streamable HTTP | Four read-only tools at `/mcp` |
-| Domain | Plain TypeScript | Search, verification, scoring, comparison |
-| Storage | Validated JSON fixtures | Published synthetic catalog |
-| Database, later | Supabase PostgreSQL | Durable products, evidence, assessments |
-| Merchant UI, later | Optional Next.js / React | Business-facing demonstration only |
-| Hosting | Compatible Node.js host or development tunnel | Reachable HTTPS MCP endpoint |
+Confĩa follows five steps:
 
-There is no shopper web frontend, embedded widget, or backend LLM API in the MVP. No OpenAI API key or model configuration is needed. Versions and hosting must be selected and tested during scaffolding.
+```text
+VERIFY
+   ↓
+SCORE
+   ↓
+CONNECT
+   ↓
+EXPLAIN
+   ↓
+TRUST
+```
 
-The technical plan lives in [Architecture](docs/ARCHITECTURE.md), [MCP contracts](docs/API.md), and [ChatGPT setup](docs/CHATGPT_SETUP.md). The [original product vision](docs/PRODUCT_VISION.md) is historical background and may describe superseded web-first choices.
+### Verify
+
+Evaluate product facts and supporting information.
+
+### Score
+
+Calculate a deterministic Trust Score™.
+
+### Connect
+
+Expose verified information to compatible AI shopping experiences.
+
+### Explain
+
+Show businesses and shoppers where the score came from.
+
+### Trust
+
+Give customers more context when making purchasing decisions.
 
 ---
 
-# Repository Structure
+# Monorepo Architecture
 
-Current files are this README, `.gitignore`, environment templates, and the `docs/` specifications. Planned implementation layout:
+Confĩa uses a monorepo so both applications can share the same business logic.
 
 ```text
-Confia/
-├── src/
-│   ├── server.ts                  # /mcp, /health, /ready
-│   ├── config/env.ts
-│   ├── mcp/                       # SDK factory, tool schemas, result envelopes
-│   ├── domain/                    # Facts, evidence, scoring, comparison
-│   ├── services/                  # Four tool use cases
-│   ├── repositories/              # Repository interface and JSON adapter
-│   └── i18n/                      # Localized labels and catalog text
-├── scripts/                       # Catalog validation and local demo runner
-├── data/demo-products.json
-├── tests/                         # Domain, service, and MCP transport tests
+confia/
+│
+├── apps/
+│   │
+│   ├── web/
+│   │   ├── Landing Page
+│   │   ├── Business Dashboard
+│   │   ├── Products
+│   │   ├── Verification Results
+│   │   └── Analytics
+│   │
+│   └── mcp-server/
+│       ├── search_products
+│       ├── get_product
+│       ├── get_trust_score
+│       └── verify_product_claim
+│
+├── packages/
+│   │
+│   ├── trust-engine/
+│   ├── verification/
+│   ├── product-data/
+│   ├── types/
+│   └── ui/
+│
+├── data/
+│   └── demo-products.json
+│
 ├── docs/
 │   ├── ARCHITECTURE.md
 │   ├── API.md
 │   ├── CHATGPT_SETUP.md
+│   ├── IMPLEMENTATION.md
 │   └── PRODUCT_VISION.md
-├── .env.example
-├── .env.test.example
-├── .gitignore
-├── package.json                   # Planned, not present yet
-└── tsconfig.json                  # Planned, not present yet
+│
+├── package.json
+├── package-lock.json
+├── tsconfig.base.json
+├── turbo.json
+└── README.md
 ```
 
-If implemented later, the merchant dashboard can live under `apps/merchant/`. It is not a dependency of the MCP server.
-
 ---
 
-# Getting Started
+# Application 1: AI Shopping Integration
 
-Prepare configuration now, from PowerShell:
+The consumer-facing experience happens primarily through a conversational AI platform.
 
-```powershell
-Copy-Item .env.example .env.local
-Copy-Item .env.test.example .env.test.local
-git check-ignore .env.local .env.test.local
+For the prototype:
+
+```text
+SHOPPER
+   │
+   ▼
+CHATGPT
+   │
+   │ MCP
+   ▼
+CONFĨA MCP SERVER
+   │
+   ▼
+PRODUCT SEARCH
+   │
+   ▼
+VERIFICATION ENGINE
+   │
+   ▼
+TRUST SCORE
+   │
+   ▼
+CHATGPT RESPONSE
 ```
 
-Use `cp` instead of `Copy-Item` in Bash. Do not overwrite a populated local configuration without preserving its values.
+The shopper does not need to understand how Confĩa works technically.
 
-The server is not scaffolded yet. Its first milestone must pin Node.js and dependency versions, commit the npm lockfile, explicitly load `.env.local`, and add these planned commands:
-
-| Command after implementation | Purpose |
-| --- | --- |
-| `npm ci` | Install locked dependencies |
-| `npm run dev` | Start MCP service at `http://localhost:3000/mcp` |
-| `npm run validate:catalog` | Check fixture schema and evidence references |
-| `npm run lint` / `npm run typecheck` | Static checks |
-| `npm test` | Domain and service tests |
-| `npm run test:mcp` | Initialization, discovery, and tool-call tests |
-| `npm run build` / `npm start` | Compile and run the production service |
-| `npm run demo` | Local fallback through shared services |
-
-Once implemented, inspect the local endpoint, expose it through the chosen HTTPS connection path, and follow [ChatGPT setup](docs/CHATGPT_SETUP.md). No dashboard is needed to test the primary experience.
+They simply receive additional verification information alongside their shopping experience.
 
 ---
 
-# Environment Configuration
+## Example
 
-The templates define the future server configuration; no runtime consumes them yet.
+The customer asks:
 
-| Variable | Default | Purpose |
-| --- | --- | --- |
-| `PORT` | `3000` | HTTP listening port |
-| `CONFIA_PUBLIC_BASE_URL` | `http://localhost:3000` | External origin; use actual HTTPS tunnel/deployment origin remotely |
-| `CONFIA_MCP_PATH` | `/mcp` | MCP transport path |
-| `CONFIA_MCP_AUTH_MODE` | `none` | MVP supports only public synthetic read-only data |
-| `CONFIA_DATA_SOURCE` | `demo` | MVP repository; reject unsupported storage modes |
-| `CONFIA_CATALOG_PATH` | `./data/demo-products.json` | Catalog file, resolved from project root |
-| `CONFIA_DEFAULT_LOCALE` | `en` | `en` or `es` |
-| `CONFIA_LOG_LEVEL` | `info` | `debug`, `info`, `warn`, or `error` |
-| `CONFIA_TEST_NOW` | Test template only | Inject a fixed clock in tests; reject outside tests |
+```text
+Find me a cordless drill under $200
+for projects around my house.
+```
 
-Load `.env.local` explicitly in development and `.env.test.local` explicitly in tests; deployment environment values take precedence. Do not assume Next.js environment loading exists in the Node.js service.
+Confĩa can provide supporting information such as:
 
-Removed configuration: `NEXT_PUBLIC_APP_URL`, `CONFIA_AI_ENABLED`, `OPENAI_API_KEY`, `OPENAI_MODEL`, and public demo-write controls. ChatGPT provides the conversation, and this backend makes no AI API calls. Database credentials will be introduced with the future persistence/authentication milestone, not required by the demo.
+```text
+20V Cordless Drill
+Demo Brand
 
-Keep local environment files ignored. No-auth access is limited to the public synthetic catalog; private data requires an implemented and tested authorization flow first.
+$149.99
+
+✓ CONFĨA VERIFIED
+
+Trust Score: 9.1 / 10
+
+✓ Price Verified
+✓ Availability Verified
+✓ Specifications Verified
+
+Last Verified:
+September 29, 2026
+```
+
+The customer can then ask:
+
+```text
+Why does this product have a 9.1?
+```
+
+Confĩa returns the evidence supporting that score.
 
 ---
 
-# Trust and Verification
+# Application 2: Business Platform
 
-The initial `v1` Trust Score uses five categories:
+The second application is the company-facing Confĩa website.
+
+It serves two purposes.
+
+## Public Landing Page
+
+Allows prospective companies to understand:
+
+- What Confĩa does
+- How verification works
+- How Trust Scores work
+- How AI integration works
+- English/Spanish accessibility
+- Business value
+- Partnership opportunities
+
+Suggested landing page:
+
+```text
+CONFĨA
+
+Make your products more trustworthy
+in AI-assisted shopping.
+
+[ Request a Demo ]
+
+--------------------------------
+
+How Confĩa Works
+
+1. Submit
+2. Verify
+3. Score
+4. Connect
+5. Measure
+
+--------------------------------
+
+Built for the future of
+AI-assisted shopping.
+```
+
+---
+
+# Business Dashboard
+
+The dashboard demonstrates what a participating company could see after joining Confĩa.
+
+```text
+CONFĨA BUSINESS DASHBOARD
+
+Verified Products
+428 / 500
+
+Average Trust Score
+8.7 / 10
+
+AI Product Impressions
+14,892
+
+Click Through Rate
+6.4%
+
+Potential Discrepancies
+12
+
+Spanish Queries
+23%
+```
+
+For the hackathon, analytics may use **clearly labeled synthetic/demo data**.
+
+The objective is to demonstrate the future business experience, not claim that these metrics are already being collected in production.
+
+---
+
+# Product Verification
+
+Example company product:
+
+```text
+20V Cordless Drill
+
+Verification Status
+
+Price                 ✓ Verified
+Availability          ✓ Verified
+Specifications        ✓ Verified
+Supporting Evidence   ⚠ Partial
+Freshness             ✓ Current
+
+----------------------------
+
+Trust Score™
+
+8.7 / 10
+
+[ View Score Breakdown ]
+```
+
+---
+
+# Trust Score™
+
+The Confĩa Trust Score measures confidence in **product information**.
+
+It does NOT measure whether the product itself is good or bad.
+
+For the prototype:
 
 ```text
 Pricing Accuracy              20%
@@ -306,43 +367,31 @@ Supporting Evidence           15%
                              100%
 ```
 
-The final total is converted into a score from:
+Example calculation:
 
 ```text
-0.0 ───────────────────────────── 10.0
-```
+Price                 20 / 20
+Availability          20 / 20
+Specifications        20 / 25
+Freshness             20 / 20
+Evidence              15 / 15
 
-Example:
+TOTAL                  95 / 100
 
-```text
-PRODUCT
-
-20V Cordless Drill
-
-Price                   20/20
-Availability            20/20
-Specifications          20/25
-Freshness               20/20
-Supporting Evidence     15/15
-
-TOTAL                    95/100
-
-CONFĨA TRUST SCORE™
+Trust Score™
 
 9.5 / 10
 ```
 
-This 9.5 example has four of five specifications eligible and all required observations fresh; a conflicting fifth specification must remain explicitly labeled. See the exact [v1 policy](docs/ARCHITECTURE.md#scoring-policy-v1). Other scores in the presentation mockups below are illustrative, not computed fixture results.
+The score will be calculated deterministically using the [v1 policy](docs/ARCHITECTURE.md#scoring-policy-v1). The 9.5 example above represents four of five eligible specifications and fresh evidence for all claims; any conflicting specification remains explicitly labeled. Other numbers in these product mockups are illustrative, not live fixture outputs.
 
-The Trust Score must be calculated deterministically.
-
-AI does NOT decide whether a product receives an 8, 9, or 10.
+> **The AI model does not determine the Trust Score.**
 
 ---
 
 # Verified vs. Unverified
 
-A verified product might appear as:
+Verified:
 
 ```text
 ✓ CONFĨA VERIFIED
@@ -351,7 +400,7 @@ Trust Score
 9.1 / 10
 ```
 
-An unassessed product might appear as:
+Unverified:
 
 ```text
 ○ CONFĨA UNVERIFIED
@@ -360,610 +409,24 @@ Trust Score
 N/A
 ```
 
-`Unverified` does NOT mean:
+Unverified does **not** mean:
 
 ```text
-Unsafe
 Bad
+Unsafe
 Incorrect
-Poor quality
+Low Quality
 ```
 
-It means Confĩa currently lacks sufficient verification information to issue a Trust Score.
-
----
-
-# MCP and ChatGPT Integration
-
-The proof-of-concept is designed to expose Confĩa capabilities through a Model Context Protocol server.
-
-The required MCP integration exposes four read-only tools through Streamable HTTP at `/mcp`. ChatGPT developer mode is the primary client. Exact schemas and result envelopes are specified in [MCP contracts](docs/API.md):
-
-```text
-search_products()
-
-get_product()
-
-get_trust_score()
-
-verify_product_claim()
-```
-
----
-
-## search_products
-
-Searches the Confĩa catalog according to customer needs.
-
-Example customer request:
-
-```text
-Find me a cordless drill under $200
-for basic projects around my house.
-```
-
-The tool can receive information such as:
-
-```json
-{
-  "query": "cordless drill for basic home projects",
-  "maxPriceMinor": 20000,
-  "currency": "USD",
-  "locale": "en"
-}
-```
-
----
-
-## get_product
-
-Returns the canonical Confĩa product record.
-
-Possible information includes:
-
-```text
-Product Name
-Brand
-SKU
-Price
-Availability
-Specifications
-Verification Status
-Verification Date
-Trust Score
-Evidence
-```
-
----
-
-## get_trust_score
-
-Returns the deterministic Trust Score and explanation.
-
-Example:
-
-```text
-CONFĨA TRUST SCORE™
-
-9.1 / 10
-
-Price                 ✓ Verified
-Availability          ✓ Verified
-Specifications        ✓ Verified
-Freshness             ✓ Current
-Supporting Evidence   ✓ Available
-```
-
----
-
-## verify_product_claim
-
-Compares a supplied product claim against Confĩa's stored verified information.
-
-Example:
-
-```text
-Presented information:
-
-Price = $199.99
-
-          │
-          ▼
-
-Confĩa record:
-
-Price = $149.99
-
-          │
-          ▼
-
-⚠ POTENTIAL DISCREPANCY
-```
-
----
-
-# ChatGPT Demo Experience
-
-The customer starts directly inside ChatGPT.
-
-Example:
-
-```text
-USER:
-
-Find me a cordless drill under $200
-for projects around my house.
-```
-
-ChatGPT uses Confĩa's MCP tools to retrieve supporting product information.
-
-The response should communicate information similar to:
-
-```text
-20V Cordless Drill
-Demo Brand
-
-$149.99
-
-✓ CONFĨA VERIFIED
-
-Trust Score
-9.1 / 10
-
-✓ Price Verified
-✓ Availability Verified
-✓ Specifications Verified
-
-Last verified:
-September 29, 2026
-```
-
-The shopper can then ask:
-
-```text
-Why does Confĩa give this product a 9.1?
-```
-
-Confĩa returns the deterministic scoring breakdown.
-
----
-
-# Merchant Dashboard
-
-ChatGPT represents the customer-facing experience.
-
-The Confĩa website primarily demonstrates the business-facing experience.
-
-Example:
-
-```text
-┌──────────────────────────────────────┐
-│ CONFĨA BUSINESS DASHBOARD            │
-├──────────────────────────────────────┤
-│                                      │
-│ 20V Cordless Drill                   │
-│ Demo Brand                           │
-│                                      │
-│ VERIFICATION                         │
-│                                      │
-│ Price              ✓ Verified        │
-│ Availability       ✓ Verified        │
-│ Specifications     ✓ Verified        │
-│ Reviews            ⚠ Partial         │
-│ Freshness          ✓ Current         │
-│                                      │
-│ ───────────────────────────────────  │
-│                                      │
-│ TRUST SCORE™                         │
-│                                      │
-│             8.7 / 10                 │
-│                                      │
-│ [ View Breakdown ]                   │
-│                                      │
-└──────────────────────────────────────┘
-```
-
-For the hackathon, merchant submission can remain simulated or ephemeral.
-
-Production authentication, billing, and merchant permissions are deferred. The initial remote MCP endpoint exposes only read-only synthetic data; any later durable merchant writes require authorization before deployment.
-
----
-
-# English and Spanish Support
-
-English and Spanish experiences should use the same underlying verified product information.
-
-```text
-                 CONFĨA PRODUCT
-                     RECORD
-                       │
-             ┌─────────┴─────────┐
-             │                   │
-             ▼                   ▼
-          ENGLISH             ESPAÑOL
-             │                   │
-             └─────────┬─────────┘
-                       ▼
-                    CHATGPT
-```
-
-English example:
-
-```text
-Find me an affordable drill for projects
-around my house.
-```
-
-Spanish example:
-
-```text
-Necesito un taladro económico para
-proyectos en mi casa.
-```
-
-The conversational language can change.
-
-The underlying:
-
-```text
-Price
-Availability
-Specifications
-Trust Score
-Evidence
-```
-
-must remain grounded in the same verified product record.
-
----
-
-# Hallucination and Discrepancy Detection
-
-Confĩa can compare information presented during an AI interaction against a verified record.
-
-Example:
-
-```text
-AI-PRESENTED INFORMATION
-
-Price:
-$199.99
-
-          │
-          ▼
-
-CONFĨA VERIFIED INFORMATION
-
-Price:
-$149.99
-
-          │
-          ▼
-
-⚠ POTENTIAL INFORMATION DISCREPANCY
-```
-
-Confĩa should not automatically conclude:
-
-```text
-"AI hallucinated."
-```
-
-The information could simply have changed.
-
-Instead, Confĩa reports:
-
-```text
-Potential discrepancy detected.
-
-Presented: $199.99
-Verified:  $149.99
-
-Confĩa verification date:
-September 29, 2026
-```
-
-This gives the shopper evidence rather than asking them to blindly trust either system.
-
----
-
-# Development Priority
-
-For the hackathon, development should happen in this order:
-
-```text
-[ ] 1. Create 8-12 demo products
-
-       ↓
-
-[ ] 2. Implement Trust Score algorithm
-
-       ↓
-
-[ ] 3. Implement product search
-
-       ↓
-
-[ ] 4. Implement verification logic
-
-       ↓
-
-[ ] 5. Build MCP server
-
-       ↓
-
-[ ] 6. Connect MCP server to ChatGPT
-
-       ↓
-
-[ ] 7. Test English query
-
-       ↓
-
-[ ] 8. Test Spanish query
-
-       ↓
-
-[ ] 9. Implement discrepancy example
-
-       ↓
-
-[ ] 10. Build merchant dashboard
-```
-
-The primary development priority is:
-
-> **Get Confĩa working through ChatGPT before spending significant time polishing the merchant dashboard.**
-
----
-
-# Testing
-
-In addition to domain tests, verify MCP initialization, tool discovery, all four schemas, structured/text result parity, error envelopes, invalid arguments, and request cancellation. Rehearse actual ChatGPT tool traces and final answers in both languages using [the acceptance matrix](docs/CHATGPT_SETUP.md#rehearsal-matrix).
-
-At minimum, test:
-
-### Trust Scores
-
-```text
-✓ Score never below 0
-✓ Score never above 10
-✓ Missing evidence decreases score
-✓ Stale information affects freshness
-✓ Unassessed products have no score
-```
-
-### Product Search
-
-```text
-✓ Budget constraints work
-✓ Relevant categories work
-✓ Unverified products remain possible results
-```
-
-### Language
-
-```text
-✓ English and Spanish use the same product IDs
-✓ Price does not change during translation
-✓ Trust Score does not change during translation
-```
-
-### Verification
-
-```text
-✓ Matching claim passes
-✓ Conflicting claim generates discrepancy
-✓ Unknown information remains unknown
-```
-
----
-
-# Deployment
-
-Deploy one Node.js MCP service exposing `/mcp`, `/health`, and `/ready`. For the chosen demo path, ChatGPT connects to a reachable HTTPS URL ending in `/mcp`; MCP Inspector can test localhost directly. A development tunnel or compatible deployed host provides the remote endpoint.
-
-Verify transport/proxy compatibility, catalog readiness, and the four tool schemas before connecting the demo account. Use a stable endpoint for judging, refresh the connection if the URL or tool catalog changes, and keep only synthetic public data in no-auth mode.
-
-Follow the [connection and rehearsal guide](docs/CHATGPT_SETUP.md), which links current official OpenAI guidance and describes the Secure MCP Tunnel alternative. ChatGPT connection is a required acceptance gate, not an optional integration after frontend work.
-
-No host has been provisioned and no ChatGPT account has been connected by this documentation change.
-
----
-
-# Demo Walkthrough
-
-## Step 1: Start in ChatGPT
-
-Ask:
-
-```text
-Find me a cordless drill under $200
-for projects around my house.
-```
-
----
-
-## Step 2: Use Confĩa
-
-ChatGPT retrieves relevant product information through Confĩa.
-
----
-
-## Step 3: Show Verification
-
-Demonstrate:
-
-```text
-✓ CONFĨA VERIFIED
-
-Trust Score
-9.1 / 10
-```
-
----
-
-## Step 4: Explain the Score
-
-Ask:
-
-```text
-Why is this product a 9.1?
-```
-
-Confĩa returns:
-
-```text
-Price                 ✓
-Availability          ✓
-Specifications        ✓
-Freshness             ✓
-Supporting Evidence   ✓
-```
-
----
-
-## Step 5: Show a Discrepancy
-
-Present:
-
-```text
-Product price:
-$199.99
-```
-
-Confĩa responds:
-
-```text
-⚠ POTENTIAL DISCREPANCY
-
-Presented:
-$199.99
-
-Verified:
-$149.99
-```
-
----
-
-## Step 6: Switch to Spanish
-
-Ask:
-
-```text
-Necesito un taladro de menos de $200
-para proyectos en mi casa.
-```
-
-Show that the same verified underlying product information supports the Spanish experience.
-
----
-
-## Step 7: Business Side
-
-Open the Confĩa merchant dashboard.
-
-Show:
-
-```text
-PRODUCT
-
-20V Cordless Drill
-
-Price              ✓
-Stock              ✓
-Specifications     ✓
-Reviews            ⚠
-
-Trust Score
-
-8.7 / 10
-```
-
----
-
-# Complete Demo Story
-
-```text
-MERCHANT
-   │
-   ▼
-SUBMITS PRODUCT INFORMATION
-   │
-   ▼
-CONFĨA VERIFICATION ENGINE
-   │
-   ▼
-TRUST SCORE™
-   │
-   ▼
-CONFĨA MCP SERVER
-   │
-   ▼
-CHATGPT
-   │
-   ▼
-CUSTOMER
-```
-
-In one sentence:
-
-> **ChatGPT handles the conversation. Confĩa handles verification.**
-
----
-
-# Backup Demo
-
-Use MCP Inspector or a small local demo runner calling the same domain services when ChatGPT is unavailable. Show search, exact score breakdowns, and claim comparison without building another shopper application. Describe this accurately as backend verification rather than a completed ChatGPT integration.
-
-A later minimal merchant/backup panel can reuse an admin adapter. It must not duplicate scoring or become a prerequisite for the primary demo.
-
----
-
-# Roadmap
-
-- [x] Product direction and ChatGPT-first architecture
-- [x] Proposed scoring policy and four MCP tool contracts
-- [x] Environment templates and connection/rehearsal guide
-- [ ] Node.js/TypeScript MCP scaffold, locked dependencies, configuration validation
-- [ ] 8–12 synthetic products and evidence fixtures
-- [ ] Scoring, search, and discrepancy services with tests
-- [ ] Four read-only tools and MCP transport tests
-- [ ] Reachable endpoint and ChatGPT developer-mode connection
-- [ ] English/Spanish demo, evidence explanations, and failure-case evaluation
-- [ ] Local fallback runner
-- [ ] Optional merchant dashboard after the core demo works
-- [ ] Persistent database, authorization, and recurring assessment
-
----
-
-# Business and Governance
-
-The original business proposal assumes:
-
-```text
-Subscription:
-$6,000 / month
-
-Annual:
-$72,000 / year
-
-One-Time Onboarding:
-$15,000
-
-Products:
-Up to 500 priority products
-```
-
-These are hackathon business assumptions and are not finalized commercial pricing.
+It means Confĩa currently does not have enough verified information to assign a score.
 
 ---
 
 # Payment Does Not Buy Trust
 
-Confĩa operates around a critical governance principle:
+One of Confĩa's most important principles is:
 
-> **A business pays Confĩa to be assessed, not to receive a good score.**
+> **Companies pay to be assessed. They do not pay for the result.**
 
 ```text
 PAYMENT
@@ -987,105 +450,648 @@ PAYMENT
 HIGH SCORE
 ```
 
-A paying company could still receive:
+A paying customer can still receive:
 
 ```text
-4.2 / 10
+Trust Score: 4.2 / 10
 ```
 
 ---
 
 # Sponsorship
 
-Verification and sponsorship are different.
-
-A future sponsored placement should be labeled:
+Sponsorship and verification must remain separate.
 
 ```text
-SPONSORED
+Sponsored
 ```
 
-A Confĩa assessment should be labeled:
+represents a commercial relationship.
 
 ```text
-✓ VERIFIED
+✓ Confĩa Verified
 Trust Score: 8.9
 ```
 
-A product can therefore potentially be:
+represents the verification result.
+
+A product could therefore be:
 
 ```text
 Sponsored + Verified
+
 Sponsored + Unverified
+
 Not Sponsored + Verified
+
 Not Sponsored + Unverified
 ```
 
-Commercial relationships should never silently modify Trust Scores.
+Sponsorship does not modify the Trust Score.
 
 ---
 
-# Prototype Limitations
+# MCP Server
 
-This repository represents a proof-of-concept.
+The MCP server exposes the shared Confĩa services to compatible conversational AI systems.
 
-The hackathon implementation does NOT claim to provide:
+The prototype should expose four primary tools:
 
 ```text
+search_products()
+
+get_product()
+
+get_trust_score()
+
+verify_product_claim()
+```
+
+---
+
+## search_products()
+
+Find products relevant to a shopping request.
+
+Example:
+
+```json
+{
+  "query": "cordless drill for home projects",
+  "maxPriceMinor": 20000,
+  "currency": "USD",
+  "locale": "en"
+}
+```
+
+---
+
+## get_product()
+
+Retrieve Confĩa's canonical information for a product.
+
+Possible fields:
+
+```text
+Name
+Brand
+SKU
+Price
+Availability
+Specifications
+Verification Date
+Trust Score
+Evidence
+```
+
+---
+
+## get_trust_score()
+
+Returns the deterministic score and breakdown.
+
+```text
+Trust Score
+
+9.1 / 10
+
+Price                 ✓
+Availability          ✓
+Specifications        ✓
+Freshness             ✓
+Evidence              ✓
+```
+
+---
+
+## verify_product_claim()
+
+Compares presented information against the Confĩa record.
+
+```text
+Presented Price
+
+$199.99
+
+      ↓
+
+Confĩa Verified Price
+
+$149.99
+
+      ↓
+
+⚠ POTENTIAL DISCREPANCY
+```
+
+---
+
+# Discrepancy Detection
+
+Confĩa should not automatically classify every disagreement as a hallucination.
+
+For example:
+
+```text
+AI-Presented Price
+$199.99
+
+Confĩa Verified Price
+$149.99
+
+Last Verified
+September 29, 2026
+```
+
+The appropriate result is:
+
+```text
+⚠ Potential information discrepancy detected.
+```
+
+The underlying information may have changed.
+
+Confĩa provides the evidence and lets the user understand the conflict.
+
+---
+
+# English and Spanish Support
+
+Confĩa uses the same verified underlying facts for both languages.
+
+```text
+                 VERIFIED PRODUCT
+                      RECORD
+                        │
+              ┌─────────┴─────────┐
+              │                   │
+              ▼                   ▼
+           ENGLISH             ESPAÑOL
+              │                   │
+              └─────────┬─────────┘
+                        ▼
+                  AI EXPERIENCE
+```
+
+English:
+
+```text
+Find me an affordable drill for projects
+around my house.
+```
+
+Spanish:
+
+```text
+Necesito un taladro económico para
+proyectos en mi casa.
+```
+
+The presentation language changes.
+
+These should not:
+
+```text
+Price
+Availability
+Product ID
+Trust Score
+Verification
+Evidence
+```
+
+---
+
+# Technology Stack
+
+## Monorepo
+
+```text
+Turborepo
+npm workspaces (one root package-lock.json)
+TypeScript
+```
+
+## Business Platform
+
+```text
+Next.js
+React
+TypeScript
+Tailwind CSS
+shadcn/ui
+```
+
+## MCP Service
+
+```text
+Node.js
+TypeScript
+Model Context Protocol
+```
+
+## Shared Business Logic
+
+```text
+TypeScript
+```
+
+Shared packages contain:
+
+```text
+Trust Score Engine
+Verification Engine
+Product Types
+Search Logic
+Product Data Access
+```
+
+## Data
+
+Prototype:
+
+```text
+JSON
+demo-products.json
+```
+
+Future:
+
+```text
+Supabase
+PostgreSQL
+```
+
+## Deployment
+
+```text
+GitHub
+     ↓
+Vercel / Compatible Hosting
+     ↓
+apps/web
+
+Public server deployment
+     ↓
+apps/mcp-server
+     ↓
+ChatGPT
+```
+
+---
+
+# Demo Data
+
+For the hackathon, use approximately 8-12 clearly labeled demonstration products.
+
+Include:
+
+```text
+2 Highly Verified Products
+
+2 Mostly Verified Products
+
+2 Partially Verified Products
+
+1 Stale Product
+
+1 Unverified Product
+
+1 Product with a Deliberate
+Information Discrepancy
+```
+
+Example:
+
+```text
+Presented Price:
+$199
+
+Verified Price:
+$149
+```
+
+Demo data should be identified as synthetic/demo information.
+
+---
+
+# Development Setup
+
+Use Node **24.14.1** (`.node-version`) and npm **11.11.0**. Install from the repository root:
+
+```bash
+npm ci
+npm run setup:env
+npm run dev
+```
+
+`setup:env` creates each app's local configuration only if it does not already exist. Root legacy `.env.local` files are not read by either application.
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start both app shells through Turborepo |
+| `npm run dev:web` | Business website at `http://localhost:3000` |
+| `npm run dev:mcp` | Service bootstrap at `http://localhost:3001` |
+| `npm run check` | Dependency boundaries, all TypeScript checks, bootstrap integration test |
+| `npm run build` | Build both applications and validate shared packages |
+| `npm run start:web` | Serve the built business website |
+| `npm run start:mcp` | Serve the built Node service |
+
+Current business routes: `/`, `/dashboard`, and `/dashboard/products`, `/verification`, `/discrepancies`, `/analytics` under the dashboard prefix. These are starter pages with explicit empty states. Product details and full workflows are planned.
+
+The service currently returns 200 at `/health`, 503 at `/ready`, and 501 at `/mcp`. This is intentional: its process runs, but MCP transport/tools are not implemented. Follow [ChatGPT setup](docs/CHATGPT_SETUP.md) after the MCP milestone; do not treat a healthy process as a connected ChatGPT integration.
+
+## Workspace ownership
+
+| Location | Owns |
+| --- | --- |
+| `apps/web` | Company-facing landing page, dashboard, product/evidence views, synthetic analytics |
+| `apps/mcp-server` | Four shopper tools, MCP transport, tool schemas and errors |
+| `packages/types` | Canonical contracts and shared vocabulary |
+| `packages/trust-engine` | Deterministic score policy and future calculation |
+| `packages/verification` | Evidence eligibility and future discrepancy comparison |
+| `packages/product-data` | Canonical catalog plus shared use-case orchestration for both apps |
+| `packages/ui` | React presentation only; never imported by MCP |
+| `data` | Single versioned synthetic product fixture source |
+
+See [Architecture](docs/ARCHITECTURE.md), [API contracts](docs/API.md), and [Implementation plan](docs/IMPLEMENTATION.md) for the dependency graph, two-app acceptance criteria, and work ownership. Tailwind/shadcn are target UI choices; the starter uses plain CSS until those components are needed.
+
+---
+
+# Environment Configuration
+
+Environment files are scoped to the application that consumes them:
+
+| File | Current variables | Loading |
+| --- | --- | --- |
+| `apps/web/.env.local` | `NEXT_PUBLIC_APP_URL=http://localhost:3000` | Next.js automatically loads it; public metadata origin only |
+| `apps/mcp-server/.env.local` | `PORT=3001` | Node dev/start commands explicitly load it |
+| Root `.env.example` | Migration guidance only | Not loaded |
+| Root `.env.test.example` | Reserved test guidance | Tests currently inject values directly |
+
+Use the corresponding committed `.env.example` templates, not real secrets in Git. App-local `.env.local` files are ignored. An OpenAI API key is unnecessary because ChatGPT handles the conversation; database/authentication credentials will be introduced only with those future features.
+
+---
+# Development Priority
+
+For the hackathon:
+
+```text
+[x] 1. MONOREPO SCAFFOLD
+        ↓
+[ ] 2. DEMO PRODUCT DATA
+        ↓
+[ ] 3. TRUST SCORE ENGINE
+        ↓
+[ ] 4. VERIFICATION ENGINE
+        ↓
+[ ] 5. PRODUCT SEARCH
+        ↓
+[ ] 6. MCP SERVER
+        ↓
+[ ] 7. CHATGPT CONNECTION
+        ↓
+[ ] 8. ENGLISH + SPANISH
+        ↓
+[ ] 9. DISCREPANCY DEMO
+        ↓
+[ ] 10. LANDING PAGE
+        ↓
+[ ] 11. BUSINESS DASHBOARD
+        ↓
+[ ] 12. POLISH
+```
+
+Prioritize the **working ChatGPT + Confĩa flow** before advanced dashboard features. The landing page, business dashboard, verification views, and labeled demo analytics remain required MVP deliverables. See the dependency-ordered [implementation plan](docs/IMPLEMENTATION.md).
+
+---
+
+# Demo Walkthrough
+
+## 1. Business
+
+Start from the Confĩa landing page.
+
+Explain:
+
+> Confĩa gives businesses a way to verify the information AI shoppers may rely upon.
+
+---
+
+## 2. Dashboard
+
+Show:
+
+```text
+Products
+Trust Scores
+Verification Status
+Analytics
+Discrepancies
+```
+
+---
+
+## 3. Enter ChatGPT
+
+Ask:
+
+```text
+Find me a cordless drill under $200
+for projects around my house.
+```
+
+---
+
+## 4. Confĩa Verification
+
+Show:
+
+```text
+✓ CONFĨA VERIFIED
+
+9.1 / 10
+```
+
+---
+
+## 5. Explain
+
+Ask:
+
+```text
+Why does Confĩa give this a 9.1?
+```
+
+Show the verification breakdown.
+
+---
+
+## 6. Catch Incorrect Information
+
+Demonstrate:
+
+```text
+Presented:
+$199
+
+Verified:
+$149
+
+⚠ Potential discrepancy
+```
+
+---
+
+## 7. Spanish
+
+Ask:
+
+```text
+Necesito un taladro de menos de $200
+para proyectos en mi casa.
+```
+
+Demonstrate the same verified underlying information.
+
+---
+
+# Complete Product Story
+
+```text
+                  BUSINESS
+                     │
+                     ▼
+               CONFĨA WEB
+                     │
+             Product Information
+                     │
+                     ▼
+            VERIFICATION ENGINE
+                     │
+                     ▼
+              TRUST SCORE™
+                     │
+                     ▼
+                MCP SERVER
+                     │
+                     ▼
+                  CHATGPT
+                     │
+                     ▼
+                  SHOPPER
+                     │
+                     ▼
+          VISIBILITY + ENGAGEMENT
+                     │
+                     ▼
+             BUSINESS ANALYTICS
+```
+
+---
+
+# Prototype Success Criteria
+
+The prototype succeeds if we can demonstrate:
+
+- [ ] Company-facing landing page
+- [ ] Business dashboard
+- [ ] Demo product catalog
+- [ ] Deterministic Trust Scores
+- [ ] Verification breakdown
+- [ ] MCP product search
+- [ ] ChatGPT integration
+- [ ] Verified and unverified products
+- [ ] Discrepancy detection
+- [ ] English/Spanish interaction
+- [ ] Demonstration analytics
+
+---
+
+# Out of Scope
+
+Do NOT prioritize these for the hackathon:
+
+```text
+× Payment processing
+× Real Home Depot integration
+× Real Lowe's integration
+× Enterprise authentication
+× 500 products
 × Production certification
-× Real retailer partnerships
-× Universal ChatGPT distribution
 × Real-time retailer inventory
-× Enterprise security certification
-× Full product-market validation
-× Production-scale verification
+× Large analytics pipelines
+× Automatic retailer scraping
+× Full conversion attribution
 ```
-
-Demo/synthetic information should remain clearly identified.
 
 ---
 
-# Future Vision
+# Future Development
 
-A production version of Confĩa could eventually support:
+Confĩa could eventually support:
 
 ```text
-More merchants
-More product categories
-Additional languages
-Large product catalogs
-Recurring product verification
-Automated catalog synchronization
+Retailer APIs
+Large Product Catalogs
+More AI Assistants
+More Languages
+Recurring Verification
 Historical Trust Scores
-Independent evidence sources
-Merchant analytics
-AI visibility analytics
-Referral tracking
-Conversion attribution
-Additional AI assistants
+Evidence Auditing
+Merchant Authentication
+Real Analytics
+Referral Tracking
+Conversion Attribution
+Automated Catalog Synchronization
 ```
 
-The core architecture remains:
+---
+
+# Business Model
+
+The current hackathon business proposal assumes:
 
 ```text
-VERIFY
-   ↓
-SCORE
-   ↓
-CONNECT
-   ↓
-EXPLAIN
-   ↓
-TRUST
+Enterprise Subscription
+
+$6,000 / month
+$72,000 / year
+
++
+
+One-Time Onboarding
+
+$15,000
 ```
+
+The proposed subscription covers up to:
+
+```text
+500 priority products
+```
+
+These are hackathon planning assumptions and not finalized commercial pricing.
+
+---
+
+# Governance
+
+Confĩa follows four core principles:
+
+### 1. Companies pay for assessment, not scores.
+
+### 2. Sponsorship and verification remain separate.
+
+### 3. Trust Scores must be explainable.
+
+### 4. AI should help communicate information, not determine what is true.
 
 ---
 
 # Team
 
-Developed by the UCF team for the:
-
-## 2026 HSI Battle of the Brains
+Developed by the UCF team for the **2026 HSI Battle of the Brains**.
 
 - Sebastian Cardenas
 - Javier Cuevas
@@ -1098,26 +1104,25 @@ Developed by the UCF team for the:
 
 ---
 
-# Project Status
+# Final Vision
 
-**HACKATHON PROOF-OF-CONCEPT**
+Confĩa is not another AI shopping assistant.
 
-Confĩa demonstrates how independently assessed product information could provide an additional trust layer within AI-assisted shopping.
-
-The Trust Score methodology and integration contracts are proposed prototype designs. Implementation and validation remain outstanding.
-
----
-
-# Confĩa
-
-> ## **AI helps you find it. Confĩa helps you trust it.**
+It is infrastructure connecting:
 
 ```text
-AI DISCOVERY
-     ↓
+BUSINESSES
+     │
+     ▼
 VERIFIED INFORMATION
-     ↓
-TRANSPARENCY
-     ↓
-CONFIDENCE
+     │
+     ▼
+AI SHOPPING
+     │
+     ▼
+CUSTOMERS
 ```
+
+Our core value proposition remains simple:
+
+> # **AI helps you find it. Confĩa helps you trust it.**
