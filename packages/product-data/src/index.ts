@@ -64,8 +64,8 @@ export function verifyProductClaim(input: ClaimsInput, now = new Date()) {
   if (args.claims.availability !== undefined) results.push(compareClaim(product, "availability", args.claims.availability, undefined, now));
   return { ...base(now), productId: product.id, revisionId: product.revisionId, links: product.links, results };
 }
-export function getDashboard(now = new Date()) {
-  const products = catalog.products.map(p => getProduct({ productId: p.id }, now));
+export function getDashboard(locale: "en" | "es" = "en", now = new Date()) {
+  const products = catalog.products.map(p => getProduct({ productId: p.id, locale }, now));
   const assessed = products.filter(p => p.trustScore !== null);
   return { ...base(now), products, averageTrustScore: assessed.length ? Math.round(assessed.reduce((sum, p) => sum + p.trustScore!, 0) / assessed.length * 10) / 10 : null, verifiedCount: products.filter(p => p.verificationState === "verified").length };
 }

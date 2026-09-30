@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import type { Locale } from "./i18n";
+import { t } from "./i18n";
 
-export default function LandingHero() {
+export default function LandingHero({ locale }: { locale: Locale }) {
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -37,23 +39,20 @@ export default function LandingHero() {
     <section ref={heroRef} className="landing-hero landing-hero-shell">
       <div className="hero-spotlight" aria-hidden="true" />
       <div className="hero-content">
-        <p className="eyebrow">FOR HISPANIC BUSINESSES · BUILT FOR AI DISCOVERY</p>
+        <p className="eyebrow">{t(locale, "heroEyebrow")}</p>
         <h1>
-          Help your business earn <span className="glow-word">trust.</span>
+          {locale === "es" ? "Ayuda a tu negocio a ganar " : "Help your business earn "}<span className="glow-word">{locale === "es" ? "confianza." : "trust."}</span>
           <br />
-          In every AI answer.
+          {locale === "es" ? "En cada respuesta de IA." : "In every AI answer."}
         </h1>
-        <p className="lead">
-          Confía gives growing businesses a clear way to verify product information, show up
-          accurately in AI shopping, and explain what makes each claim trustworthy.
-        </p>
+        <p className="lead">{t(locale, "heroDescription")}</p>
         <div className="hero-audience-proof">
-          <span>EN · ES</span>
-          <span>For growing product teams</span>
-          <span>Evidence-linked signals</span>
+          <span>{t(locale, "bilingualSupport")}</span>
+          <span>{t(locale, "productTeams")}</span>
+          <span>{t(locale, "evidenceScore")}</span>
         </div>
         <Link className="button" href="/dashboard">
-          Explore the business workspace
+          {t(locale, "getStarted")} <span>↗</span>
         </Link>
       </div>
     </section>

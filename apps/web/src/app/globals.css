@@ -131,3 +131,30 @@ body { background: radial-gradient(circle at 8% 0%, rgba(28,87,57,.32), transpar
 .metric-card-feature { border-color: rgba(45,100,75,.65); background: radial-gradient(circle at 90% 0%, rgba(45,100,75,.28), transparent 15rem), linear-gradient(145deg, rgba(28,87,57,.78), rgba(12,28,19,.86)); }.progress-track { background: rgba(191,191,191,.18); }.progress-track span, .mini-progress span { background: var(--surface-green); box-shadow: 0 0 12px rgba(45,100,75,.7); }.metric-icon, .activity-symbol.green, .quick-icon.green { color: var(--neutral-gray); background: rgba(45,100,75,.3); }.metric-icon.purple, .activity-symbol.purple, .quick-icon.purple { color: #8bb89d; background: rgba(45,100,75,.25); }.metric-icon.amber, .activity-symbol.amber, .quick-icon.amber { color: var(--neutral-gray); background: rgba(191,191,191,.12); }.metric-icon.blue, .activity-symbol.blue { color: #8bb89d; background: rgba(45,100,75,.25); }
 .donut { background: conic-gradient(var(--surface-green) 0 36%, #7eaa8e 36% 66%, var(--neutral-gray) 66% 100%); }.legend-green { background: var(--surface-green); }.legend-purple { background: #7eaa8e; }.legend-amber { background: var(--neutral-gray); }.quick-action:hover { border-color: rgba(45,100,75,.7); background: rgba(45,100,75,.14); }.state-badge { color: #8fc7a4; border-color: rgba(45,100,75,.7); background: rgba(45,100,75,.2); }.state-badge.partial, .state-badge.warning, .state-badge.conflicting, .state-badge.stale { color: var(--neutral-gray); border-color: rgba(191,191,191,.3); background: rgba(191,191,191,.09); }.table-score, .hero-score strong { color: #8fc7a4; }.hero-score { border-color: rgba(45,100,75,.6); background: rgba(45,100,75,.15); }.landing-trust-section { border-color: rgba(45,100,75,.65); background: radial-gradient(circle at 90% 10%, rgba(45,100,75,.3), transparent 23rem), rgba(16,42,27,.84); }.proof-status, .proof-score { color: #8fc7a4; }.proof-bars b { background: var(--surface-green); }.proof-check { color: #f4f7f3; background: var(--surface-green); }.landing-visibility-section h2 em { color: #8fc7a4; }
 
+.site-header nav { font-size: 13px; }
+.header-account { font-size: 9px; }
+.site-footer { font-size: 12px; }
+.demo-notice { font-size: 12px; }
+.eyebrow { font-size: 10px; }
+.dashboard-lead { font-size: 15px; }
+.metric-label, .activity-item strong, .quick-action strong { font-size: 11px; }
+.metric-card p { font-size: 11px; }
+.activity-item small, .activity-item time { font-size: 10px; }
+.panel-link, .metric-link { font-size: 11px; }
+.quick-action small { font-size: 9px; }
+.state-badge { font-size: 9px; }
+.table-score { font-size: 16px; }
+.language-switcher { display: inline-flex; align-items: center; gap: 5px; margin-left: 6px; color: #819488; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .08em; white-space: nowrap; }
+.language-switcher button { padding: 3px 2px; color: inherit; border: 0; background: transparent; font: inherit; }
+.language-switcher button.active, .language-switcher button:hover { color: #d6e9da; }
+
+/* Keep the language selector and navigation trigger together at the header edge. */
+.header-controls { display: flex; align-items: center; gap: 14px; margin-left: auto; }
+.header-controls .menu-trigger { margin-left: 0; }
+.header-controls .language-switcher { margin-left: 0; }
+
+@media (max-width: 620px) {
+  .site-header { min-height: 64px; flex-direction: row; align-items: center; padding: 13px 20px; }
+  .header-controls { gap: 10px; }
+  .header-controls .menu-trigger { position: static; }
+}
