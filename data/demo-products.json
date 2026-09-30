@@ -2217,6 +2217,981 @@
           }
         }
       ]
+    },
+    {
+      "id": "dell-xps-13",
+      "revisionId": "dell-xps-13-v1",
+      "sku": "XPS-13",
+      "brand": "Dell Technologies",
+      "category": "computers",
+      "name": {
+        "en": "Dell XPS 13 Laptop",
+        "es": "Laptop Dell XPS 13"
+      },
+      "description": {
+        "en": "Reference record based on Dell's public XPS 13 page. Product positioning and support/return policy facts are tracked with source URLs; live configuration price and stock are not treated as verified because Dell pricing and availability can vary by configuration and region.",
+        "es": "Registro de referencia basado en la página pública de Dell para XPS 13. El posicionamiento del producto y datos de soporte/devolución se rastrean con URLs de fuente; el precio y disponibilidad en vivo no se tratan como verificados porque pueden variar por configuración y región."
+      },
+      "keywords": [
+        "dell",
+        "xps",
+        "laptop",
+        "computer",
+        "touchscreen",
+        "portatil"
+      ],
+      "priceMinor": 0,
+      "currency": "USD",
+      "availability": "Unknown",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 0,
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "dell-xps-13-price",
+          "sourceLabel": "Dell official XPS 13 product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dell.com/en-us/shop/dell-laptops/xps-13-laptop/spd/xps-13-9350-laptop",
+          "reason": {
+            "en": "Dell product pricing can vary by configuration, promotion, and region; no stable single price is verified in this catalog record.",
+            "es": "El precio de Dell puede variar por configuración, promoción y región; este registro no verifica un precio único estable."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "Unknown",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "dell-xps-13-availability",
+          "sourceLabel": "Dell official XPS 13 product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dell.com/en-us/shop/dell-laptops/xps-13-laptop/spd/xps-13-9350-laptop",
+          "reason": {
+            "en": "The reviewed page did not provide a single durable stock status for this catalog fixture.",
+            "es": "La página revisada no proporcionó un estado de inventario único y duradero para este registro."
+          }
+        },
+        {
+          "key": "productType",
+          "group": "specifications",
+          "value": "thin and light laptop",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "dell-xps-13-productType",
+          "sourceLabel": "Dell official XPS 13 product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dell.com/en-us/shop/dell-laptops/xps-13-laptop/spd/xps-13-9350-laptop",
+          "reason": {
+            "en": "Dell describes XPS 13 as built with a thin and light design.",
+            "es": "Dell describe la XPS 13 como construida con un diseño delgado y liviano."
+          }
+        },
+        {
+          "key": "display",
+          "group": "specifications",
+          "value": "touchscreen",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "dell-xps-13-display",
+          "sourceLabel": "Dell official XPS 13 product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dell.com/en-us/shop/dell-laptops/xps-13-laptop/spd/xps-13-9350-laptop",
+          "reason": {
+            "en": "Dell's page describes the XPS 13 experience as including a touchscreen.",
+            "es": "La página de Dell describe la experiencia XPS 13 como incluyendo pantalla táctil."
+          }
+        },
+        {
+          "key": "battery",
+          "group": "specifications",
+          "value": "long-lasting battery life",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "dell-xps-13-battery",
+          "sourceLabel": "Dell official XPS 13 product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dell.com/en-us/shop/dell-laptops/xps-13-laptop/spd/xps-13-9350-laptop",
+          "reason": {
+            "en": "Dell's XPS 13 page states the product is for study and work with long-lasting battery life.",
+            "es": "La página de XPS 13 de Dell indica que el producto es para estudio y trabajo con batería de larga duración."
+          }
+        },
+        {
+          "key": "support",
+          "group": "supportingEvidence",
+          "value": "Dell Support includes Support Home, Drivers and Downloads, Order Support, Warranty and Contracts, and Parts and Upgrades links",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "dell-xps-13-support",
+          "sourceLabel": "Dell official site support section, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dell.com/en-us",
+          "reason": {
+            "en": "Dell's site lists support destinations for support home, drivers, order support, warranty/contracts, and parts/upgrades.",
+            "es": "El sitio de Dell lista destinos de soporte para inicio de soporte, controladores, soporte de pedidos, garantías/contratos y partes/actualizaciones."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "30-day return period from invoice date, exceptions apply",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "dell-xps-13-returns",
+          "sourceLabel": "Dell official site return-policy disclaimer, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dell.com/en-us/lp/return-policy",
+          "reason": {
+            "en": "Dell's site states the 30-day return period is calculated from invoice date and that exceptions apply.",
+            "es": "El sitio de Dell indica que el período de devolución de 30 días se calcula desde la fecha de factura y que aplican excepciones."
+          }
+        }
+      ]
+    },
+    {
+      "id": "crowdstrike-falcon-prevent",
+      "revisionId": "crowdstrike-falcon-prevent-v1",
+      "sku": "FALCON-PREVENT",
+      "brand": "CrowdStrike",
+      "category": "cybersecurity-service",
+      "name": {
+        "en": "CrowdStrike Falcon Prevent",
+        "es": "CrowdStrike Falcon Prevent"
+      },
+      "description": {
+        "en": "Reference record based on CrowdStrike's public Falcon Prevent page. The service is described as AI-powered next-generation antivirus for endpoint protection, with a free trial link and pricing handled through CrowdStrike's pricing/contact flows.",
+        "es": "Registro de referencia basado en la página pública de CrowdStrike Falcon Prevent. El servicio se describe como antivirus de nueva generación con IA para protección de endpoints, con enlace a prueba gratuita y precios gestionados mediante los flujos de precios/contacto de CrowdStrike."
+      },
+      "keywords": [
+        "crowdstrike",
+        "falcon",
+        "endpoint",
+        "antivirus",
+        "cybersecurity",
+        "security"
+      ],
+      "priceMinor": 0,
+      "currency": "USD",
+      "availability": "Unknown",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 0,
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "crowdstrike-falcon-prevent-price",
+          "sourceLabel": "CrowdStrike official Falcon Prevent page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.crowdstrike.com/en-us/products/falcon-prevent/",
+          "reason": {
+            "en": "The page links to pricing and contact flows but does not publish a single catalog price for this record.",
+            "es": "La página enlaza a flujos de precios y contacto, pero no publica un precio único para este registro."
+          }
+        },
+        {
+          "key": "trial",
+          "group": "availability",
+          "value": "15-day free trial link available",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "crowdstrike-falcon-prevent-trial",
+          "sourceLabel": "CrowdStrike official Falcon Prevent page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.crowdstrike.com/en-us/products/falcon-prevent/",
+          "reason": {
+            "en": "CrowdStrike's page includes a featured resource to try CrowdStrike free for 15 days.",
+            "es": "La página de CrowdStrike incluye un recurso destacado para probar CrowdStrike gratis durante 15 días."
+          }
+        },
+        {
+          "key": "serviceType",
+          "group": "specifications",
+          "value": "AI-powered next-generation antivirus",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "crowdstrike-falcon-prevent-serviceType",
+          "sourceLabel": "CrowdStrike official Falcon Prevent page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.crowdstrike.com/en-us/products/falcon-prevent/",
+          "reason": {
+            "en": "The page describes Falcon Prevent as modern prevention with AI-powered next-gen antivirus.",
+            "es": "La página describe Falcon Prevent como prevención moderna con antivirus de nueva generación impulsado por IA."
+          }
+        },
+        {
+          "key": "platformCoverage",
+          "group": "specifications",
+          "value": "Windows, macOS, and Linux",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "crowdstrike-falcon-prevent-platformCoverage",
+          "sourceLabel": "CrowdStrike official Falcon Prevent page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.crowdstrike.com/en-us/products/falcon-prevent/",
+          "reason": {
+            "en": "CrowdStrike states Falcon Prevent covers major operating systems: Windows, macOS, and Linux.",
+            "es": "CrowdStrike indica que Falcon Prevent cubre sistemas operativos principales: Windows, macOS y Linux."
+          }
+        },
+        {
+          "key": "deploymentModel",
+          "group": "specifications",
+          "value": "cloud-native platform with a single lightweight unified agent",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "crowdstrike-falcon-prevent-deploymentModel",
+          "sourceLabel": "CrowdStrike official Falcon Prevent page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.crowdstrike.com/en-us/products/falcon-prevent/",
+          "reason": {
+            "en": "CrowdStrike describes the platform as cloud-native and managed through a single lightweight unified agent and console.",
+            "es": "CrowdStrike describe la plataforma como nativa de la nube y gestionada mediante un agente unificado ligero y una consola."
+          }
+        },
+        {
+          "key": "offlineProtection",
+          "group": "specifications",
+          "value": true,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "crowdstrike-falcon-prevent-offlineProtection",
+          "sourceLabel": "CrowdStrike official Falcon Prevent page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.crowdstrike.com/en-us/products/falcon-prevent/",
+          "reason": {
+            "en": "The page states Falcon Prevent stops advanced threats even when offline.",
+            "es": "La página indica que Falcon Prevent detiene amenazas avanzadas incluso sin conexión."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "not published on product page",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "crowdstrike-falcon-prevent-returns",
+          "sourceLabel": "CrowdStrike official Falcon Prevent page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.crowdstrike.com/en-us/products/falcon-prevent/",
+          "reason": {
+            "en": "The reviewed page does not publish a return or cancellation policy for this catalog record.",
+            "es": "La página revisada no publica una política de devolución o cancelación para este registro."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ebay-selling",
+      "revisionId": "ebay-selling-v1",
+      "sku": "EBAY-SELLING",
+      "brand": "eBay",
+      "category": "marketplace-service",
+      "name": {
+        "en": "eBay Selling",
+        "es": "Venta en eBay"
+      },
+      "description": {
+        "en": "Reference record based on eBay's selling help page. The page documents listing, payments, seller tools, stores, advertising, shipping, and returns workflows rather than a single fixed-price product.",
+        "es": "Registro de referencia basado en la página de ayuda de ventas de eBay. La página documenta flujos de publicación, pagos, herramientas para vendedores, tiendas, publicidad, envíos y devoluciones, no un producto de precio fijo."
+      },
+      "keywords": [
+        "ebay",
+        "selling",
+        "marketplace",
+        "seller hub",
+        "store",
+        "listings"
+      ],
+      "priceMinor": 0,
+      "currency": "USD",
+      "availability": "Unknown",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 0,
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "ebay-selling-price",
+          "sourceLabel": "eBay selling help page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ebay.com/help/selling",
+          "reason": {
+            "en": "The selling help page is a workflow guide and does not publish a single fixed price for selling on eBay.",
+            "es": "La página de ayuda de ventas es una guía de flujo de trabajo y no publica un precio fijo único para vender en eBay."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "Unknown",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "ebay-selling-availability",
+          "sourceLabel": "eBay selling help page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ebay.com/help/selling",
+          "reason": {
+            "en": "The page describes seller workflows but does not provide a stock-style availability field.",
+            "es": "La página describe flujos para vendedores, pero no proporciona un campo de disponibilidad tipo inventario."
+          }
+        },
+        {
+          "key": "listingWorkflow",
+          "group": "specifications",
+          "value": "creating a listing is the first step in getting an item in front of buyers",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ebay-selling-listingWorkflow",
+          "sourceLabel": "eBay selling help page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ebay.com/help/selling/listings/creating-listing?id=4105",
+          "reason": {
+            "en": "eBay's help page states that creating a listing is the first step to get an item in front of buyers.",
+            "es": "La ayuda de eBay indica que crear un anuncio es el primer paso para poner un artículo frente a compradores."
+          }
+        },
+        {
+          "key": "payments",
+          "group": "specifications",
+          "value": "eBay manages end-to-end payments and sellers receive funds directly",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ebay-selling-payments",
+          "sourceLabel": "eBay selling help page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ebay.com/help/selling/getting-paid/start-getting-paid-ebay?id=4795",
+          "reason": {
+            "en": "eBay says it manages the end-to-end payment process and sellers receive funds directly in a checking account.",
+            "es": "eBay indica que gestiona el proceso de pagos de extremo a extremo y que los vendedores reciben fondos directamente en su cuenta corriente."
+          }
+        },
+        {
+          "key": "sellerHub",
+          "group": "specifications",
+          "value": "free central place for managing an eBay business",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ebay-selling-sellerHub",
+          "sourceLabel": "eBay selling help page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ebay.com/help/selling/selling-tools/seller-hub?id=4095",
+          "reason": {
+            "en": "eBay describes Seller Hub as free to use and a central place for managing an eBay business.",
+            "es": "eBay describe Seller Hub como gratuito y como un lugar central para gestionar un negocio en eBay."
+          }
+        },
+        {
+          "key": "storeSubscription",
+          "group": "supportingEvidence",
+          "value": "eBay Store subscription provides discounted fees, more free listings per month, and additional tools",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ebay-selling-storeSubscription",
+          "sourceLabel": "eBay selling help page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ebay.com/help/selling/ebay-stores/open-ebay-store?id=4092",
+          "reason": {
+            "en": "eBay says subscribing to an eBay Store gives discounted fees, more free listings per month, and additional tools.",
+            "es": "eBay indica que suscribirse a una tienda eBay ofrece tarifas con descuento, más anuncios gratuitos al mes y herramientas adicionales."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "seller may choose whether to accept remorse returns, but must generally accept damaged, not-as-described, or wrong-item returns",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ebay-selling-returns",
+          "sourceLabel": "eBay selling help page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ebay.com/help/selling/managing-returns-refunds/handle-return-request-seller?id=4115",
+          "reason": {
+            "en": "eBay's seller help says sellers can choose whether to accept change-of-mind returns, but generally need to accept returns when an item is damaged, not as described, or wrong.",
+            "es": "La ayuda para vendedores de eBay indica que los vendedores pueden elegir si aceptan devoluciones por cambio de opinión, pero generalmente deben aceptar devoluciones cuando el artículo llega dañado, no coincide con la descripción o es incorrecto."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ea-sports-fc-26",
+      "revisionId": "ea-sports-fc-26-v1",
+      "sku": "EA-SPORTS-FC-26",
+      "brand": "Electronic Arts",
+      "category": "video-game",
+      "name": {
+        "en": "EA SPORTS FC 26",
+        "es": "EA SPORTS FC 26"
+      },
+      "description": {
+        "en": "Reference record based on EA's public EA SPORTS FC 26 page. The page describes game features, platforms, authenticity, and disclaimers; regional price and storefront availability are not verified in this record.",
+        "es": "Registro de referencia basado en la página pública de EA SPORTS FC 26. La página describe funciones del juego, plataformas, autenticidad y avisos; el precio regional y disponibilidad por tienda no se verifican en este registro."
+      },
+      "keywords": [
+        "ea",
+        "electronic arts",
+        "fc 26",
+        "football",
+        "soccer",
+        "game"
+      ],
+      "priceMinor": 0,
+      "currency": "USD",
+      "availability": "Unknown",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 0,
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "ea-sports-fc-26-price",
+          "sourceLabel": "EA official EA SPORTS FC 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/ea-sports-fc/fc-26",
+          "reason": {
+            "en": "The public product page links to buying options but this record does not verify a single regional price.",
+            "es": "La página pública enlaza a opciones de compra, pero este registro no verifica un precio regional único."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "Unknown",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "ea-sports-fc-26-availability",
+          "sourceLabel": "EA official EA SPORTS FC 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/ea-sports-fc/fc-26",
+          "reason": {
+            "en": "The page shows buy/play calls to action but this catalog entry does not verify live storefront availability.",
+            "es": "La página muestra llamadas a comprar/jugar, pero este registro no verifica disponibilidad en vivo por tienda."
+          }
+        },
+        {
+          "key": "gameplay",
+          "group": "specifications",
+          "value": "overhauled gameplay with more responsive dribbling, smarter AI positioning, and sharper movement",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-sports-fc-26-gameplay",
+          "sourceLabel": "EA official EA SPORTS FC 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/ea-sports-fc/fc-26",
+          "reason": {
+            "en": "EA's feature page describes overhauled gameplay with responsive dribbling, smarter AI positioning, and sharper movement.",
+            "es": "La página de funciones de EA describe jugabilidad renovada con regate más sensible, posicionamiento de IA más inteligente y movimiento más explosivo."
+          }
+        },
+        {
+          "key": "modes",
+          "group": "specifications",
+          "value": "Ultimate Team, Career, Clubs, tournaments, live events, and international tournament mode",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-sports-fc-26-modes",
+          "sourceLabel": "EA official EA SPORTS FC 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/ea-sports-fc/fc-26",
+          "reason": {
+            "en": "EA lists Ultimate Team, Career, Clubs, tournaments/live events, and a 48-team international tournament mode on the page.",
+            "es": "EA lista Ultimate Team, Carrera, Clubs, torneos/eventos en vivo y un modo de torneo internacional de 48 selecciones en la página."
+          }
+        },
+        {
+          "key": "authenticity",
+          "group": "specifications",
+          "value": "20,000+ players, 750+ clubs and national teams, 120+ stadiums, and 35+ leagues",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-sports-fc-26-authenticity",
+          "sourceLabel": "EA official EA SPORTS FC 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/ea-sports-fc/fc-26",
+          "reason": {
+            "en": "EA's page claims 20,000+ players, 750+ clubs and national teams, 120+ stadiums, and 35+ leagues.",
+            "es": "La página de EA afirma 20,000+ jugadores, 750+ clubes y selecciones nacionales, 120+ estadios y 35+ ligas."
+          }
+        },
+        {
+          "key": "platforms",
+          "group": "specifications",
+          "value": "EA app, PlayStation, Xbox, Nintendo Switch, Steam, and Epic Games",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-sports-fc-26-platforms",
+          "sourceLabel": "EA official EA SPORTS FC 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/ea-sports-fc/fc-26",
+          "reason": {
+            "en": "EA's page lists availability badges for EA app, PlayStation, Xbox, Nintendo Switch, Steam, and Epic Games.",
+            "es": "La página de EA muestra insignias de disponibilidad para EA app, PlayStation, Xbox, Nintendo Switch, Steam y Epic Games."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "not published on product page",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "ea-sports-fc-26-returns",
+          "sourceLabel": "EA official EA SPORTS FC 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/ea-sports-fc/fc-26",
+          "reason": {
+            "en": "The reviewed page does not publish a universal return policy; returns/refunds can depend on storefront and region.",
+            "es": "La página revisada no publica una política universal de devoluciones; reembolsos y devoluciones pueden depender de la tienda y la región."
+          }
+        }
+      ]
+    },
+    {
+      "id": "thrivent-dedicated-planning-services",
+      "revisionId": "thrivent-dedicated-planning-services-v1",
+      "sku": "THRIVENT-DPS",
+      "brand": "Thrivent",
+      "category": "financial-service",
+      "name": {
+        "en": "Thrivent Dedicated Planning Services",
+        "es": "Servicios de planificación dedicada de Thrivent"
+      },
+      "description": {
+        "en": "Reference record based on Thrivent's products and services page. The service is described as comprehensive advice for a fee with detailed recommendations; this record does not verify client-specific pricing or eligibility.",
+        "es": "Registro de referencia basado en la página de productos y servicios de Thrivent. El servicio se describe como asesoría integral por una tarifa con recomendaciones detalladas; este registro no verifica precios o elegibilidad específicos del cliente."
+      },
+      "keywords": [
+        "thrivent",
+        "financial advice",
+        "planning",
+        "investment advisory",
+        "dedicated planning",
+        "services"
+      ],
+      "priceMinor": 0,
+      "currency": "USD",
+      "availability": "Unknown",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 0,
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "thrivent-dedicated-planning-services-price",
+          "sourceLabel": "Thrivent products and services page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.thrivent.com/what-we-offer",
+          "reason": {
+            "en": "Thrivent describes Dedicated Planning Services as advice for a fee, but the reviewed page does not publish a single fixed price.",
+            "es": "Thrivent describe Dedicated Planning Services como asesoría por una tarifa, pero la página revisada no publica un precio fijo único."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "Unknown",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "thrivent-dedicated-planning-services-availability",
+          "sourceLabel": "Thrivent products and services page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.thrivent.com/what-we-offer",
+          "reason": {
+            "en": "The page states some services may not be offered through Thrivent or its financial advisors, so this record does not claim universal availability.",
+            "es": "La página indica que algunos servicios pueden no ofrecerse a través de Thrivent o sus asesores financieros, por lo que este registro no afirma disponibilidad universal."
+          }
+        },
+        {
+          "key": "serviceType",
+          "group": "specifications",
+          "value": "comprehensive advice for a fee with detailed recommendations",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "thrivent-dedicated-planning-services-serviceType",
+          "sourceLabel": "Thrivent products and services page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.thrivent.com/what-we-offer",
+          "reason": {
+            "en": "Thrivent describes Dedicated Planning Services as comprehensive advice for a fee with detailed recommendations.",
+            "es": "Thrivent describe Dedicated Planning Services como asesoría integral por una tarifa con recomendaciones detalladas."
+          }
+        },
+        {
+          "key": "idealFor",
+          "group": "specifications",
+          "value": "clients seeking detailed recommendations, financial planning, and thorough analysis of their full financial situation",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "thrivent-dedicated-planning-services-idealFor",
+          "sourceLabel": "Thrivent products and services page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.thrivent.com/what-we-offer",
+          "reason": {
+            "en": "Thrivent states the service is ideal for clients seeking detailed recommendations, financial planning, and thorough analysis of their full financial situation.",
+            "es": "Thrivent indica que el servicio es ideal para clientes que buscan recomendaciones detalladas, planificación financiera y análisis completo de su situación financiera."
+          }
+        },
+        {
+          "key": "consultation",
+          "group": "supportingEvidence",
+          "value": "free consultation scheduling call to action",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "thrivent-dedicated-planning-services-consultation",
+          "sourceLabel": "Thrivent products and services page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.thrivent.com/what-we-offer",
+          "reason": {
+            "en": "Thrivent's page includes a schedule-your-free-consultation section for talking with a financial advisor.",
+            "es": "La página de Thrivent incluye una sección para programar una consulta gratuita con un asesor financiero."
+          }
+        },
+        {
+          "key": "disclosure",
+          "group": "supportingEvidence",
+          "value": "investment advisory services offered through Thrivent Investment Management Inc., a registered investment adviser, member FINRA and SIPC",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "thrivent-dedicated-planning-services-disclosure",
+          "sourceLabel": "Thrivent products and services disclosure, reviewed 2026-09-30",
+          "sourceUrl": "https://www.thrivent.com/what-we-offer",
+          "reason": {
+            "en": "Thrivent's disclosure states securities and investment advisory services are offered through Thrivent Investment Management Inc., a registered investment adviser, member FINRA and SIPC.",
+            "es": "La divulgación de Thrivent indica que servicios de valores y asesoría de inversión se ofrecen mediante Thrivent Investment Management Inc., asesor de inversión registrado, miembro de FINRA y SIPC."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "not applicable to financial planning service record",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "thrivent-dedicated-planning-services-returns",
+          "sourceLabel": "Thrivent products and services page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.thrivent.com/what-we-offer",
+          "reason": {
+            "en": "The reviewed service page does not publish a retail return policy because this is a financial planning service, not a shipped product.",
+            "es": "La página revisada no publica una política minorista de devoluciones porque se trata de un servicio de planificación financiera, no de un producto enviado."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ea-the-sims-4",
+      "revisionId": "ea-the-sims-4-v1",
+      "sku": "THE-SIMS-4",
+      "brand": "Electronic Arts",
+      "category": "video-game",
+      "name": {
+        "en": "The Sims 4",
+        "es": "The Sims 4"
+      },
+      "description": {
+        "en": "Reference record based on EA's public The Sims 4 page. The page describes a downloadable life-simulation game with Create-a-Sim, Build Mode, vibrant worlds, Gallery sharing, and platform availability; regional add-on pricing is not verified in this record.",
+        "es": "Registro de referencia basado en la página pública de EA para The Sims 4. La página describe un juego descargable de simulación de vida con Crear un Sim, modo Construir, mundos vibrantes, intercambio en la Galería y disponibilidad por plataforma; este registro no verifica precios regionales de contenido adicional."
+      },
+      "keywords": [
+        "ea",
+        "electronic arts",
+        "sims",
+        "simulation",
+        "life simulation",
+        "game"
+      ],
+      "priceMinor": 0,
+      "currency": "USD",
+      "availability": "Unknown",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 0,
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "ea-the-sims-4-price",
+          "sourceLabel": "EA official The Sims 4 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/the-sims/the-sims-4",
+          "reason": {
+            "en": "The page includes a download call to action, but this catalog record does not verify regional pack, kit, or storefront pricing.",
+            "es": "La página incluye una llamada para descargar, pero este registro no verifica precios regionales de packs, kits o tiendas."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "Unknown",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "ea-the-sims-4-availability",
+          "sourceLabel": "EA official The Sims 4 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/the-sims/the-sims-4",
+          "reason": {
+            "en": "The page shows download/platform calls to action, but this catalog entry does not verify live storefront availability by region.",
+            "es": "La página muestra llamadas de descarga/plataforma, pero este registro no verifica disponibilidad en vivo por región o tienda."
+          }
+        },
+        {
+          "key": "gameType",
+          "group": "specifications",
+          "value": "life simulation game",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-the-sims-4-gameType",
+          "sourceLabel": "EA official The Sims 4 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/the-sims/the-sims-4",
+          "reason": {
+            "en": "EA describes The Sims 4 as a game where players create custom Sims, build homes, and play with life.",
+            "es": "EA describe The Sims 4 como un juego donde los jugadores crean Sims personalizados, construyen casas y juegan con la vida."
+          }
+        },
+        {
+          "key": "createASim",
+          "group": "specifications",
+          "value": "personalize Sims with distinct appearances, personalities, and aspirations",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-the-sims-4-createASim",
+          "sourceLabel": "EA official The Sims 4 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/the-sims/the-sims-4",
+          "reason": {
+            "en": "EA's feature section says players can personalize Sims with distinct appearances, dynamic personalities, and aspirations.",
+            "es": "La sección de funciones de EA indica que los jugadores pueden personalizar Sims con apariencias, personalidades dinámicas y aspiraciones distintas."
+          }
+        },
+        {
+          "key": "buildMode",
+          "group": "specifications",
+          "value": "build and design homes using Build Mode",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-the-sims-4-buildMode",
+          "sourceLabel": "EA official The Sims 4 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/the-sims/the-sims-4",
+          "reason": {
+            "en": "EA describes Build Mode for constructing homes, choosing furnishings, and altering landscape and terrain.",
+            "es": "EA describe el modo Construir para crear casas, elegir muebles y modificar paisaje y terreno."
+          }
+        },
+        {
+          "key": "communityGallery",
+          "group": "specifications",
+          "value": "Gallery supports downloading, liking, commenting on, and sharing Sims, homes, and rooms",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-the-sims-4-communityGallery",
+          "sourceLabel": "EA official The Sims 4 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/the-sims/the-sims-4",
+          "reason": {
+            "en": "EA says the Gallery lets players download, like, comment on, and share Sims, homes, and fully designed rooms.",
+            "es": "EA indica que la Galería permite descargar, dar me gusta, comentar y compartir Sims, casas y habitaciones completas."
+          }
+        },
+        {
+          "key": "platforms",
+          "group": "specifications",
+          "value": "PC, Mac, EA app, PlayStation, Xbox, Steam, and Epic Games",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-the-sims-4-platforms",
+          "sourceLabel": "EA official The Sims 4 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/the-sims/the-sims-4",
+          "reason": {
+            "en": "EA's page lists platform badges for PC, Mac, EA app, PlayStation, Xbox, Steam, and Epic Games.",
+            "es": "La página de EA muestra insignias de plataforma para PC, Mac, EA app, PlayStation, Xbox, Steam y Epic Games."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "not published on product page",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "ea-the-sims-4-returns",
+          "sourceLabel": "EA official The Sims 4 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/the-sims/the-sims-4",
+          "reason": {
+            "en": "The reviewed page does not publish a universal return policy; returns/refunds can depend on storefront and region.",
+            "es": "La página revisada no publica una política universal de devoluciones; reembolsos y devoluciones pueden depender de la tienda y la región."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ea-madden-nfl-26",
+      "revisionId": "ea-madden-nfl-26-v1",
+      "sku": "MADDEN-NFL-26",
+      "brand": "Electronic Arts",
+      "category": "video-game",
+      "name": {
+        "en": "Madden NFL 26",
+        "es": "Madden NFL 26"
+      },
+      "description": {
+        "en": "Reference record based on EA's public Madden NFL 26 page. The page describes NFL gameplay, Ultimate Team, Franchise, Presentation, Superstar, and platform availability; regional price and storefront availability are not verified in this record.",
+        "es": "Registro de referencia basado en la página pública de EA para Madden NFL 26. La página describe jugabilidad NFL, Ultimate Team, Franquicia, Presentación, Superstar y disponibilidad por plataforma; el precio regional y disponibilidad por tienda no se verifican en este registro."
+      },
+      "keywords": [
+        "ea",
+        "electronic arts",
+        "madden",
+        "nfl",
+        "football",
+        "game"
+      ],
+      "priceMinor": 0,
+      "currency": "USD",
+      "availability": "Unknown",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 0,
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "ea-madden-nfl-26-price",
+          "sourceLabel": "EA official Madden NFL 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/madden-nfl/madden-nfl-26",
+          "reason": {
+            "en": "The page includes buy calls to action and notes offers may vary or change, so this record does not verify a single regional price.",
+            "es": "La página incluye llamadas de compra e indica que las ofertas pueden variar o cambiar, por lo que este registro no verifica un precio regional único."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "Unknown",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "ea-madden-nfl-26-availability",
+          "sourceLabel": "EA official Madden NFL 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/madden-nfl/madden-nfl-26",
+          "reason": {
+            "en": "The page shows buy/play calls to action but this catalog entry does not verify live storefront availability.",
+            "es": "La página muestra llamadas a comprar/jugar, pero este registro no verifica disponibilidad en vivo por tienda."
+          }
+        },
+        {
+          "key": "gameplay",
+          "group": "specifications",
+          "value": "updated player movement and physics-based interactions including catch tackles, stiff-arms, and trucks",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-madden-nfl-26-gameplay",
+          "sourceLabel": "EA official Madden NFL 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/madden-nfl/madden-nfl-26",
+          "reason": {
+            "en": "EA's feature section describes updated player movement and physics-based interactions for catch tackles, stiff-arms, and trucks.",
+            "es": "La sección de funciones de EA describe movimiento actualizado de jugadores e interacciones basadas en física para tackles de recepción, stiff-arms y embestidas."
+          }
+        },
+        {
+          "key": "ultimateTeam",
+          "group": "specifications",
+          "value": "build a dream football team with NFL Legends and current stars and compete online",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-madden-nfl-26-ultimateTeam",
+          "sourceLabel": "EA official Madden NFL 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/madden-nfl/madden-nfl-26",
+          "reason": {
+            "en": "EA describes Ultimate Team as building a team with NFL Legends and current stars, then competing online.",
+            "es": "EA describe Ultimate Team como construir un equipo con leyendas de la NFL y estrellas actuales para competir en línea."
+          }
+        },
+        {
+          "key": "franchise",
+          "group": "specifications",
+          "value": "Franchise mode with coaching legacy, four new archetypes, and authentic NFL head-coach strategies",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-madden-nfl-26-franchise",
+          "sourceLabel": "EA official Madden NFL 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/madden-nfl/madden-nfl-26",
+          "reason": {
+            "en": "EA states Franchise lets players create a coaching legacy with four new archetypes or use authentic strategies from NFL head coaches.",
+            "es": "EA indica que Franquicia permite crear un legado de entrenador con cuatro nuevos arquetipos o usar estrategias auténticas de entrenadores principales de la NFL."
+          }
+        },
+        {
+          "key": "presentation",
+          "group": "specifications",
+          "value": "team-specific field art, mascots, sounds, and motion graphics created with all 32 NFL teams",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-madden-nfl-26-presentation",
+          "sourceLabel": "EA official Madden NFL 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/madden-nfl/madden-nfl-26",
+          "reason": {
+            "en": "EA says Madden NFL 26 includes team-specific field art, mascots, sounds, and motion graphics created in collaboration with all 32 NFL teams.",
+            "es": "EA indica que Madden NFL 26 incluye arte de campo, mascotas, sonidos y gráficos en movimiento específicos de equipos, creados con los 32 equipos de la NFL."
+          }
+        },
+        {
+          "key": "platforms",
+          "group": "specifications",
+          "value": "PC, EA app, PlayStation, Xbox, Nintendo Switch 2, Steam, and Epic Games",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "ea-madden-nfl-26-platforms",
+          "sourceLabel": "EA official Madden NFL 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/madden-nfl/madden-nfl-26",
+          "reason": {
+            "en": "EA's page lists availability badges for PC, EA app, PlayStation, Xbox, Nintendo Switch 2, Steam, and Epic Games.",
+            "es": "La página de EA muestra insignias de disponibilidad para PC, EA app, PlayStation, Xbox, Nintendo Switch 2, Steam y Epic Games."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "not published on product page",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "ea-madden-nfl-26-returns",
+          "sourceLabel": "EA official Madden NFL 26 page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.ea.com/games/madden-nfl/madden-nfl-26",
+          "reason": {
+            "en": "The reviewed page does not publish a universal return policy; returns/refunds can depend on storefront and region.",
+            "es": "La página revisada no publica una política universal de devoluciones; reembolsos y devoluciones pueden depender de la tienda y la región."
+          }
+        }
+      ]
     }
   ]
 }

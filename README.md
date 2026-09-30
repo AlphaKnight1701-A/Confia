@@ -12,7 +12,7 @@ Rather than building another AI shopping assistant, Confĩa acts as an independe
 
 ## Project Status
 
-**Hackathon Proof-of-Concept — shared catalog and app shells in place.** Both app shells, shared package boundaries, deterministic scoring, MCP tools, and a synthetic product catalog are implemented. The catalog includes demo fixtures and sourced reference records for public manufacturer product pages. Completed business workflows, ChatGPT deployment setup, and synthetic analytics remain implementation milestones. See [the delivery plan](docs/IMPLEMENTATION.md).
+**Hackathon Proof-of-Concept — shared catalog and app shells in place.** Both app shells, shared package boundaries, deterministic scoring, MCP tools, and a synthetic product catalog are implemented. The catalog includes demo fixtures plus sourced reference records for manufacturer, software, marketplace, game, cybersecurity, and financial-service pages. Completed business workflows, ChatGPT deployment setup, and synthetic analytics remain implementation milestones. See [the delivery plan](docs/IMPLEMENTATION.md).
 
 This repository is organized to deliver two sides of the Confĩa platform:
 
@@ -742,7 +742,27 @@ ChatGPT
 
 # Demo Data
 
-For the hackathon, use approximately 8-12 clearly labeled demonstration products.
+For the hackathon, use a clearly labeled demonstration catalog. The current fixture includes synthetic power-tool records plus sourced reference records from DEWALT, Makita, Milwaukee Tool, Dell Technologies, CrowdStrike, eBay, Electronic Arts, and Thrivent.
+
+Current Electronic Arts game records include:
+
+```text
+EA SPORTS FC 26
+The Sims 4
+Madden NFL 26
+```
+
+The broader catalog also includes:
+
+```text
+Power tools and manufacturer reference products
+Computer hardware
+Cybersecurity software/service records
+Marketplace seller-service records
+Financial planning service records
+```
+
+For the original trust-score demo slice, preserve these coverage scenarios:
 
 Include:
 
