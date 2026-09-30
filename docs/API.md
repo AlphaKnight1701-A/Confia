@@ -1,33 +1,52 @@
-# Proposed API contracts
+# MCP tool contracts
 
-Status: design only; no endpoints are implemented. All timestamps are UTC ISO 8601, money uses integer minor units, and locale is `en` or `es`. Unknown scores are JSON null. Responses identify synthetic data explicitly.
+Status: proposed, not implemented. MCP is the primary public API. These contracts replace the earlier shopper REST design. There is no `/api/v1/search` or merchant-write requirement for the MVP.
 
-## Shared conventions
+## Transport and registration
 
-Use JSON request/response bodies and `/api/v1` versioning. Reject unknown mutation fields. Limit bodies to 32 KiB, search queries to 500 characters, and page size to 1–50 (default 20). Proposed public read limits are 60 requests/minute/IP; authenticated writes are 10/minute/user. These are initial implementation targets, not deployed guarantees.
+Expose the four tools through SDK-managed Streamable HTTP at `/mcp`. Clients initialize, discover via `tools/list`, then invoke `tools/call`; they do not POST the domain examples below directly to `/mcp`. The SDK owns JSON-RPC/protocol envelopes.
 
-Errors use an HTTP status and this shape:
+| Tool | Description for the model |
+| --- | --- |
+| `search_products` | Search the bounded Confĩa demo catalog by terms and explicit budget/currency/trust constraints. Returns facts, synthetic labels, and verification states; does not search the web. |
+| `get_product` | Retrieve a returned product ID and its published facts and evidence. Preserve unknown/conflicting states and timestamps. |
+| `get_trust_score` | Explain the stored assessment using deterministic scoring. A score measures information confidence, not product quality. |
+| `verify_product_claim` | Compare supplied price/availability against eligible observations. Read-only; does not certify, publish, or update a product. |
+
+Each definition has a title, inputSchema, outputSchema, and annotations: `readOnlyHint: true`, `destructiveHint: false`, `idempotentHint: true`, `openWorldHint: false`. These hints match the bounded read-only fixture behavior; revisit them if tools later fetch external data. Idempotent means no mutation, not an eternally identical score when evidence expires. Annotations do not replace server authorization.
+
+## Shared schemas
+
+Object schemas reject unknown fields. Validate strings, enums, integer money, and pagination at runtime. Use UTC ISO timestamps, integer minor units, currency codes, and locale `en` or `es`. Cap query length at 500 characters, product/revision IDs at 128 characters, and cursor size at 2048 characters. Limit search pages to 1–50 products, default 20. Proposed body limit is 32 KiB, result budget 64 KiB, and deadline 10 seconds. Bound evidence summaries and return `hasMoreEvidence: true` if summaries are truncated; never omit conflict state, score components, or timestamps to fit the budget.
+
+A successful MCP result carries an object in `structuredContent` and matching serialized JSON in a text content block for compatibility. The JSON examples below are the structuredContent payload, not the complete MCP envelope. Validate successful payloads against outputSchema. Each output schema must also allow the error object described below.
+
+Unknown scores are JSON null. Include `catalogRevision`, `evaluatedAt`, and `synthetic` in every successful domain payload (as illustrated below). Product-specific tools accept optional revisionId; absent it, use the active published revision. A requested revision must belong to the product and be published. Never silently substitute a newer revision.
+
+## Error semantics
+
+Tool/domain failures return `isError: true`, safe explanatory text, and structuredContent such as:
 
 ```json
 {
   "error": {
-    "code": "VALIDATION_ERROR",
-    "message": "maxPriceMinor must be a nonnegative integer",
+    "code": "PRODUCT_NOT_FOUND",
+    "message": "No published product matches that identifier.",
     "requestId": "req-demo-001",
-    "fields": [{ "path": "maxPriceMinor", "code": "invalid_integer" }]
+    "retryable": false
   }
 }
 ```
 
-Statuses: 400 invalid input; 401 missing authentication; 403 forbidden operation; 404 absent or inaccessible product; 409 idempotency conflict; 413 oversized body; 429 rate limit with `Retry-After`; 503 required storage unavailable. Never expose stack traces or credentials. Optional AI failure returns a successful deterministic result with a warning.
+Codes include `VALIDATION_ERROR`, `PRODUCT_NOT_FOUND`, `REVISION_NOT_FOUND`, `CURSOR_EXPIRED`, `CATALOG_UNAVAILABLE`, and `INTERNAL_ERROR`. Missing evidence, null scores, empty searches, and genuine discrepancies are successful domain results, not tool failures. Return no stack traces.
 
-## GET /health
+Malformed JSON-RPC, unsupported protocol methods, and invalid protocol-level parameters use the SDK's protocol errors. HTTP middleware may return 413 for oversized bodies, 429 with Retry-After for rate limits, or 503 for unavailable transport. An HTTP success alone does not prove a successful tool result: inspect `isError`. Future authenticated transport must follow its authorization protocol; do not encode a login failure as an empty catalog.
 
-Return 200 with `{"status":"ok"}` when the process is live. This is liveness, not a promise that database or AI connections work. Add a separate internal readiness check when persistence is implemented.
+Proposed demo rate limit: 60 calls/minute/IP plus a bounded global concurrency limit. ChatGPT may share egress addresses, so tune this during rehearsal rather than treating IP identity as a user account.
 
-## POST /api/v1/search
+## search_products
 
-Public read operation. Example request:
+Read-only catalog search. Example tool arguments:
 
 ```json
 {
@@ -45,6 +64,7 @@ Public read operation. Example request:
 
 ```json
 {
+  "synthetic": true,
   "products": [{
     "id": "drill-001",
     "revisionId": "drill-001-v1",
@@ -63,21 +83,21 @@ Public read operation. Example request:
     "includeUnverified": false
   },
   "nextCursor": null,
-  "interpretation": "deterministic",
   "warnings": [],
+  "catalogRevision": "demo-catalog-v1",
   "evaluatedAt": "2026-09-30T12:00:00.000Z"
 }
 ```
 
-This example intentionally shows a high score alongside a specification conflict; the score must not hide unresolved claims. Sort by relevance then ID. Cursor implementation must preserve a catalog revision and evaluation time, expire before evidence expiry, and reject expired cursors with 400 `CURSOR_EXPIRED`. The client restarts search on expiry. No currency conversion is performed.
+This example intentionally shows a high score alongside a specification conflict; the score must not hide unresolved claims. Sort by relevance then ID. Cursor implementation must preserve a catalog revision and evaluation time, expire before evidence expiry, and reject expired cursors with tool error `CURSOR_EXPIRED`. The client restarts search on expiry. No currency conversion is performed.
 
-## GET /api/v1/products/{id}
+## get_product
 
-Public read of the active published revision. Optional `locale` query parameter defaults to `en`. Return product identity, localized name/description, `priceMinor`, currency, availability, typed specifications, revisionId, synthetic flag, verification summary, public evidence summaries, and evaluatedAt. Return 404 for an unknown or unpublished product. Private evidence and merchant account details must not appear.
+Arguments: required `productId` string, optional `locale` (`en` or `es`, default `en`), optional `revisionId` to pin a published revision. Return product identity, localized name/description, `priceMinor`, currency, availability, typed specifications, revisionId, synthetic flag, verification summary, public evidence summaries, and evaluatedAt. Return tool error `PRODUCT_NOT_FOUND` for an unknown or unpublished product. Private evidence and merchant account details must not appear.
 
-## GET /api/v1/products/{id}/trust-score
+## get_trust_score
 
-Public read; calculate from stored decisions, never caller-provided verification booleans.
+Arguments: required `productId`, optional `revisionId`. Calculate from stored decisions, never caller-provided verification booleans.
 
 ```json
 {
@@ -97,17 +117,18 @@ Public read; calculate from stored decisions, never caller-provided verification
   "reasons": [{ "claimKey": "specifications.batteryIncluded", "status": "conflicting", "evidenceIds": ["ev-battery-1", "ev-battery-2"] }],
   "evidenceIds": ["ev-price", "ev-stock", "ev-voltage", "ev-motor", "ev-speed", "ev-weight", "ev-battery-1", "ev-battery-2", "ev-warranty", "ev-returns"],
   "assessedAt": "2026-09-30T10:00:00.000Z",
+  "catalogRevision": "demo-catalog-v1",
   "evaluatedAt": "2026-09-30T12:00:00.000Z",
   "validUntil": "2026-10-01T09:00:00.000Z",
   "synthetic": true
 }
 ```
 
-Example IDs and timestamps are illustrative. Full evidence summaries belong to the product response. For an unassessed revision return 200 with null score, null assessmentId/methodologyVersion/assessedAt/validUntil, state `unverified`, empty components/reasons/evidenceIds, and the actual evaluatedAt. An unknown product remains 404.
+Example IDs and timestamps are illustrative. Full evidence summaries belong to the product response. For an unassessed revision return a successful tool result with null score, null assessmentId/methodologyVersion/assessedAt/validUntil, state `unverified`, empty components/reasons/evidenceIds, and the actual evaluatedAt. An unknown product returns `PRODUCT_NOT_FOUND`.
 
-## POST /api/v1/verify
+## verify_product_claim
 
-Public comparison operation; this endpoint does not create verification. Support price/currency and availability initially; reject unsupported claim keys with 400.
+Read-only comparison; this tool does not create verification. Arguments: required `productId` and `claims`, optional `revisionId`. Support price/currency and availability initially; reject unsupported claim keys with `VALIDATION_ERROR`.
 
 ```json
 {
@@ -124,6 +145,7 @@ Public comparison operation; this endpoint does not create verification. Support
     { "field": "priceMinor", "status": "discrepancy", "provided": 19999, "observed": 14999, "currency": "USD", "observedAt": "2026-09-30T09:00:00.000Z", "evidenceIds": ["ev-price"] },
     { "field": "availability", "status": "match", "provided": "InStock", "observed": "InStock", "observedAt": "2026-09-30T09:00:00.000Z", "evidenceIds": ["ev-stock"] }
   ],
+  "catalogRevision": "demo-catalog-v1",
   "evaluatedAt": "2026-09-30T12:00:00.000Z",
   "synthetic": true
 }
@@ -131,34 +153,19 @@ Public comparison operation; this endpoint does not create verification. Support
 
 Require at least one comparable field; currency accompanies price. Compare exact minor units only for the same currency. Expired, conflicting, missing, or currency-incompatible evidence returns `unknown` with a machine-readable `reason`; do not describe it as a mismatch.
 
-## POST /api/v1/merchant/products
 
-Authenticated merchant member required in durable mode. Accept `Idempotency-Key` (1–128 characters); scope it to the merchant, retain it for 24 hours, and return the same submission for identical retries. Reusing it with a different body returns 409. Derive merchantId from the session, never from the body.
+## Evidence presentation
 
-```json
-{
-  "sku": "DRILL-001",
-  "name": { "en": "20V Cordless Drill", "es": "Taladro inalámbrico de 20 V" },
-  "description": { "en": "Demo tool", "es": "Herramienta de demostración" },
-  "category": "power-tools",
-  "priceMinor": 14999,
-  "currency": "USD",
-  "availability": "InStock",
-  "specifications": [{ "key": "voltage", "value": 20, "unit": "V" }],
-  "evidence": [{ "claimKey": "price", "sourceUrl": "https://example.com/drill", "observedAt": "2026-09-30T09:00:00.000Z" }]
-}
-```
+Public product evidence entries include id, claimKey, sourceLabel, sourceKind, sourceUrl (nullable), observedAt, expiresAt, status, and a bounded explanation. Synthetic sources remain labeled synthetic, with no fabricated links. Tool descriptions ask ChatGPT to reference real source URLs when available and otherwise name the evidence and timestamps without inventing citations.
 
-Return 202 with productId, revisionId, `assessmentStatus: "pending"`, `trustScore: null`, and `persistence: "durable"` or `"ephemeral"`. New submissions create a pending revision; they do not overwrite the active published revision until assessed. Reject caller-supplied scores, verified flags, or assessor identity. Evidence URLs are metadata only and are not fetched by this endpoint.
+## Health and future admin interfaces
 
-Local demo mode may use a fixed demo identity only with writes explicitly enabled and must label data synthetic and ephemeral. Public demo hosting leaves writes disabled (403 `DEMO_WRITES_DISABLED`). Demo mode must never be used to authorize durable storage.
+`GET /health` returns `{"status":"ok"}` when the process is live. `GET /ready` returns 200 only when configuration and the published catalog are usable; otherwise 503 with a safe reason code.
 
-## Optional MCP tools
+There are no public merchant mutation tools or routes in the MVP. A later merchant adapter must authenticate ownership, use idempotent submissions, keep drafts private, and publish only after trusted assessment. It reuses domain services rather than changing these four shopper tool contracts.
 
-| Tool | Input | Output |
-| --- | --- | --- |
-| `search_products` | Search request schema | Search response schema |
-| `get_product` | productId, optional locale | Public product DTO |
-| `get_trust_score` | productId | Score breakdown DTO |
+## Contract acceptance
 
-Reuse service validation, limits, ownership boundaries, and error codes. Expose no merchant-write or assessor tools in the first integration. Select the MCP SDK, transport, and supported authentication mechanism during implementation and test them against the intended client. No working assistant integration is implied by this contract.
+Exercise initialization, tools/list, and tools/call through the real transport. Assert exact tool names, descriptions, schemas, annotations, structured/text parity, output validation, null scores, expired evidence, invalid arguments, error envelopes, and payload limits. Inspect every tool with MCP Inspector before the ChatGPT rehearsal. No custom UI resource is required for this design.
+
+Protocol-facing design follows [OpenAI's MCP server guidance](https://developers.openai.com/plugins/build/mcp-server); exact SDK types and transport options must be pinned and tested when the server is implemented.

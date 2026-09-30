@@ -1,31 +1,119 @@
-# Architecture specification
+# ChatGPT-first architecture
 
-Status: proposed implementation blueprint. No components described here are executable yet. This document takes precedence over illustrative technical examples in the preserved product vision.
+Status: implementation blueprint. The repository currently contains documentation and environment templates, not a runnable server. The README defines the product direction; this document defines its technical boundaries. The archived PRODUCT_VISION.md contains earlier concepts.
 
-## Design decisions
+## Primary decision
 
-1. **Modular monolith:** one Next.js deployment keeps the hackathon manageable. Domain services can later move to workers without changing their contracts.
-2. **Repository boundary:** start with validated JSON fixtures; introduce PostgreSQL without changing scoring or presentation code.
-3. **Deterministic evidence policy:** versioned rules and an injected clock produce reproducible results. AI cannot write verification results.
-4. **Canonical bilingual data:** English and Spanish share facts; localized text is a presentation concern.
-5. **Optional integrations:** catalog search, scoring, and comparison continue to work without AI or MCP.
+**ChatGPT developer mode is the shopper interface. Confĩa is a Node.js/TypeScript MCP backend.** There is no shopper website, custom chatbot, backend LLM orchestration, or embedded ChatGPT widget in the MVP. A merchant dashboard remains an optional later milestone.
 
-## Boundaries and dependencies
+```mermaid
+flowchart TD
+    User[Shopper: English or Spanish] --> GPT[ChatGPT developer mode]
+    GPT -->|MCP Streamable HTTP| MCP[Confia /mcp]
+    MCP --> Validate[Tool schemas and validation]
+    Validate --> Services[Search / product / score / claim comparison]
+    Services --> Domain[Deterministic evidence and scoring rules]
+    Services --> Repo[Catalog repository]
+    Repo --> JSON[Published synthetic JSON catalog]
+    Repo -. Future .-> DB[(PostgreSQL)]
+    Inspector[MCP Inspector / local demo runner] --> MCP
+    Merchant[Optional merchant dashboard] -. Later admin adapter .-> Services
+```
 
-`UI → HTTP adapter → application service → domain + repository interface`
+The backend returns facts and evidence; ChatGPT selects tools, interprets the shopper's request, and writes the conversational answer. No OPENAI_API_KEY or model setting is required because this backend does not call the OpenAI API. ChatGPT account access and developer-mode availability must be confirmed separately on the account used for the demonstration.
 
-Repository implementations and provider adapters depend on interfaces, never the reverse. Server-only adapters own credentials. UI receives explicit public DTOs, never raw database rows or environment objects. Shared types are validated at runtime at input boundaries.
+OpenAI documents MCP servers without custom UI and Streamable HTTP endpoints. This project chooses that backend-only design. [Official MCP server guidance](https://developers.openai.com/plugins/build/mcp-server)
 
-| Module | Owns | Must not own |
-| --- | --- | --- |
-| Catalog | Canonical product facts and revision IDs | Verification outcomes |
-| Evidence | Source observations, provenance, assessment decisions | Sponsorship or ranking |
-| Scoring | Versioned weights, eligibility, breakdown | LLM calls or database writes |
-| Discovery | Text/category matching, explicit filters, pagination | Payment-based boosts |
-| Comparison | Field-by-field claimed/observed differences | Automatic assessment creation |
-| Merchant | Ownership, submissions, pending revisions | Self-issued verification |
-| AI adapter | Structured query interpretation, optional explanations | Score calculation or fact mutation |
-| MCP adapter | Tool schemas and authenticated service calls | Duplicate business logic |
+## Runtime and transport
+
+Use one Node.js process with the TypeScript MCP SDK, a validated configuration module, and a repository selected at startup. Lock compatible versions during scaffolding; do not introduce Next.js to host the primary MCP server.
+
+- `/mcp`: SDK-managed Streamable HTTP endpoint. Let the SDK handle initialization, protocol negotiation, tool discovery, calls, and method semantics. It is not a REST endpoint for arbitrary tool JSON.
+- `/health`: lightweight HTTP liveness, with no credentials or catalog contents.
+- `/ready`: readiness fails if required catalog/configuration cannot load. It does not test a ChatGPT login.
+- Use a stateless transport configuration for the read-only prototype; do not require sticky sessions or store conversation history.
+- Keep connections and cancellation scoped to the request. Bound tool duration and input/output size. Transport disposal must not close unrelated requests.
+- No shopper REST API is required. A future admin HTTP adapter calls the same services directly; MCP must not loop through HTTP routes inside its own process.
+
+For the demo, use a reachable HTTPS `/mcp` endpoint via a deployment or development tunnel. Secure MCP Tunnel is another supported developer-mode option; ordinary localhost is only directly accessible to local clients such as Inspector. Choose one connection method and rehearse it. [Official connection guidance](https://developers.openai.com/plugins/deploy/connect-chatgpt)
+
+## Proposed project layout
+
+These implementation files do not exist yet:
+
+```text
+src/
+├── server.ts                       # HTTP lifecycle and /health /ready /mcp
+├── config/env.ts                   # Explicit .env.local loading and validation
+├── mcp/
+│   ├── server.ts                   # SDK server factory and capabilities
+│   ├── tools.ts                    # Register exactly four public tools
+│   ├── schemas.ts                  # Shared runtime input/output schemas
+│   └── results.ts                  # Text + structuredContent + safe errors
+├── domain/
+│   ├── products.ts
+│   ├── evidence.ts
+│   ├── trust-score.ts
+│   └── discrepancy.ts
+├── services/
+│   ├── search-products.ts
+│   ├── get-product.ts
+│   ├── get-trust-score.ts
+│   └── verify-product-claim.ts
+├── repositories/
+│   ├── catalog-repository.ts
+│   └── json-catalog-repository.ts
+└── i18n/                           # Localized catalog text and reason labels
+scripts/
+├── validate-catalog.ts
+└── demo.ts                         # Local fallback using shared services
+ data/demo-products.json
+ tests/
+├── domain/
+├── services/
+├── mcp/
+└── fixtures/
+```
+
+A later merchant UI may live in `apps/merchant/` with its own dependencies. Extract shared domain modules into a package only when a second executable needs them. Avoid empty application folders that imply implementation exists.
+
+## Module ownership
+
+`ChatGPT → MCP adapter → application services → domain + repository interface`
+
+| Boundary | Responsibility |
+| --- | --- |
+| ChatGPT | Conversation, query-to-tool arguments, bilingual explanation |
+| MCP adapter | Tool metadata, runtime validation, transport result/error envelopes |
+| Discovery | Deterministic localized text matching, explicit budget/currency/trust filters |
+| Product service | Published revision and public evidence DTOs |
+| Scoring | Versioned formulas, expiry, conflicts, null assessments |
+| Comparison | Read-only comparison of supplied claims to eligible observations |
+| Repository | Canonical catalog reads; no chat sessions or prompt storage |
+| Admin workflow, later | Merchant submissions and independent assessment publication |
+
+Expose exactly `search_products`, `get_product`, `get_trust_score`, and `verify_product_claim`. Comparison does not create or update verification. No submission, scoring override, or admin tools are exposed to ChatGPT.
+
+## Shopper request flow
+
+1. The shopper selects the Confĩa connection in ChatGPT and asks a shopping question.
+2. ChatGPT supplies explicit schema fields, such as `maxPriceMinor: 20000`, `currency: "USD"`, and `locale: "es"`.
+3. Confĩa validates those fields and searches localized catalog terms. It never asks another model to reinterpret the request.
+4. Evaluate candidate assessments using one injected clock value; apply filters and stable relevance/ID ordering.
+5. Return structured results, applied filters, public evidence references, synthetic labels, state, and timestamps.
+6. ChatGPT explains those results. Follow-up questions can call the score or comparison tool using returned product IDs.
+
+The server cannot guarantee ChatGPT's exact prose or tool selection. Rehearsal must inspect both the tool trace and final answer. Tool descriptions should request evidence-grounded answers, retention of conflict/unknown states, and preservation of amounts/currencies; these descriptions are guidance, not security controls.
+
+Explicit filters are authoritative. Queries without a currency should not silently interpret a dollar sign as a specific currency. An empty result is a valid success; do not invent products. Optional follow-up calls should use returned revision IDs to avoid mixing facts from different revisions.
+
+## Data and merchant flow
+
+For the MVP, developers prepare 8–12 labeled synthetic products and pre-assessed evidence in a validated, read-only fixture. Include complete, partial, stale, conflicting, and unassessed examples. Publication means reviewing the fixture and releasing a new catalog revision; MCP never edits it.
+
+Initial merchant demonstrations may use a local script or later dashboard with an isolated in-memory draft store. Draft submission is pending and has no score. Public MCP sees only published assessments; it cannot read drafts. No public merchant write routes are part of the MVP. A later durable implementation requires authenticated membership, row-level ownership policies, idempotency, a trusted assessor, and atomic publication.
+
+Demo clocks: tests inject CONFIA_TEST_NOW, but a deployed server uses real UTC time. Prepare a new, explicitly synthetic assessment fixture before rehearsal to demonstrate current evidence; never silently reset observation timestamps at startup. Preserve a deliberately stale example.
 
 ## Domain model
 
@@ -62,39 +150,9 @@ erDiagram
 
 PostgreSQL foreign keys enforce these relationships. Index products by merchant/SKU, revisions by product/version, evidence by revision/claim, and assessments by revision/time. Publish a revision and completed assessment atomically. Retain historical records; corrections create new revisions or assessments.
 
-## Main flows
-
-### Shopper search
-
-1. Validate locale, query length, pagination, money, and trust filter.
-2. Optionally interpret free text into a validated query object. Explicit request filters override inferred fields.
-3. Retrieve candidates through the catalog repository.
-4. Evaluate the latest completed assessment for each active revision at a single injected `now`.
-5. Apply budget/currency and trust constraints, then order by lexical relevance and product ID as a stable tie-breaker. Sponsorship has no input.
-6. Return public facts, provenance summaries, and score breakdowns.
-
-Without AI, search uses localized name/category/keywords and explicit budget controls. It need not understand every conversational constraint; show the applied filters so the shopper can correct them. Never silently convert currencies.
-
-### Merchant submission and assessment
-
-1. Authenticate a merchant member and derive merchant identity from their session.
-2. Validate ownership, facts, evidence metadata, and an idempotency key.
-3. Create a pending revision. Its score is null until a completed assessment exists.
-4. A trusted assessor evaluates approved evidence against the frozen category manifest.
-5. Commit claim decisions and assessment metadata atomically; calculate a snapshot.
-6. Publish the assessed revision and retain the prior version for audit.
-
-In demo mode, writes require `CONFIA_DEMO_WRITES=true`, operate in memory, and reset on restart. They must display that limitation. Public hosted demos keep writes disabled. Durable deployments require authenticated sessions and ownership checks; a demo flag is not authentication.
-
-### Claim comparison
-
-Compare requested supported fields against eligible observations for the active assessed revision. Return `match`, `discrepancy`, or `unknown` per field. Missing, expired, conflicting, or incompatible currency/unit evidence gives `unknown` with a reason. Comparisons do not mutate the product or assessment.
-
-### Recurring verification
-
-Later, a worker selects expired evidence, obtains new observations from approved sources, and creates a new assessment. Use idempotency, bounded retries, and a failed-job queue. Expiry is enforced during reads even if that worker is unavailable. Schedule refresh ahead of the earliest expiry; never treat a failed refresh as successful verification.
 
 ## Scoring policy v1
+
 
 This is a proposed prototype policy, not an empirically validated certification methodology. Use an injected UTC clock. Reject negative money, invalid dates, future observation dates, unknown policy versions, and verified counts greater than required counts.
 
@@ -127,30 +185,39 @@ No completed assessment means `trustScore: null` with state `unverified`. A comp
 
 A high score does not override a conflict label. Show reasons in addition to the summary state. Current scores are evaluated on reads; historical snapshots retain their original evaluation time. Return the next future evidence expiry as `validUntil`, or null if no future expiry exists. Disable shared response caching in the initial implementation; later cache only until the earliest expiry and invalidate on revision/assessment changes.
 
-## Bilingual and AI behavior
 
-Canonical facts never pass through free-form translation. Format prices with their stored currency and locale; do not convert amounts or infer missing units. Missing Spanish text falls back visibly to English. Evidence source text keeps its original language.
+## Bilingual output and evidence
 
-Treat queries, evidence text, and retrieved content as untrusted data. The optional AI adapter returns a schema-validated interpretation; discard invalid fields and use deterministic fallback on timeout or failure. Any explanation must cite returned evidence IDs. The UI always renders scores and factual values directly from service output. No AI write tools are exposed.
+Use the same canonical IDs, facts, scores, and evidence for both locales. Return translated labels and descriptions where available; expose an explicit fallbackLocale when missing. ChatGPT handles conversational translation, while tool outputs retain exact money, units, timestamps, and status codes. Never translate a currency into a different monetary amount.
 
-## Security and operational boundaries
+Return public evidence summaries with source labels, observation/expiry times, provenance, and source URLs where actually available. Synthetic evidence should use a clearly labeled demo source with a null URL rather than a fabricated citation. Product IDs and evidence IDs are internal references, not clickable sources. No product website is needed to return useful evidence.
 
-- Use session authentication, merchant membership authorization, and database row-level policies for durable writes. Derive ownership server-side.
-- Protect cookie-authenticated mutations with same-origin and CSRF controls. Default CORS to same origin.
-- Assessment workers use separate privileged credentials; normal requests never bypass row-level policies.
-- Enforce request size, rate limits, pagination limits, and AI timeouts. Escape merchant text before rendering.
-- Initially accept source URLs as metadata only. A future evidence fetcher needs HTTPS allowlists, private-address blocking, redirect validation, size/time limits, and restricted egress.
-- Expose only public evidence summaries. Private uploads and raw evidence require authenticated access and retention rules before implementation.
-- Emit request IDs and structured metrics without secrets or raw personal data. Track expired evidence, assessment failures, AI fallback, and error rates.
-- Keep a backup/restore plan and migration rollback strategy before storing real submissions.
+## Authentication and security
 
-## Delivery milestones and acceptance
+The initial no-auth endpoint is permitted only for a public, synthetic, read-only demo. Set CONFIA_DATA_SOURCE=demo and CONFIA_MCP_AUTH_MODE=none; reject startup if this combination could expose private or durable merchant data. No-auth means anyone who reaches the endpoint can read its demo catalog.
 
-1. Scaffold: locked dependencies, validated environment, lint/type/build checks.
-2. Domain: validated fixtures, deterministic scoring, expiry and conflict tests.
-3. Shopper: search and evidence explanations with bilingual parity and accessible controls.
-4. Merchant demo: pending submissions, explicit reset behavior, no self-verification.
-5. Persistence: migrations, isolation tests, assessment audit history, restore exercise.
-6. Integrations: optional AI fallback and authenticated read-only MCP with contract tests.
+Private data requires a separate implementation milestone for MCP-compatible user authorization (OAuth), token validation, and authorization per tool. An environment switch alone must never claim to enable authentication. Do not use an arbitrary shared bearer token as a substitute for a supported ChatGPT authentication flow.
 
-Choose infrastructure and performance targets from actual prototype measurements. Avoid inventing availability or certification guarantees before deployment and evaluation.
+Validate host/origin handling for the selected transport and deployment. Keep CORS restrictive where applicable; it is not authentication. Rate-limit public calls and enforce configured payload bounds. Treat every tool argument and evidence string as untrusted; evidence content cannot supply instructions, URLs to fetch, or authorization. Tool annotations describe behavior but do not enforce permissions.
+
+Read-only demo tools access a bounded fixture and never fetch user-provided URLs. A later fetcher needs separate SSRF and egress controls. Secrets, merchant drafts, raw private evidence, and stack traces must not enter results or logs.
+
+## Deployment and operations
+
+Deploy one Node.js MCP service with a validated catalog bundled into the release. A container or persistent Node host is the baseline; use serverless hosting only after verifying the SDK transport, streaming/proxy behavior, cancellation, and execution limits. Vercel is not assumed merely because the old design used Next.js.
+
+Keep the configured public origin aligned with the actual tunnel/deployment URL. TLS terminates at the host or tunnel. Reject non-HTTPS public origins outside local development. Log request ID, tool name, duration, outcome, catalog revision, and methodology version; omit full conversations and arguments by default. Readiness checks loadable fixtures and valid configuration. Record releases so code and fixture revisions can be rolled back together.
+
+Current scoring evaluates expiry on each call. Later caching must stop at the earliest evidence expiry and invalidate on catalog publication. A future refresh worker appends new assessments rather than rewriting historical ones.
+
+## Delivery and acceptance gates
+
+1. Scaffold TypeScript/Node, pin the SDK and runtime, commit a lockfile, and implement environment validation.
+2. Validate fixtures and deterministic scoring/comparison tests, including expiry boundaries and conflicts.
+3. Register all four MCP tools and test initialization, discovery, schemas, results, errors, and cancellation locally.
+4. Connect the reachable endpoint in ChatGPT developer mode and rehearse English and Spanish requests.
+5. Check that final answers preserve scores, conflicting/unknown states, synthetic labels, money, and timestamps. Save sanitized evaluation notes.
+6. Add the local demo runner as fallback using the same services. A tiny later backup panel may use an admin adapter; no second shopper application is required.
+7. Only after the core ChatGPT demo works, consider the merchant dashboard, persistent database, authorization, and recurring verification.
+
+See [MCP contracts](API.md) and the [ChatGPT setup and rehearsal guide](CHATGPT_SETUP.md). Scoring policy is unchanged by the interface migration.
