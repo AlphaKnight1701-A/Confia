@@ -18,11 +18,11 @@ function score(product: Product, now: Date) {
   return calculateTrustScore(product, product.claims.map(c => evaluateClaim(c, now)), now);
 }
 export function getCatalogSummary(): CatalogSummary { return { catalogRevision: catalog.catalogRevision, synthetic: true, productCount: catalog.products.length, status: "ready" }; }
-export function getTrustScore(input: ProductInput, now = new Date()) { const args = ProductInputSchema.parse(input); return { ...base(now), ...score(findProduct(args.productId, args.revisionId), now) }; }
+export function getTrustScore(input: ProductInput, now = new Date()) { const args = ProductInputSchema.parse(input); return { ...base(now), ...score(findProduct(args.productId, args.revisionId), now), links: findProduct(args.productId, args.revisionId).links }; }
 export function getProduct(input: ProductInput, now = new Date()) {
   const args = ProductInputSchema.parse(input);
   const product = findProduct(args.productId, args.revisionId);
-  return { ...base(now), ...score(product, now), name: product.name[args.locale], description: product.description[args.locale], brand: product.brand, sku: product.sku, category: product.category, locale: args.locale,
+  return { ...base(now), ...score(product, now), links: product.links, name: product.name[args.locale], description: product.description[args.locale], brand: product.brand, sku: product.sku, category: product.category, locale: args.locale,
     priceMinor: product.priceMinor, currency: product.currency, availability: product.availability,
     evidence: product.claims.map(claim => ({ id: claim.evidenceId, claimKey: claim.key, value: claim.value, status: evaluateClaim(claim, now).reason, sourceLabel: claim.sourceLabel, sourceKind: "synthetic" as const, sourceUrl: null, observedAt: claim.observedAt, expiresAt: claim.expiresAt, explanation: claim.reason[args.locale] })),
   };
@@ -49,7 +49,7 @@ export function searchProducts(input: SearchInput, now = new Date()) {
   const page = ranked.slice(offset, offset + args.limit);
   const expiry = Math.min(now.getTime() + 300000, ...ranked.filter(r => r.result.validUntil).map(r => Date.parse(r.result.validUntil!)));
   return { ...base(now),
-    products: page.map(({ product, result }) => ({ id: product.id, revisionId: product.revisionId, name: product.name[args.locale], priceMinor: product.priceMinor, currency: product.currency, availability: product.availability, trustScore: result.trustScore, verificationState: result.verificationState, synthetic: true as const })),
+    products: page.map(({ product, result }) => ({ links: product.links, id: product.id, revisionId: product.revisionId, name: product.name[args.locale], priceMinor: product.priceMinor, currency: product.currency, availability: product.availability, trustScore: result.trustScore, verificationState: result.verificationState, synthetic: true as const })),
     appliedFilters: { maxPriceMinor: args.maxPriceMinor ?? null, currency: args.currency ?? null, minimumTrustScore: args.minimumTrustScore, includeUnverified: args.includeUnverified, locale: args.locale },
     nextCursor: offset + args.limit < ranked.length ? encodeURIComponent(JSON.stringify({ revision: catalog.catalogRevision, filters: signature, offset: offset + args.limit, expires: expiry })) : null,
     warnings: ["Synthetic demonstration catalog. Scores measure evidence about product information, not product quality. Prices are not real offers."],
@@ -62,7 +62,7 @@ export function verifyProductClaim(input: ClaimsInput, now = new Date()) {
   const results = [];
   if (args.claims.priceMinor !== undefined) results.push(compareClaim(product, "priceMinor", args.claims.priceMinor, args.claims.currency, now));
   if (args.claims.availability !== undefined) results.push(compareClaim(product, "availability", args.claims.availability, undefined, now));
-  return { ...base(now), productId: product.id, revisionId: product.revisionId, results };
+  return { ...base(now), productId: product.id, revisionId: product.revisionId, links: product.links, results };
 }
 export function getDashboard(now = new Date()) {
   const products = catalog.products.map(p => getProduct({ productId: p.id }, now));
