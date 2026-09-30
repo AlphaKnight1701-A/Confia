@@ -24,7 +24,7 @@ export function getProduct(input: ProductInput, now = new Date()) {
   const product = findProduct(args.productId, args.revisionId);
   return { ...base(now), ...score(product, now), name: product.name[args.locale], description: product.description[args.locale], brand: product.brand, sku: product.sku, category: product.category, locale: args.locale,
     priceMinor: product.priceMinor, currency: product.currency, availability: product.availability,
-    evidence: product.claims.map(claim => ({ id: claim.evidenceId, claimKey: claim.key, value: claim.value, status: evaluateClaim(claim, now).reason, sourceLabel: claim.sourceLabel, sourceKind: "synthetic" as const, sourceUrl: null, observedAt: claim.observedAt, expiresAt: claim.expiresAt, explanation: claim.reason[args.locale] })),
+    evidence: product.claims.map(claim => ({ id: claim.evidenceId, claimKey: claim.key, value: claim.value, status: evaluateClaim(claim, now).reason, sourceLabel: claim.sourceLabel, sourceKind: "synthetic" as const, sourceUrl: claim.sourceUrl ?? null, observedAt: claim.observedAt, expiresAt: claim.expiresAt, explanation: claim.reason[args.locale] })),
   };
 }
 export function searchProducts(input: SearchInput, now = new Date()) {

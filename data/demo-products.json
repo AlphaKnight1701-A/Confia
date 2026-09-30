@@ -1557,6 +1557,666 @@
           }
         }
       ]
+    },
+    {
+      "id": "dewalt-dcd771c2",
+      "revisionId": "dewalt-dcd771c2-v1",
+      "sku": "DCD771C2",
+      "brand": "DEWALT",
+      "category": "power-tools",
+      "name": {
+        "en": "20V MAX Compact Drill/Driver Kit with (2) Batteries",
+        "es": "Kit de taladro/atornillador compacto 20V MAX con 2 baterías"
+      },
+      "description": {
+        "en": "Reference record based on DEWALT's public product page. Official page facts are tracked as sourced evidence; price, availability, returns, and some unpublished specifications are not treated as verified offers.",
+        "es": "Registro de referencia basado en la página pública de DEWALT. Los datos publicados se rastrean como evidencia con fuente; precio, disponibilidad, devoluciones y algunas especificaciones no publicadas no se tratan como ofertas verificadas."
+      },
+      "keywords": [
+        "drill",
+        "driver",
+        "dewalt",
+        "cordless",
+        "taladro",
+        "atornillador"
+      ],
+      "priceMinor": 0,
+      "currency": "USD",
+      "availability": "Unknown",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 0,
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "dewalt-dcd771c2-price",
+          "sourceLabel": "DEWALT official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries",
+          "reason": {
+            "en": "The official product page reviewed for this demo does not publish a direct sell price, so no price claim is verified.",
+            "es": "La página oficial revisada para esta demostración no publica un precio de venta directo, por lo que no se verifica ningún precio."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "Unknown",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "dewalt-dcd771c2-availability",
+          "sourceLabel": "DEWALT official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries",
+          "reason": {
+            "en": "The manufacturer page points to product information but does not provide a live stock status.",
+            "es": "La página del fabricante muestra información del producto, pero no proporciona disponibilidad en vivo."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "20V MAX (18V nominal)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "dewalt-dcd771c2-voltage",
+          "sourceLabel": "DEWALT official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries",
+          "reason": {
+            "en": "Official page identifies the kit as 20V MAX and notes 20 volts is maximum initial battery voltage with 18 volts nominal.",
+            "es": "La página oficial identifica el kit como 20V MAX e indica que 20 voltios es el voltaje inicial máximo de la batería, con 18 voltios nominales."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "high-performance motor",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "dewalt-dcd771c2-motor",
+          "sourceLabel": "DEWALT official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries",
+          "reason": {
+            "en": "Official overview states the drill features a high-performance motor; the demo does not infer a brushless claim from that text.",
+            "es": "La descripción oficial indica que el taladro incluye un motor de alto rendimiento; la demostración no infiere que sea sin escobillas a partir de ese texto."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "2-speed transmission",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "dewalt-dcd771c2-speed",
+          "sourceLabel": "DEWALT official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries",
+          "reason": {
+            "en": "Official overview states the kit has a 2-speed transmission; no exact RPM range was captured from the page.",
+            "es": "La descripción oficial indica que el kit tiene transmisión de 2 velocidades; no se capturó un rango exacto de RPM de la página."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "lightweight; exact weight not captured",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "dewalt-dcd771c2-weight",
+          "sourceLabel": "DEWALT official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries",
+          "reason": {
+            "en": "The page describes the drill as lightweight, but this demo did not capture an exact official weight value.",
+            "es": "La página describe el taladro como liviano, pero esta demostración no capturó un peso oficial exacto."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "dewalt-dcd771c2-batteryIncluded",
+          "sourceLabel": "DEWALT official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries",
+          "reason": {
+            "en": "Official overview states the kit includes two 20V MAX batteries, a charger, and a storage bag.",
+            "es": "La descripción oficial indica que el kit incluye dos baterías 20V MAX, un cargador y una bolsa de almacenamiento."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "Warranty section present; exact term not captured",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "dewalt-dcd771c2-warranty",
+          "sourceLabel": "DEWALT official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries",
+          "reason": {
+            "en": "A warranty section exists on the official page, but this demo did not capture a specific term from it.",
+            "es": "Existe una sección de garantía en la página oficial, pero esta demostración no capturó un plazo específico."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "not published on official product page",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "dewalt-dcd771c2-returns",
+          "sourceLabel": "DEWALT official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.dewalt.com/en-us/product/dcd771c2/20v-max-compact-drilldriver-kit-2-batteries",
+          "reason": {
+            "en": "Return policy is retailer-specific and was not published on the official manufacturer product page.",
+            "es": "La política de devoluciones depende del minorista y no se publicó en la página oficial del fabricante."
+          }
+        }
+      ]
+    },
+    {
+      "id": "makita-xfd131",
+      "revisionId": "makita-xfd131-v1",
+      "sku": "XFD131",
+      "brand": "Makita",
+      "category": "power-tools",
+      "name": {
+        "en": "18V LXT Brushless Cordless 1/2 in. Driver-Drill Kit",
+        "es": "Kit de taladro/atornillador inalámbrico sin escobillas 18V LXT de 1/2 pulg."
+      },
+      "description": {
+        "en": "Reference record based on Makita's public product page. Official specifications are tracked with observation and expiry dates; retailer-only fields remain unverified.",
+        "es": "Registro de referencia basado en la página pública de Makita. Las especificaciones oficiales se rastrean con fechas de observación y vencimiento; los campos dependientes del minorista quedan sin verificar."
+      },
+      "keywords": [
+        "drill",
+        "driver",
+        "makita",
+        "brushless",
+        "taladro",
+        "inalambrico"
+      ],
+      "priceMinor": 0,
+      "currency": "USD",
+      "availability": "Unknown",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 0,
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "makita-xfd131-price",
+          "sourceLabel": "Makita official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.makitatools.com/products/details/XFD131",
+          "reason": {
+            "en": "The official page links to buying options but does not publish a direct sell price.",
+            "es": "La página oficial enlaza a opciones de compra, pero no publica un precio de venta directo."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "Unknown",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "makita-xfd131-availability",
+          "sourceLabel": "Makita official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.makitatools.com/products/details/XFD131",
+          "reason": {
+            "en": "The manufacturer page does not provide a live stock status.",
+            "es": "La página del fabricante no proporciona disponibilidad en vivo."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "18V LXT",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "makita-xfd131-voltage",
+          "sourceLabel": "Makita official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.makitatools.com/products/details/XFD131",
+          "reason": {
+            "en": "Official page names the kit as an 18V LXT Lithium-Ion cordless driver-drill kit.",
+            "es": "La página oficial nombra el kit como un taladro/atornillador inalámbrico 18V LXT de ion de litio."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "makita-xfd131-motor",
+          "sourceLabel": "Makita official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.makitatools.com/products/details/XFD131",
+          "reason": {
+            "en": "Official page states the Makita-built brushless motor delivers 440 in-lbs of max torque.",
+            "es": "La página oficial indica que el motor sin escobillas Makita entrega 440 pulg-lb de torque máximo."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "0-500 / 0-1900 RPM",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "makita-xfd131-speed",
+          "sourceLabel": "Makita official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.makitatools.com/products/details/XFD131",
+          "reason": {
+            "en": "Official page lists mechanical two-speed transmission at 0-500 and 0-1,900 RPM.",
+            "es": "La página oficial lista transmisión mecánica de dos velocidades de 0-500 y 0-1,900 RPM."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "3.6 lbs with battery",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "makita-xfd131-weight",
+          "sourceLabel": "Makita official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.makitatools.com/products/details/XFD131",
+          "reason": {
+            "en": "Official page states the kit weighs 3.6 lbs with battery.",
+            "es": "La página oficial indica que el kit pesa 3.6 lb con batería."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "makita-xfd131-batteryIncluded",
+          "sourceLabel": "Makita official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.makitatools.com/products/details/XFD131",
+          "reason": {
+            "en": "Official page states the kit includes one 18V LXT 3.0Ah battery, charger, and tool bag.",
+            "es": "La página oficial indica que el kit incluye una batería 18V LXT de 3.0Ah, cargador y bolsa."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "Warranty page linked; exact term not captured",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "makita-xfd131-warranty",
+          "sourceLabel": "Makita official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.makitatools.com/products/details/XFD131",
+          "reason": {
+            "en": "The official product page links to warranty resources but this demo did not capture a product-specific term.",
+            "es": "La página oficial enlaza a recursos de garantía, pero esta demostración no capturó un plazo específico del producto."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "not published on official product page",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "makita-xfd131-returns",
+          "sourceLabel": "Makita official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.makitatools.com/products/details/XFD131",
+          "reason": {
+            "en": "Return policy is retailer-specific and was not published on the official manufacturer product page.",
+            "es": "La política de devoluciones depende del minorista y no se publicó en la página oficial del fabricante."
+          }
+        }
+      ]
+    },
+    {
+      "id": "milwaukee-2801-22ct",
+      "revisionId": "milwaukee-2801-22ct-v1",
+      "sku": "2801-22CT",
+      "brand": "Milwaukee Tool",
+      "category": "power-tools",
+      "name": {
+        "en": "M18 Compact Brushless 1/2 in. Drill Driver Kit",
+        "es": "Kit de taladro/atornillador M18 compacto sin escobillas de 1/2 pulg."
+      },
+      "description": {
+        "en": "Reference record based on Milwaukee Tool's public product page, with official specifications tracked as dated evidence.",
+        "es": "Registro de referencia basado en la página pública de Milwaukee Tool, con especificaciones oficiales rastreadas como evidencia fechada."
+      },
+      "keywords": [
+        "drill",
+        "driver",
+        "milwaukee",
+        "brushless",
+        "taladro",
+        "atornillador"
+      ],
+      "priceMinor": 0,
+      "currency": "USD",
+      "availability": "Unknown",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 0,
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "milwaukee-2801-22ct-price",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2801-22CT",
+          "reason": {
+            "en": "The official page provides where-to-buy links but does not publish a direct sell price.",
+            "es": "La página oficial proporciona enlaces de compra, pero no publica un precio de venta directo."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "Unknown",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "milwaukee-2801-22ct-availability",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2801-22CT",
+          "reason": {
+            "en": "The manufacturer page does not provide live stock status.",
+            "es": "La página del fabricante no proporciona disponibilidad en vivo."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "18V M18",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "milwaukee-2801-22ct-voltage",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2801-22CT",
+          "reason": {
+            "en": "Official specs list the product on the M18 battery system with 18V voltage.",
+            "es": "Las especificaciones oficiales listan el producto en el sistema de baterías M18 con voltaje de 18V."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "milwaukee-2801-22ct-motor",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2801-22CT",
+          "reason": {
+            "en": "Official specs list Motor Type as Brushless and Brushless as Yes.",
+            "es": "Las especificaciones oficiales listan el tipo de motor como sin escobillas y Brushless como Yes."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "0-500 / 0-1800 RPM",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "milwaukee-2801-22ct-speed",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2801-22CT",
+          "reason": {
+            "en": "Official specs list RPM range as 0-500 / 0-1,800 and maximum RPM as 1,800.",
+            "es": "Las especificaciones oficiales listan el rango de RPM como 0-500 / 0-1,800 y RPM máximas de 1,800."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "3.4 lb with CP2.0 battery",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "milwaukee-2801-22ct-weight",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2801-22CT",
+          "reason": {
+            "en": "Official overview states the tool is 3.4 lb with the CP2.0 battery attached.",
+            "es": "La descripción oficial indica que la herramienta pesa 3.4 lb con la batería CP2.0 instalada."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "milwaukee-2801-22ct-batteryIncluded",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2801-22CT",
+          "reason": {
+            "en": "Official in-the-box list includes two M18 REDLITHIUM CP2.0 batteries.",
+            "es": "La lista oficial de contenido incluye dos baterías M18 REDLITHIUM CP2.0."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "5 Year Limited Warranty",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "milwaukee-2801-22ct-warranty",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2801-22CT",
+          "reason": {
+            "en": "Official specs list Tool Warranty as 5 Year Limited Warranty.",
+            "es": "Las especificaciones oficiales listan la garantía de la herramienta como garantía limitada de 5 años."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "not published on official product page",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "milwaukee-2801-22ct-returns",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2801-22CT",
+          "reason": {
+            "en": "Return policy is retailer-specific and was not published on the official manufacturer product page.",
+            "es": "La política de devoluciones depende del minorista y no se publicó en la página oficial del fabricante."
+          }
+        }
+      ]
+    },
+    {
+      "id": "milwaukee-2730-20",
+      "revisionId": "milwaukee-2730-20-v1",
+      "sku": "2730-20",
+      "brand": "Milwaukee Tool",
+      "category": "power-tools",
+      "name": {
+        "en": "M18 FUEL 6-1/2 in. Circular Saw Tool Only",
+        "es": "Sierra circular M18 FUEL de 6-1/2 pulg., solo herramienta"
+      },
+      "description": {
+        "en": "Reference record based on Milwaukee Tool's public circular saw page, including tool-only battery status and official specifications.",
+        "es": "Registro de referencia basado en la página pública de sierra circular de Milwaukee Tool, incluyendo estado de batería de solo herramienta y especificaciones oficiales."
+      },
+      "keywords": [
+        "saw",
+        "circular",
+        "milwaukee",
+        "brushless",
+        "sierra",
+        "circular"
+      ],
+      "priceMinor": 0,
+      "currency": "USD",
+      "availability": "Unknown",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 0,
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "milwaukee-2730-20-price",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2730-20",
+          "reason": {
+            "en": "The official page provides where-to-buy links but does not publish a direct sell price.",
+            "es": "La página oficial proporciona enlaces de compra, pero no publica un precio de venta directo."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "Unknown",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "milwaukee-2730-20-availability",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2730-20",
+          "reason": {
+            "en": "The manufacturer page does not provide live stock status.",
+            "es": "La página del fabricante no proporciona disponibilidad en vivo."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "18V M18",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "milwaukee-2730-20-voltage",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2730-20",
+          "reason": {
+            "en": "Official specs list the saw on the M18 battery system with 18V voltage.",
+            "es": "Las especificaciones oficiales listan la sierra en el sistema de baterías M18 con voltaje de 18V."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "milwaukee-2730-20-motor",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2730-20",
+          "reason": {
+            "en": "Official specs list Motor Type as Brushless and the overview identifies a POWERSTATE brushless motor.",
+            "es": "Las especificaciones oficiales listan el tipo de motor como sin escobillas y la descripción identifica un motor POWERSTATE sin escobillas."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "5000 RPM",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "milwaukee-2730-20-speed",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2730-20",
+          "reason": {
+            "en": "Official specs list Speed as 5,000 RPM.",
+            "es": "Las especificaciones oficiales listan la velocidad como 5,000 RPM."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "6.8 lbs",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "milwaukee-2730-20-weight",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2730-20",
+          "reason": {
+            "en": "Official specs list Weight as 6.8 lbs.",
+            "es": "Las especificaciones oficiales listan el peso como 6.8 lb."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": false,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "milwaukee-2730-20-batteryIncluded",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2730-20",
+          "reason": {
+            "en": "Official specs identify package type as Tool-Only with no battery or charger included.",
+            "es": "Las especificaciones oficiales identifican el paquete como solo herramienta, sin batería ni cargador incluidos."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "5 Year Limited Warranty",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-12-29T06:38:15.744Z",
+          "evidenceId": "milwaukee-2730-20-warranty",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2730-20",
+          "reason": {
+            "en": "Official specs list Tool Warranty as 5 Years / 5 Year Limited Warranty.",
+            "es": "Las especificaciones oficiales listan la garantía de la herramienta como 5 años / garantía limitada de 5 años."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "not published on official product page",
+          "status": "unsupported",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "milwaukee-2730-20-returns",
+          "sourceLabel": "Milwaukee Tool official product page, reviewed 2026-09-30",
+          "sourceUrl": "https://www.milwaukeetool.com/Products/2730-20",
+          "reason": {
+            "en": "Return policy is retailer-specific and was not published on the official manufacturer product page.",
+            "es": "La política de devoluciones depende del minorista y no se publicó en la página oficial del fabricante."
+          }
+        }
+      ]
     }
   ]
 }

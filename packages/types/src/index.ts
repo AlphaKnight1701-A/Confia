@@ -16,6 +16,7 @@ export const ClaimSchema = z.object({
   expiresAt: timestamp.nullable(),
   evidenceId: id,
   sourceLabel: z.string().min(1),
+  sourceUrl: z.url().nullable().optional(),
   reason: localized,
 }).strict().refine(c => (c.observedAt === null) === (c.expiresAt === null), "Observation and expiry must both exist or both be null")
   .refine(c => !c.observedAt || !c.expiresAt || Date.parse(c.expiresAt) > Date.parse(c.observedAt), "Expiry must follow observation")
@@ -88,7 +89,7 @@ export const ScoreOutputSchema = ResponseBaseSchema.extend(ScoreSchema.shape).st
 export const ProductOutputSchema = ScoreOutputSchema.extend({
   name: z.string(), description: z.string(), brand: z.string(), sku: z.string(), category: z.string(), locale: LocaleSchema,
   priceMinor: z.number().int(), currency: z.string(), availability: AvailabilitySchema,
-  evidence: z.array(z.object({ id: z.string(), claimKey: z.string(), value: z.union([z.string(), z.number(), z.boolean()]), status: z.string(), sourceLabel: z.string(), sourceKind: z.literal("synthetic"), sourceUrl: z.null(), observedAt: timestamp.nullable(), expiresAt: timestamp.nullable(), explanation: z.string() }).strict()),
+  evidence: z.array(z.object({ id: z.string(), claimKey: z.string(), value: z.union([z.string(), z.number(), z.boolean()]), status: z.string(), sourceLabel: z.string(), sourceKind: z.literal("synthetic"), sourceUrl: z.url().nullable(), observedAt: timestamp.nullable(), expiresAt: timestamp.nullable(), explanation: z.string() }).strict()),
 }).strict();
 export const SearchOutputSchema = ResponseBaseSchema.extend({
   products: z.array(z.object({ id, revisionId: id, name: z.string(), priceMinor: z.number().int(), currency: z.string(), availability: AvailabilitySchema, trustScore: z.number().nullable(), verificationState: VerificationStateSchema, synthetic: z.literal(true) }).strict()),

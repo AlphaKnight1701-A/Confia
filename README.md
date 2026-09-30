@@ -12,7 +12,7 @@ Rather than building another AI shopping assistant, Confĩa acts as an independe
 
 ## Project Status
 
-**Hackathon Proof-of-Concept — monorepo scaffold in place.** Both app shells and shared package boundaries are implemented. The demo catalog, verification/scoring algorithms, MCP tools, ChatGPT connection, completed business views, and synthetic analytics remain implementation milestones. See [the delivery plan](docs/IMPLEMENTATION.md).
+**Hackathon Proof-of-Concept — shared catalog and app shells in place.** Both app shells, shared package boundaries, deterministic scoring, MCP tools, and a synthetic product catalog are implemented. The catalog includes demo fixtures and sourced reference records for public manufacturer product pages. Completed business workflows, ChatGPT deployment setup, and synthetic analytics remain implementation milestones. See [the delivery plan](docs/IMPLEMENTATION.md).
 
 This repository is organized to deliver two sides of the Confĩa platform:
 
@@ -22,7 +22,7 @@ This repository is organized to deliver two sides of the Confĩa platform:
 2. **Business Platform**
    A website where companies can learn about Confĩa and view product verification results, Trust Scores, discrepancies, and demonstration analytics.
 
-Both applications depend on the same product-data, verification, and Trust Score packages. Today the catalog is empty and the engines contain only policy metadata/vocabulary; there are no fabricated scores or analytics.
+Both applications depend on the same product-data, verification, and Trust Score packages. Product facts are loaded from `data/demo-products.json`; each claim tracks evidence status, observation time, expiry, and source attribution so unsupported website facts are not presented as verified.
 
 ---
 
@@ -797,9 +797,9 @@ npm run dev
 | `npm run start:web` | Serve the built business website |
 | `npm run start:mcp` | Serve the built Node service |
 
-Current business routes: `/`, `/dashboard`, and `/dashboard/products`, `/verification`, `/discrepancies`, `/analytics` under the dashboard prefix. These are starter pages with explicit empty states. Product details and full workflows are planned.
+Current business routes: `/`, `/dashboard`, `/dashboard/products`, `/dashboard/products/[id]`, and `/verification`, `/discrepancies`, `/analytics` under the dashboard prefix. Product and evidence views read the shared catalog; analytics are still explicitly labeled as not implemented.
 
-The service currently returns 200 at `/health`, 503 at `/ready`, and 501 at `/mcp`. This is intentional: its process runs, but MCP transport/tools are not implemented. Follow [ChatGPT setup](docs/CHATGPT_SETUP.md) after the MCP milestone; do not treat a healthy process as a connected ChatGPT integration.
+The service returns process health at `/health`, catalog/tool readiness at `/ready`, and read-only MCP tool responses at `/mcp`. Follow [ChatGPT setup](docs/CHATGPT_SETUP.md) before treating a local service as a connected ChatGPT integration.
 
 ## Workspace ownership
 
@@ -839,15 +839,15 @@ For the hackathon:
 ```text
 [x] 1. MONOREPO SCAFFOLD
         ↓
-[ ] 2. DEMO PRODUCT DATA
+[x] 2. DEMO PRODUCT DATA
         ↓
-[ ] 3. TRUST SCORE ENGINE
+[x] 3. TRUST SCORE ENGINE
         ↓
-[ ] 4. VERIFICATION ENGINE
+[x] 4. VERIFICATION ENGINE
         ↓
-[ ] 5. PRODUCT SEARCH
+[x] 5. PRODUCT SEARCH
         ↓
-[ ] 6. MCP SERVER
+[x] 6. MCP SERVER
         ↓
 [ ] 7. CHATGPT CONNECTION
         ↓
