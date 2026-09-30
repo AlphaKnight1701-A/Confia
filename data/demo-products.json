@@ -1,5 +1,5 @@
 {
-  "catalogRevision": "demo-2026-09-30T06-39-15-744Z-prices-v2-fictional-prices-v1",
+  "catalogRevision": "demo-2026-09-30T06-39-15-744Z-prices-v2-fictional-prices-v1-price-range-v2",
   "synthetic": true,
   "status": "ready",
   "generatedAt": "2026-09-30T06:39:15.744Z",
@@ -1560,7 +1560,7 @@
     },
     {
       "id": "dewalt-dcd771c2",
-      "revisionId": "dewalt-dcd771c2-v1-price-unavailable-fictional-price-v1",
+      "revisionId": "dewalt-dcd771c2-v1-price-unavailable-fictional-price-v1-price-range-v2",
       "sku": "DCD771C2",
       "brand": "DEWALT",
       "category": "power-tools",
@@ -1725,7 +1725,7 @@
     },
     {
       "id": "makita-xfd131",
-      "revisionId": "makita-xfd131-v1-price-unavailable-fictional-price-v1",
+      "revisionId": "makita-xfd131-v1-price-unavailable-fictional-price-v1-price-range-v2",
       "sku": "XFD131",
       "brand": "Makita",
       "category": "power-tools",
@@ -1890,7 +1890,7 @@
     },
     {
       "id": "milwaukee-2801-22ct",
-      "revisionId": "milwaukee-2801-22ct-v1-price-unavailable-fictional-price-v1",
+      "revisionId": "milwaukee-2801-22ct-v1-price-unavailable-fictional-price-v1-price-range-v2",
       "sku": "2801-22CT",
       "brand": "Milwaukee Tool",
       "category": "power-tools",
@@ -2055,7 +2055,7 @@
     },
     {
       "id": "milwaukee-2730-20",
-      "revisionId": "milwaukee-2730-20-v1-price-unavailable-fictional-price-v1",
+      "revisionId": "milwaukee-2730-20-v1-price-unavailable-fictional-price-v1-price-range-v2",
       "sku": "2730-20",
       "brand": "Milwaukee Tool",
       "category": "power-tools",
@@ -2084,7 +2084,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 16999[],
+          "value": 16999,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -2220,7 +2220,7 @@
     },
     {
       "id": "dell-xps-13",
-      "revisionId": "dell-xps-13-v1-price-unavailable-fictional-price-v1",
+      "revisionId": "dell-xps-13-v1-price-unavailable-fictional-price-v1-price-range-v2",
       "sku": "XPS-13",
       "brand": "Dell Technologies",
       "category": "computers",
@@ -2229,8 +2229,8 @@
         "es": "Laptop Dell XPS 13"
       },
       "description": {
-        "en": "Reference record based on Dell's public XPS 13 page. Product positioning and support/return policy facts are tracked with source URLs; live configuration price and stock are not treated as verified because Dell pricing and availability can vary by configuration and region. Made-up demo price: USD 1199.99 per demo laptop configuration. Not a verified market price or real offer.",
-        "es": "Registro de referencia basado en la página pública de Dell para XPS 13. El posicionamiento del producto y datos de soporte/devolución se rastrean con URLs de fuente; el precio y disponibilidad en vivo no se tratan como verificados porque pueden variar por configuración y región. Precio ficticio de demostración: USD 1199.99 por configuración de portátil de demostración. No es un precio de mercado verificado ni una oferta real."
+        "en": "Reference record based on Dell's public XPS 13 page. Product positioning and support/return policy facts are tracked with source URLs; live configuration price and stock are not treated as verified because Dell pricing and availability can vary by configuration and region. Made-up demo price: USD 899.99 per demo laptop configuration. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página pública de Dell para XPS 13. El posicionamiento del producto y datos de soporte/devolución se rastrean con URLs de fuente; el precio y disponibilidad en vivo no se tratan como verificados porque pueden variar por configuración y región. Precio ficticio de demostración: USD 899.99 por configuración de portátil de demostración. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "dell",
@@ -2240,7 +2240,7 @@
         "touchscreen",
         "portatil"
       ],
-      "priceMinor": 1199,
+      "priceMinor": 89999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2249,7 +2249,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 119999,
+          "value": 89999,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -2257,8 +2257,8 @@
           "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
           "sourceUrl": null,
           "reason": {
-            "en": "Made-up demo price: USD 1199.99 per demo laptop configuration. Not a verified market price or real offer.",
-            "es": "Precio ficticio de demostración: USD 1199.99 por configuración de portátil de demostración. No es un precio de mercado verificado ni una oferta real."
+            "en": "Made-up demo price: USD 899.99 per demo laptop configuration. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 899.99 por configuración de portátil de demostración. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {
@@ -2355,7 +2355,7 @@
     },
     {
       "id": "crowdstrike-falcon-prevent",
-      "revisionId": "crowdstrike-falcon-prevent-v1-price-unavailable-fictional-price-v1",
+      "revisionId": "crowdstrike-falcon-prevent-v1-price-unavailable-fictional-price-v1-price-range-v2",
       "sku": "FALCON-PREVENT",
       "brand": "CrowdStrike",
       "category": "cybersecurity-service",
@@ -2375,7 +2375,7 @@
         "cybersecurity",
         "security"
       ],
-      "priceMinor": 59,
+      "priceMinor": 5999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2490,7 +2490,7 @@
     },
     {
       "id": "ebay-selling",
-      "revisionId": "ebay-selling-v1-price-unavailable-fictional-price-v1",
+      "revisionId": "ebay-selling-v1-price-unavailable-fictional-price-v1-price-range-v2",
       "sku": "EBAY-SELLING",
       "brand": "eBay",
       "category": "marketplace-service",
@@ -2510,7 +2510,7 @@
         "store",
         "listings"
       ],
-      "priceMinor": 249,
+      "priceMinor": 2499,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2625,7 +2625,7 @@
     },
     {
       "id": "ea-sports-fc-26",
-      "revisionId": "ea-sports-fc-26-v1-price-unavailable-fictional-price-v1",
+      "revisionId": "ea-sports-fc-26-v1-price-unavailable-fictional-price-v1-price-range-v2",
       "sku": "EA-SPORTS-FC-26",
       "brand": "Electronic Arts",
       "category": "video-game",
@@ -2645,7 +2645,7 @@
         "soccer",
         "game"
       ],
-      "priceMinor": 59,
+      "priceMinor": 5999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2760,7 +2760,7 @@
     },
     {
       "id": "thrivent-dedicated-planning-services",
-      "revisionId": "thrivent-dedicated-planning-services-v1-price-unavailable-fictional-price-v1",
+      "revisionId": "thrivent-dedicated-planning-services-v1-price-unavailable-fictional-price-v1-price-range-v2",
       "sku": "THRIVENT-DPS",
       "brand": "Thrivent",
       "category": "financial-service",
@@ -2769,8 +2769,8 @@
         "es": "Servicios de planificación dedicada de Thrivent"
       },
       "description": {
-        "en": "Reference record based on Thrivent's products and services page. The service is described as comprehensive advice for a fee with detailed recommendations; this record does not verify client-specific pricing or eligibility. Made-up demo price: USD 1500.00 per year for a fictional planning package. Not a verified market price or real offer.",
-        "es": "Registro de referencia basado en la página de productos y servicios de Thrivent. El servicio se describe como asesoría integral por una tarifa con recomendaciones detalladas; este registro no verifica precios o elegibilidad específicos del cliente. Precio ficticio de demostración: USD 1500.00 al año por un paquete ficticio de planificación. No es un precio de mercado verificado ni una oferta real."
+        "en": "Reference record based on Thrivent's products and services page. The service is described as comprehensive advice for a fee with detailed recommendations; this record does not verify client-specific pricing or eligibility. Made-up demo price: USD 499.00 per year for a fictional planning package. Not a verified market price or real offer.",
+        "es": "Registro de referencia basado en la página de productos y servicios de Thrivent. El servicio se describe como asesoría integral por una tarifa con recomendaciones detalladas; este registro no verifica precios o elegibilidad específicos del cliente. Precio ficticio de demostración: USD 499.00 al año por un paquete ficticio de planificación. No es un precio de mercado verificado ni una oferta real."
       },
       "keywords": [
         "thrivent",
@@ -2780,7 +2780,7 @@
         "dedicated planning",
         "services"
       ],
-      "priceMinor": 0,
+      "priceMinor": 49900,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2789,7 +2789,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 150000,
+          "value": 49900,
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -2797,8 +2797,8 @@
           "sourceLabel": "Confĩa fictional demo price; not sourced from the vendor",
           "sourceUrl": null,
           "reason": {
-            "en": "Made-up demo price: USD 1500.00 per year for a fictional planning package. Not a verified market price or real offer.",
-            "es": "Precio ficticio de demostración: USD 1500.00 al año por un paquete ficticio de planificación. No es un precio de mercado verificado ni una oferta real."
+            "en": "Made-up demo price: USD 499.00 per year for a fictional planning package. Not a verified market price or real offer.",
+            "es": "Precio ficticio de demostración: USD 499.00 al año por un paquete ficticio de planificación. No es un precio de mercado verificado ni una oferta real."
           }
         },
         {
@@ -2895,7 +2895,7 @@
     },
     {
       "id": "ea-the-sims-4",
-      "revisionId": "ea-the-sims-4-v1-price-unavailable-fictional-price-v1",
+      "revisionId": "ea-the-sims-4-v1-price-unavailable-fictional-price-v1-price-range-v2",
       "sku": "THE-SIMS-4",
       "brand": "Electronic Arts",
       "category": "video-game",
@@ -2915,7 +2915,7 @@
         "life simulation",
         "game"
       ],
-      "priceMinor": 39,
+      "priceMinor": 3999,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -3045,7 +3045,7 @@
     },
     {
       "id": "ea-madden-nfl-26",
-      "revisionId": "ea-madden-nfl-26-v1-price-unavailable-fictional-price-v1",
+      "revisionId": "ea-madden-nfl-26-v1-price-unavailable-fictional-price-v1-price-range-v2",
       "sku": "MADDEN-NFL-26",
       "brand": "Electronic Arts",
       "category": "video-game",
