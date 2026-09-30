@@ -6,7 +6,7 @@
 
 Built by the UCF team for the **2026 HSI Battle of the Brains**, Confĩa connects a business-facing product dashboard with a ChatGPT-powered discovery experience. Both use the same catalog, evidence records, and verification logic, making it easier to ask not only *“What should I buy?”* but also *“What information supports this answer?”*
 
-**Two applications · One shared catalog · English + Español · Read-only MCP tools**
+**Two applications · One shared catalog · English + Español · Read-only MCP (Model Context Protocol) tools**
 
 > **Prototype status:** The local business website and MCP integration are implemented, and the ChatGPT connection has been demonstrated. The current experience uses fictional prices and demo scores. It is a working product demonstration—not a live marketplace, independent certification service, or production merchant platform.
 
