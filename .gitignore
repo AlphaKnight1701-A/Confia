@@ -1,0 +1,46 @@
+# Dependencies and caches; commit the selected package lockfile.
+node_modules/
+.npm/
+.pnpm-store/
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+next-env.d.ts
+.turbo/
+.cache/
+# Credentials; only explicit sanitized templates are tracked.
+.env
+.env.*
+!.env.example
+!.env.test.example
+*.pem
+*.key
+*.p12
+*.pfx
+# Tests and runtime output.
+coverage/
+playwright-report/
+test-results/
+*.log
+*.pid
+.local/
+tmp/
+temp/
+# Hosting and database local state.
+.vercel/
+.netlify/
+supabase/.temp/
+supabase/.branches/
+# Editor and OS state.
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
