@@ -2084,7 +2084,7 @@
         {
           "key": "price",
           "group": "price",
-          "value": 16999,
+          "value": 16999[],
           "status": "unsupported",
           "observedAt": null,
           "expiresAt": null,
@@ -2240,7 +2240,7 @@
         "touchscreen",
         "portatil"
       ],
-      "priceMinor": 119999,
+      "priceMinor": 1199,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2375,7 +2375,7 @@
         "cybersecurity",
         "security"
       ],
-      "priceMinor": 5999,
+      "priceMinor": 59,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2510,7 +2510,7 @@
         "store",
         "listings"
       ],
-      "priceMinor": 2499,
+      "priceMinor": 249,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2645,7 +2645,7 @@
         "soccer",
         "game"
       ],
-      "priceMinor": 5999,
+      "priceMinor": 59,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2780,7 +2780,7 @@
         "dedicated planning",
         "services"
       ],
-      "priceMinor": 150000,
+      "priceMinor": 0,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
@@ -2915,7 +2915,7 @@
         "life simulation",
         "game"
       ],
-      "priceMinor": 3999,
+      "priceMinor": 39,
       "currency": "USD",
       "availability": "Unknown",
       "synthetic": true,
