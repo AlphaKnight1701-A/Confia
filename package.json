@@ -23,7 +23,12 @@
     "check": "npm run check:boundaries && npm run typecheck && npm test",
     "start:web": "npm run start --workspace=@confia/web",
     "start:mcp": "npm run start --workspace=@confia/mcp-server",
-    "setup:env": "node scripts/setup-env.mjs"
+    "setup:env": "node scripts/setup-env.mjs",
+    "demo": "tsx scripts/demo.ts",
+    "seed:demo": "node scripts/seed-demo.mjs",
+    "test:mcp": "tsx --test tests/scaffold.test.ts",
+    "demo:start": "powershell -NoProfile -File scripts/start-demo.ps1 -IncludeWeb",
+    "demo:stop": "powershell -NoProfile -File scripts/stop-demo.ps1"
   },
   "devDependencies": {
     "turbo": "2.11.5",

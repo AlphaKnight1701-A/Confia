@@ -19,3 +19,10 @@ article { border: 1px solid #dce3da; background: white; padding: 26px; border-ra
 h2 { font-size: 21px; }
 footer { border-top: 1px solid #dce3da; font-size: 14px; }
 @media(max-width: 720px) { header { align-items: flex-start; flex-direction: column; } .grid { grid-template-columns: 1fr; } }
+
+.table-wrap { overflow-x: auto; margin: 30px 0; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { text-align: left; padding: 18px; border-bottom: 1px solid #dce3da; vertical-align: top; }
+th { background: #e8eee1; }
+small { overflow-wrap: anywhere; }
+

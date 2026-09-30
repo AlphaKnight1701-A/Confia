@@ -1,6 +1,1562 @@
 {
-  "catalogRevision": "scaffold-v1",
+  "catalogRevision": "demo-2026-09-30T06-39-15-744Z",
   "synthetic": true,
-  "status": "scaffold",
-  "products": []
+  "status": "ready",
+  "generatedAt": "2026-09-30T06:39:15.744Z",
+  "products": [
+    {
+      "id": "drill-001",
+      "revisionId": "drill-001-v1",
+      "sku": "DRILL-001",
+      "brand": "Demo Brand",
+      "category": "power-tools",
+      "name": {
+        "en": "20V Cordless Drill",
+        "es": "Taladro inalámbrico de 20 V"
+      },
+      "description": {
+        "en": "Synthetic power-tool product for the Confĩa hackathon demo. Not a real retailer offer.",
+        "es": "Herramienta sintética para la demostración de Confĩa. No es una oferta real."
+      },
+      "keywords": [
+        "drill",
+        "cordless",
+        "home",
+        "taladro",
+        "inalambrico",
+        "casa"
+      ],
+      "priceMinor": 14999,
+      "currency": "USD",
+      "availability": "InStock",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 14999,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "drill-001-price",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "InStock",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "drill-001-availability",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "20 V",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-001-voltage",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-001-motor",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "0–1500 rpm",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-001-speed",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "1.4 kg",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-001-weight",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-001-batteryIncluded",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "1 year (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-001-warranty",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "30 days (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-001-returns",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        }
+      ]
+    },
+    {
+      "id": "drill-002",
+      "revisionId": "drill-002-v1",
+      "sku": "DRILL-002",
+      "brand": "Demo Brand",
+      "category": "power-tools",
+      "name": {
+        "en": "Compact Home Drill",
+        "es": "Taladro compacto para el hogar"
+      },
+      "description": {
+        "en": "Synthetic power-tool product for the Confĩa hackathon demo. Not a real retailer offer.",
+        "es": "Herramienta sintética para la demostración de Confĩa. No es una oferta real."
+      },
+      "keywords": [
+        "drill",
+        "cordless",
+        "home",
+        "taladro",
+        "inalambrico",
+        "casa"
+      ],
+      "priceMinor": 9999,
+      "currency": "USD",
+      "availability": "InStock",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 9999,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "drill-002-price",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "InStock",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "drill-002-availability",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "20 V",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-002-voltage",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-002-motor",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "0–1500 rpm",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-002-speed",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "1.4 kg",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-002-weight",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-002-batteryIncluded",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "1 year (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-002-warranty",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "30 days (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-002-returns",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        }
+      ]
+    },
+    {
+      "id": "drill-003",
+      "revisionId": "drill-003-v1",
+      "sku": "DRILL-003",
+      "brand": "Demo Brand",
+      "category": "power-tools",
+      "name": {
+        "en": "Brushless Workshop Drill",
+        "es": "Taladro sin escobillas"
+      },
+      "description": {
+        "en": "Synthetic power-tool product for the Confĩa hackathon demo. Not a real retailer offer.",
+        "es": "Herramienta sintética para la demostración de Confĩa. No es una oferta real."
+      },
+      "keywords": [
+        "drill",
+        "cordless",
+        "home",
+        "taladro",
+        "inalambrico",
+        "casa"
+      ],
+      "priceMinor": 17999,
+      "currency": "USD",
+      "availability": "InStock",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 17999,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "drill-003-price",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "InStock",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "drill-003-availability",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "20 V",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-003-voltage",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-003-motor",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "0–1500 rpm",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-003-speed",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "1.4 kg",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-003-weight",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-003-batteryIncluded",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "1 year (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-003-warranty",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "30 days (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-003-returns",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        }
+      ]
+    },
+    {
+      "id": "drill-004",
+      "revisionId": "drill-004-v1",
+      "sku": "DRILL-004",
+      "brand": "Demo Brand",
+      "category": "power-tools",
+      "name": {
+        "en": "Compact Impact Drill",
+        "es": "Taladro de impacto compacto"
+      },
+      "description": {
+        "en": "Synthetic power-tool product for the Confĩa hackathon demo. Not a real retailer offer.",
+        "es": "Herramienta sintética para la demostración de Confĩa. No es una oferta real."
+      },
+      "keywords": [
+        "drill",
+        "cordless",
+        "home",
+        "taladro",
+        "inalambrico",
+        "casa"
+      ],
+      "priceMinor": 12999,
+      "currency": "USD",
+      "availability": "InStock",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 12999,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "drill-004-price",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "InStock",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "drill-004-availability",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "20 V",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-004-voltage",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-004-motor",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "0–1500 rpm",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-004-speed",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "1.4 kg",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-004-weight",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-004-batteryIncluded",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "1 year (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-004-warranty",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "30 days (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-004-returns",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        }
+      ]
+    },
+    {
+      "id": "drill-005",
+      "revisionId": "drill-005-v1",
+      "sku": "DRILL-005",
+      "brand": "Demo Brand",
+      "category": "power-tools",
+      "name": {
+        "en": "Starter Cordless Drill",
+        "es": "Taladro inalámbrico básico"
+      },
+      "description": {
+        "en": "Synthetic power-tool product for the Confĩa hackathon demo. Not a real retailer offer.",
+        "es": "Herramienta sintética para la demostración de Confĩa. No es una oferta real."
+      },
+      "keywords": [
+        "drill",
+        "cordless",
+        "home",
+        "taladro",
+        "inalambrico",
+        "casa"
+      ],
+      "priceMinor": 7999,
+      "currency": "USD",
+      "availability": "InStock",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 7999,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "drill-005-price",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "InStock",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "drill-005-availability",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "20 V",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-005-voltage",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-005-motor",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "0–1500 rpm",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-005-speed",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "1.4 kg",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-005-weight",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-005-batteryIncluded",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "1 year (synthetic)",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-005-warranty",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "30 days (synthetic)",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-005-returns",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        }
+      ]
+    },
+    {
+      "id": "saw-001",
+      "revisionId": "saw-001-v1",
+      "sku": "SAW-001",
+      "brand": "Demo Brand",
+      "category": "power-tools",
+      "name": {
+        "en": "Compact Circular Saw",
+        "es": "Sierra circular compacta"
+      },
+      "description": {
+        "en": "Synthetic power-tool product for the Confĩa hackathon demo. Not a real retailer offer.",
+        "es": "Herramienta sintética para la demostración de Confĩa. No es una oferta real."
+      },
+      "keywords": [
+        "saw",
+        "circular",
+        "sierra"
+      ],
+      "priceMinor": 13999,
+      "currency": "USD",
+      "availability": "InStock",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 13999,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "saw-001-price",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "InStock",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "saw-001-availability",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "20 V",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "saw-001-voltage",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "saw-001-motor",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "0–1500 rpm",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "saw-001-speed",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "1.4 kg",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "saw-001-weight",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "saw-001-batteryIncluded",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "1 year (synthetic)",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "saw-001-warranty",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "30 days (synthetic)",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "saw-001-returns",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        }
+      ]
+    },
+    {
+      "id": "drill-stale",
+      "revisionId": "drill-stale-v1",
+      "sku": "DRILL-STALE",
+      "brand": "Demo Brand",
+      "category": "power-tools",
+      "name": {
+        "en": "Older Catalog Drill",
+        "es": "Taladro con datos antiguos"
+      },
+      "description": {
+        "en": "Synthetic power-tool product for the Confĩa hackathon demo. Not a real retailer offer.",
+        "es": "Herramienta sintética para la demostración de Confĩa. No es una oferta real."
+      },
+      "keywords": [
+        "drill",
+        "cordless",
+        "home",
+        "taladro",
+        "inalambrico",
+        "casa"
+      ],
+      "priceMinor": 11999,
+      "currency": "USD",
+      "availability": "InStock",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 11999,
+          "status": "verified",
+          "observedAt": "2026-08-21T06:39:15.744Z",
+          "expiresAt": "2026-08-22T06:39:15.744Z",
+          "evidenceId": "drill-stale-price",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "InStock",
+          "status": "verified",
+          "observedAt": "2026-08-21T06:39:15.744Z",
+          "expiresAt": "2026-08-22T06:39:15.744Z",
+          "evidenceId": "drill-stale-availability",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "20 V",
+          "status": "verified",
+          "observedAt": "2026-08-21T06:39:15.744Z",
+          "expiresAt": "2026-09-20T06:39:15.744Z",
+          "evidenceId": "drill-stale-voltage",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "verified",
+          "observedAt": "2026-08-21T06:39:15.744Z",
+          "expiresAt": "2026-09-20T06:39:15.744Z",
+          "evidenceId": "drill-stale-motor",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "0–1500 rpm",
+          "status": "verified",
+          "observedAt": "2026-08-21T06:39:15.744Z",
+          "expiresAt": "2026-09-20T06:39:15.744Z",
+          "evidenceId": "drill-stale-speed",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "1.4 kg",
+          "status": "verified",
+          "observedAt": "2026-08-21T06:39:15.744Z",
+          "expiresAt": "2026-09-20T06:39:15.744Z",
+          "evidenceId": "drill-stale-weight",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "verified",
+          "observedAt": "2026-08-21T06:39:15.744Z",
+          "expiresAt": "2026-09-20T06:39:15.744Z",
+          "evidenceId": "drill-stale-batteryIncluded",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "1 year (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-08-21T06:39:15.744Z",
+          "expiresAt": "2026-09-20T06:39:15.744Z",
+          "evidenceId": "drill-stale-warranty",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "30 days (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-08-21T06:39:15.744Z",
+          "expiresAt": "2026-09-20T06:39:15.744Z",
+          "evidenceId": "drill-stale-returns",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        }
+      ]
+    },
+    {
+      "id": "drill-unassessed",
+      "revisionId": "drill-unassessed-v1",
+      "sku": "DRILL-UNASSESSED",
+      "brand": "Demo Brand",
+      "category": "power-tools",
+      "name": {
+        "en": "Unassessed Budget Drill",
+        "es": "Taladro económico sin evaluar"
+      },
+      "description": {
+        "en": "Synthetic power-tool product for the Confĩa hackathon demo. Not a real retailer offer.",
+        "es": "Herramienta sintética para la demostración de Confĩa. No es una oferta real."
+      },
+      "keywords": [
+        "drill",
+        "cordless",
+        "home",
+        "taladro",
+        "inalambrico",
+        "casa"
+      ],
+      "priceMinor": 5999,
+      "currency": "USD",
+      "availability": "InStock",
+      "synthetic": true,
+      "assessedAt": null,
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 5999,
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-unassessed-price",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "InStock",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-unassessed-availability",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "20 V",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-unassessed-voltage",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-unassessed-motor",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "0–1500 rpm",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-unassessed-speed",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "1.4 kg",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-unassessed-weight",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-unassessed-batteryIncluded",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "1 year (synthetic)",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-unassessed-warranty",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "30 days (synthetic)",
+          "status": "missing",
+          "observedAt": null,
+          "expiresAt": null,
+          "evidenceId": "drill-unassessed-returns",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "No supporting observation in this synthetic example.",
+            "es": "Este ejemplo sintético no incluye evidencia de respaldo."
+          }
+        }
+      ]
+    },
+    {
+      "id": "drill-conflict",
+      "revisionId": "drill-conflict-v1",
+      "sku": "DRILL-CONFLICT",
+      "brand": "Demo Brand",
+      "category": "power-tools",
+      "name": {
+        "en": "Conflicting Battery Drill",
+        "es": "Taladro con batería en conflicto"
+      },
+      "description": {
+        "en": "Synthetic power-tool product for the Confĩa hackathon demo. Not a real retailer offer.",
+        "es": "Herramienta sintética para la demostración de Confĩa. No es una oferta real."
+      },
+      "keywords": [
+        "drill",
+        "cordless",
+        "home",
+        "taladro",
+        "inalambrico",
+        "casa"
+      ],
+      "priceMinor": 15999,
+      "currency": "USD",
+      "availability": "InStock",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 15999,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "drill-conflict-price",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "InStock",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "drill-conflict-availability",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "20 V",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-conflict-voltage",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-conflict-motor",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "0–1500 rpm",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-conflict-speed",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "1.4 kg",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-conflict-weight",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "conflicting",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-conflict-batteryIncluded",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic sources disagree about whether a battery is included.",
+            "es": "Las fuentes sintéticas no coinciden sobre la batería incluida."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "1 year (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-conflict-warranty",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "30 days (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "drill-conflict-returns",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        }
+      ]
+    },
+    {
+      "id": "sander-001",
+      "revisionId": "sander-001-v1",
+      "sku": "SANDER-001",
+      "brand": "Demo Brand",
+      "category": "power-tools",
+      "name": {
+        "en": "Professional Orbital Sander",
+        "es": "Lijadora orbital profesional"
+      },
+      "description": {
+        "en": "Synthetic power-tool product for the Confĩa hackathon demo. Not a real retailer offer.",
+        "es": "Herramienta sintética para la demostración de Confĩa. No es una oferta real."
+      },
+      "keywords": [
+        "sander",
+        "orbital",
+        "lijadora"
+      ],
+      "priceMinor": 24999,
+      "currency": "USD",
+      "availability": "InStock",
+      "synthetic": true,
+      "assessedAt": "2026-09-30T06:39:15.744Z",
+      "claims": [
+        {
+          "key": "price",
+          "group": "price",
+          "value": 24999,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "sander-001-price",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "availability",
+          "group": "availability",
+          "value": "InStock",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-01T06:38:15.744Z",
+          "evidenceId": "sander-001-availability",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "voltage",
+          "group": "specifications",
+          "value": "20 V",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "sander-001-voltage",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "motor",
+          "group": "specifications",
+          "value": "brushless",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "sander-001-motor",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "speed",
+          "group": "specifications",
+          "value": "0–1500 rpm",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "sander-001-speed",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "weight",
+          "group": "specifications",
+          "value": "1.4 kg",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "sander-001-weight",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "batteryIncluded",
+          "group": "specifications",
+          "value": true,
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "sander-001-batteryIncluded",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "warranty",
+          "group": "supportingEvidence",
+          "value": "1 year (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "sander-001-warranty",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        },
+        {
+          "key": "returns",
+          "group": "supportingEvidence",
+          "value": "30 days (synthetic)",
+          "status": "verified",
+          "observedAt": "2026-09-30T06:38:15.744Z",
+          "expiresAt": "2026-10-30T06:38:15.744Z",
+          "evidenceId": "sander-001-returns",
+          "sourceLabel": "Confĩa synthetic demonstration fixture",
+          "reason": {
+            "en": "Synthetic observation for demonstration; not an independent certification.",
+            "es": "Observación sintética de demostración; no es una certificación independiente."
+          }
+        }
+      ]
+    }
+  ]
 }
