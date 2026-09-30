@@ -1,6 +1,6 @@
 # ChatGPT developer-mode setup and rehearsal
 
-Status: connection runbook for the planned server. No server or package scripts exist yet, so complete the scaffold before running the proposed application commands. This guide chooses a public HTTPS development/deployment endpoint; it does not provision hosting or connect an account automatically.
+Status: connection runbook for the future MCP tool implementation. The monorepo and server process are scaffolded, but `/mcp` returns 501 and `/ready` returns 503. Complete tools and transport before attempting this connection. This guide chooses a public HTTPS development/deployment endpoint; it does not provision hosting or connect an account automatically.
 
 ## Prerequisites
 
@@ -11,17 +11,17 @@ Status: connection runbook for the planned server. No server or package scripts 
 
 ## Local verification
 
-1. Copy `.env.example` to `.env.local` and keep default fixture-only settings.
-2. Once implemented, run `npm ci`, `npm run validate:catalog`, `npm test`, and `npm run dev`.
-3. Check `http://localhost:3000/health` and `/ready`.
-4. Start MCP Inspector and connect with Streamable HTTP to `http://localhost:3000/mcp`.
+1. From the monorepo root, run `npm ci` and `npm run setup:env`. The MCP app loads `apps/mcp-server/.env.local`, not the root legacy file.
+2. Run `npm run check` and `npm run dev:mcp`. Add and run catalog/MCP contract tests when those features are implemented.
+3. Check `http://localhost:3001/health` and `/ready`. Readiness is intentionally 503 in the scaffold; the following connection steps require a future 200-ready implementation.
+4. Start MCP Inspector and connect with Streamable HTTP to `http://localhost:3001/mcp`.
 5. Confirm initialization, exactly four tools, valid schemas, and representative successful and failing calls.
 
-The local scripts are planned. Select and pin the Inspector version during scaffolding; use its official installation instructions rather than assuming it is bundled with this repository.
+The workspace scripts exist; tool transport tests and Inspector setup remain to be added. Select and pin the Inspector version during MCP implementation; use its official installation instructions rather than assuming it is bundled with this repository.
 
 ## Connect in ChatGPT
 
-Expose the running service through a development tunnel or deploy it to a compatible host, then set CONFIA_PUBLIC_BASE_URL to that origin and restart. Use the full HTTPS URL including `/mcp` when creating the developer-mode connection. Use no authentication only for the public synthetic read-only demo. Enable/select the connection in the demo chat before asking questions.
+Expose the running service through a development tunnel or deploy it to a compatible host, then use that service origin for the connection. Add any transport-specific public-origin validation in the MCP configuration milestone; the current bootstrap consumes only PORT. Use the full HTTPS URL including `/mcp` when creating the developer-mode connection. Use no authentication only for the public synthetic read-only demo. Enable/select the connection in the demo chat before asking questions.
 
 Exact labels and account/workspace availability can change; follow the [official connection guide](https://developers.openai.com/plugins/deploy/connect-chatgpt). That guide also describes Secure MCP Tunnel for private development. Plain localhost is not the chosen remote connection path. No OpenAI API credential belongs in the connection form for this architecture.
 
@@ -53,4 +53,4 @@ Save sanitized tool arguments/results and final answers for regression review. M
 | Budget ignored | Actual tool arguments, currency and appliedFilters; do not rely on prose-only constraints |
 | English/Spanish disagree | Compare structured payloads for identical filters and evaluation time |
 
-Use Inspector or the planned `npm run demo` local runner to demonstrate the same domain services if ChatGPT is unavailable. Clearly describe this as backend verification, not a successful ChatGPT integration. The later merchant dashboard is optional and does not block the main demonstration.
+Once MCP tools exist, use Inspector to demonstrate their underlying results if ChatGPT is unavailable. A local domain runner can be added later; no `npm run demo` script exists today. Clearly describe this as backend verification, not a successful ChatGPT integration. The business dashboard in apps/web is the second required MVP deliverable and also supports the business-side demo. Its default port is 3000; do not register that website origin as the MCP endpoint.

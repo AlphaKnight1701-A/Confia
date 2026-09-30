@@ -1,6 +1,6 @@
 # MCP tool contracts
 
-Status: proposed, not implemented. MCP is the primary public API. These contracts replace the earlier shopper REST design. There is no `/api/v1/search` or merchant-write requirement for the MVP.
+Status: target MCP contracts; domain tools are not implemented. The service bootstrap currently returns 501 at `/mcp` and 503 at `/ready`. MCP is the public shopper API; the business website consumes the same shared use cases through server components. These contracts replace the earlier shopper REST design. There is no `/api/v1/search` or merchant-write requirement for the MVP.
 
 ## Transport and registration
 
@@ -160,7 +160,7 @@ Public product evidence entries include id, claimKey, sourceLabel, sourceKind, s
 
 ## Health and future admin interfaces
 
-`GET /health` returns `{"status":"ok"}` when the process is live. `GET /ready` returns 200 only when configuration and the published catalog are usable; otherwise 503 with a safe reason code.
+`GET /health` returns `{"status":"ok"}` when the process is live. `GET /ready` currently returns 503 `MCP_TOOLS_NOT_IMPLEMENTED`. After implementation, return 200 only when configuration, catalog validation, and all four tools are usable; otherwise 503 with a safe reason code.
 
 There are no public merchant mutation tools or routes in the MVP. A later merchant adapter must authenticate ownership, use idempotent submissions, keep drafts private, and publish only after trusted assessment. It reuses domain services rather than changing these four shopper tool contracts.
 
@@ -169,3 +169,11 @@ There are no public merchant mutation tools or routes in the MVP. A later mercha
 Exercise initialization, tools/list, and tools/call through the real transport. Assert exact tool names, descriptions, schemas, annotations, structured/text parity, output validation, null scores, expired evidence, invalid arguments, error envelopes, and payload limits. Inspect every tool with MCP Inspector before the ChatGPT rehearsal. No custom UI resource is required for this design.
 
 Protocol-facing design follows [OpenAI's MCP server guidance](https://developers.openai.com/plugins/build/mcp-server); exact SDK types and transport options must be pinned and tested when the server is implemented.
+
+## Business platform data boundary
+
+The equally required `apps/web` uses `@confia/product-data` from server components or server-only adapters. The target facade owns searchProducts, getProduct, getTrustScore, verifyProductClaim, and product-derived dashboard aggregates. These are future use cases; only getCatalogSummary is currently exported. MCP adapts the same use cases to tool schemas; neither app invokes the other's transport.
+
+Do not introduce REST routes merely to share TypeScript code. If future interactive web controls need route handlers, validate input and serialize the same public DTOs. An unassessed score stays null in both applications. The same catalog revision and evaluation time must yield matching product facts, scores, and discrepancy results.
+
+Web engagement analytics are a separate, explicitly synthetic presentation dataset. Product totals, average scores, and discrepancy counts come from shared product use cases. Do not imply that MCP calls measure AI impressions or click-through rates. Public demo pages and tools contain no real merchant-private data.

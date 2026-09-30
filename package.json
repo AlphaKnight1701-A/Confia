@@ -1,0 +1,39 @@
+{
+  "name": "confia",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@11.11.0",
+  "engines": {
+    "node": ">=24.14.1 <25",
+    "npm": ">=11 <12"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:web": "turbo run dev --filter=@confia/web",
+    "dev:mcp": "turbo run dev --filter=@confia/mcp-server",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "tsx --test tests/*.test.ts",
+    "check:boundaries": "node scripts/check-boundaries.mjs",
+    "check": "npm run check:boundaries && npm run typecheck && npm test",
+    "start:web": "npm run start --workspace=@confia/web",
+    "start:mcp": "npm run start --workspace=@confia/mcp-server",
+    "setup:env": "node scripts/setup-env.mjs",
+    "demo": "tsx scripts/demo.ts",
+    "seed:demo": "node scripts/seed-demo.mjs",
+    "test:mcp": "tsx --test tests/scaffold.test.ts",
+    "demo:start": "powershell -NoProfile -File scripts/start-demo.ps1 -IncludeWeb",
+    "demo:stop": "powershell -NoProfile -File scripts/stop-demo.ps1"
+  },
+  "devDependencies": {
+    "turbo": "2.11.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "@types/node": "24.19.0"
+  }
+}

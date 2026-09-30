@@ -44,3 +44,7 @@ Desktop.ini
 *.swp
 *.swo
 *~
+
+# Local tunnel and private fixture state.
+.tunnel/
+data/private/

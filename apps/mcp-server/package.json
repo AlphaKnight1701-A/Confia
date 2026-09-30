@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "start": "node --env-file-if-exists=.env.local dist/server.js",
+    "dev": "node --env-file-if-exists=.env.local --import tsx --watch src/server.ts",
+    "build": "esbuild src/server.ts --bundle --platform=node --target=node24 --format=esm --sourcemap --external:@modelcontextprotocol/sdk/* --external:zod --outfile=dist/server.js"
+  },
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  },
+  "version": "0.0.0",
+  "name": "@confia/mcp-server",
+  "dependencies": {
+    "@confia/product-data": "0.0.0",
+    "@confia/types": "0.0.0",
+    "@modelcontextprotocol/sdk": "1.31.0",
+    "zod": "4.6.5"
+  }
+}
